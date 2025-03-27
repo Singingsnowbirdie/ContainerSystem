@@ -1,8 +1,13 @@
 using DataSystem;
-using UI;
 using UniRx;
 
-public class ContainerUIModel: UIModel
+namespace UI
 {
-    public ISubject<ContainerData> OpenContainerUI { get; } = new Subject<ContainerData>();
+    public class ContainerUIModel : UIModel
+    {
+        public ISubject<ContainerData> OpenContainerUI { get; } = new Subject<ContainerData>();
+        public ReactiveProperty<ItemUIView> SelectedItem { get; } = new ReactiveProperty<ItemUIView>();
+    }
+
 }
+

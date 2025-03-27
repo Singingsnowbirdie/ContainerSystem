@@ -1,12 +1,34 @@
-﻿using UI;
+﻿using UnityEngine;
 
-public class ContainerUIView : UIView
+namespace UI
 {
-    internal void ShowContainerUI(bool value)
+    public class ContainerUIView : UIView
     {
-        if (value)
+        [SerializeField] private UIView _hintView_EquipMode;
+
+        public override void OnSetModel(UIModel uiModel)
         {
-            gameObject.SetActive(true);
+            base.OnSetModel(uiModel);
+
+            if (_hintView_EquipMode != null)
+            {
+                _hintView_EquipMode.OnSetModel(uiModel);
+            }
+        }
+
+        internal void ShowContainerUI(bool value)
+        {
+            if (value)
+            {
+                gameObject.SetActive(true);
+            }
         }
     }
 }
+
+
+
+
+
+
+
