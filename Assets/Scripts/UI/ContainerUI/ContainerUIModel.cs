@@ -7,7 +7,7 @@ namespace UI
     {
         public ISubject<ContainerData> OpenContainerUI { get; } = new Subject<ContainerData>();
         public ReactiveProperty<ItemUIView> SelectedItem { get; } = new ReactiveProperty<ItemUIView>();
+        public ReactiveCollection<ItemUIModel> Items { get; } = new(); 
     }
-
 }
 

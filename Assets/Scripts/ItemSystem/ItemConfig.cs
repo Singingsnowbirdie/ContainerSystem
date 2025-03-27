@@ -25,18 +25,22 @@
     {
         public EFoodType FoodType { get; }
 
-        public FoodConfig(
-            string itemID,
-            string itemName,
-            float weight,
-            int basicCost,
-            bool isCulinary,
-            bool isAlchemy,
+        public FoodConfig(string itemID, string itemName, float weight,
+            int basicCost, bool isCulinary, bool isAlchemy,
             EFoodType foodType)
             : base(itemID, itemName, weight, basicCost, isCulinary, isAlchemy)
         {
             IsFood = true;
             FoodType = foodType;
+        }
+    }
+
+    public class EquipmentConfig : ItemConfig
+    {
+        public EquipmentConfig(string itemID, string itemName, float weight,
+            int basicСost, bool isCulinary, bool isAlchemy) :
+            base(itemID, itemName, weight, basicСost, isCulinary, isAlchemy)
+        {
         }
     }
 }

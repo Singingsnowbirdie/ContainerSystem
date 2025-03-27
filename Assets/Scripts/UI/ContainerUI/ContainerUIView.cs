@@ -5,14 +5,17 @@ namespace UI
     public class ContainerUIView : UIView
     {
         [SerializeField] private UIView _hintView_EquipMode;
+        [SerializeField] private ItemUIViewsList _itemsList;
 
         public override void OnSetModel(UIModel uiModel)
         {
             base.OnSetModel(uiModel);
 
-            if (_hintView_EquipMode != null)
+            _hintView_EquipMode.OnSetModel(uiModel);
+
+            if (uiModel is ContainerUIModel containerUIModel)
             {
-                _hintView_EquipMode.OnSetModel(uiModel);
+                _itemsList.SetUIModel(containerUIModel.Items);
             }
         }
 

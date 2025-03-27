@@ -1,5 +1,4 @@
 ﻿using DataSystem;
-using ItemSystem;
 using System.Collections.Generic;
 using UI;
 using UniRx;
@@ -16,12 +15,9 @@ namespace ContainerSystem
         [Inject] private readonly ContainerUIModel _containerUIModel;
         private ContainerFactory _containerFactory;
 
-        public ItemDatabase ItemDatabase { get; set; }
-
         public void Start()
         {
-            ItemDatabase = new ItemDatabase();
-            _containerFactory = new ContainerFactory(ItemDatabase);
+            _containerFactory = new ContainerFactory(_model.ItemDatabase);
 
             ContainerView[] containerViews = _view.GetComponentsInChildren<ContainerView>();
             HashSet<string> uniqueIDs = new HashSet<string>();
