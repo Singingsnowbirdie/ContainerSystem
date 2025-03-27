@@ -1,6 +1,5 @@
 ﻿using InteractionSystem;
 using Player;
-using System;
 using UniRx;
 using VContainer;
 using VContainer.Unity;
@@ -13,7 +12,7 @@ namespace UI
         [Inject] private readonly InteractionPromptUIModel _model;
         [Inject] private readonly PlayerInteractionModel _playerInteractionModel;
 
-        private readonly string _availableInteractionNotification = "Press \"E\" to interact";
+        private readonly string _availableInteractionNotification = "Interact";
 
         public void Start()
         {

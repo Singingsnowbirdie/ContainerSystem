@@ -60,8 +60,5 @@ public class GameLifetimeScope : LifetimeScope
         // Register UI Presenters
         builder.RegisterEntryPoint<InteractionPromptPresenter>(Lifetime.Singleton);
         builder.RegisterEntryPoint<ContainerUIPresenter>(Lifetime.Singleton);
-
-        // Register Database
-        builder.RegisterEntryPoint<ItemDatabase>(Lifetime.Singleton);
     }
 }

@@ -13,13 +13,14 @@ namespace ContainerSystem
         [Inject] private readonly ContainersModel _model;
         [Inject] private readonly ContainersView _view;
         [Inject] private readonly ContainerUIModel _containerUIModel;
-        [Inject] private readonly ItemDatabase _itemDatabase;
-
         private ContainerFactory _containerFactory;
+
+        public ItemDatabase ItemDatabase { get; set; }
 
         public void Start()
         {
-            _containerFactory = new ContainerFactory(_itemDatabase);
+            ItemDatabase = new ItemDatabase();
+            _containerFactory = new ContainerFactory(ItemDatabase);
 
             ContainerView[] containerViews = _view.GetComponentsInChildren<ContainerView>();
             HashSet<string> uniqueIDs = new HashSet<string>();
