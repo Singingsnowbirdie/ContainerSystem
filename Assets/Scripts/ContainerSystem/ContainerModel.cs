@@ -1,18 +1,23 @@
-﻿using DataSystem;
-using System.Collections.Generic;
-using UniRx;
-using UnityEngine.Events;
+﻿using UniRx;
 
 namespace ContainerSystem
 {
     public abstract class ContainerModel : IContainerModel
     {
-        //public ReactiveProperty<bool> IsOpen { get; } = new ReactiveProperty<bool>(false);
-        //public List<ItemData> Items { get; protected set; } = new List<ItemData>();
-
-        //public virtual void AddItem(ItemData item) => Items.Add(item);
-        //public virtual void RemoveItem(ItemData item) => Items.Remove(item);
-
-        //protected abstract void GenerateContents();
+        public abstract string UniqueID { get; }
+        public ISubject<ContainerOpenData> TryOpen { get; } = new Subject<ContainerOpenData>();
     }
+
+    public readonly struct ContainerOpenData
+    {
+        public ContainerOpenData(string uniqueID, EContainerType containerType)
+        {
+            UniqueID = uniqueID;
+            ContainerType = containerType;
+        }
+
+        public string UniqueID { get; }
+        public EContainerType ContainerType { get; }
+    }
+
 }

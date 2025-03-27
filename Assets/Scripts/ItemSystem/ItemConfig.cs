@@ -2,13 +2,12 @@
 {
     public class ItemConfig
     {
-        public ItemConfig(string itemID, string itemName, float weight, float basicСost, bool isFood, bool isCulinary, bool isAlchemy)
+        public ItemConfig(string itemID, string itemName, float weight, int basicСost, bool isCulinary, bool isAlchemy)
         {
             ItemID = itemID;
             ItemName = itemName;
             Weight = weight;
             BasicСost = basicСost;
-            IsFood = isFood;
             IsCulinary = isCulinary;
             IsAlchemy = isAlchemy;
         }
@@ -16,10 +15,29 @@
         public string ItemID { get; }
         public string ItemName { get; }
         public float Weight { get; }
-        public float BasicСost { get; }
-        public bool IsFood { get; }
+        public int BasicСost { get; }
+        public bool IsFood { get; protected set; }
         public bool IsCulinary { get; }
         public bool IsAlchemy { get; }
+    }
+
+    public class FoodConfig : ItemConfig
+    {
+        public EFoodType FoodType { get; }
+
+        public FoodConfig(
+            string itemID,
+            string itemName,
+            float weight,
+            int basicCost,
+            bool isCulinary,
+            bool isAlchemy,
+            EFoodType foodType)
+            : base(itemID, itemName, weight, basicCost, isCulinary, isAlchemy)
+        {
+            IsFood = true;
+            FoodType = foodType;
+        }
     }
 }
 

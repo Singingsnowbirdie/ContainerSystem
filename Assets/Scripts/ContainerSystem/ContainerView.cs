@@ -1,39 +1,55 @@
-﻿using UnityEngine;
-using VContainer.Unity;
-using VContainer;
+﻿using InteractionSystem;
+using Player;
+using UnityEngine;
 
 namespace ContainerSystem
 {
-    public class ContainerView : MonoBehaviour, IContainerView
+    public class ContainerView : MonoBehaviour, IContainerView, IInteractable
     {
-        //[SerializeField] private GameObject interactionUI;
-        //[SerializeField] private Transform itemsParent;
+        [field: SerializeField] public string UniqueID { get; set; }
+        [field: SerializeField] public EContainerType ContainerType { get; private set; }
 
-        //public UnityEvent OnInteracted = new UnityEvent();
+        private ContainerModel _containerModel;
 
-        //public void ShowUI(bool show) => interactionUI.SetActive(show);
+        // IInteractable
 
-        //public void UpdateItemsUI(List<ItemData> items)
-        //{
-        //    // Очищаем и пересоздаем UI элементы
-        //    foreach (Transform child in itemsParent)
-        //        Destroy(child.gameObject);
+        public void Interact(PlayerInteractionPresenter playerInteractionPresenter)
+        {
+            Debug.Log("Interact");
 
-        //    foreach (var item in items)
-        //    {
-        //        var itemUI = Instantiate(itemUIPrefab, itemsParent);
-        //        itemUI.Initialize(item);
-        //    }
-        //}
+            ContainerOpenData openData = new ContainerOpenData(UniqueID, ContainerType);
 
-        //private void OnTriggerEnter(Collider other)
-        //{
-        //    if (other.CompareTag("Player"))
-        //        OnInteracted.Invoke();
-        //}
+            _containerModel.TryOpen.OnNext(openData);
+        }
+
+        public void OnInteractionCompleted()
+        {
+            Debug.Log("OnInteractionCompleted");
+        }
+
+        // IContainerView
+
+        public bool TryGetUniqueID(out string uniqueID)
+        {
+            uniqueID = UniqueID;
+            return !string.IsNullOrEmpty(uniqueID);
+        }
+
+        public void SetUniqueID(string newID)
+        {
+            UniqueID = newID;
+        }
+
+        public void SetModel(ContainerModel model)
+        {
+            _containerModel = model;
+        }
     }
 
     internal interface IContainerView
     {
+        public bool TryGetUniqueID(out string UniqueID);
+        public void SetUniqueID(string newID);
+        public void SetModel(ContainerModel model);
     }
 }
