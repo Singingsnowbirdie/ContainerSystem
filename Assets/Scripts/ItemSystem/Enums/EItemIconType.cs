@@ -4,12 +4,10 @@
     {
         RawMeat,
         RawPlant,
-        CookedFood,
+        RawFish,
         Drink,
-        Spice,
-        Soup,
         Grocery,
-        RawFish
+        CookedFood
     }
 }
 

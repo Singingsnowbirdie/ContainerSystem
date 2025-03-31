@@ -299,7 +299,7 @@ namespace ItemSystem
         {
             const bool IsIngredient = false;
             const EFoodType FoodType = EFoodType.Soup;
-            const EItemIconType IconType = EItemIconType.Soup;
+            const EItemIconType IconType = EItemIconType.CookedFood;
             const float BowlWeight = 0.35f;
 
             // 6 ingredients
