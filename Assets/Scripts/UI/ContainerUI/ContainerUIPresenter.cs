@@ -33,7 +33,7 @@ namespace UI
 
             foreach (ItemData itemData in data.Items)
             {
-                if (_containersModel.ItemDatabase.TryGetConfig(itemData.ItemID, out ItemConfig itemConfig))
+                if (_containersModel.ItemDatabase.TryGetConfig(itemData.ItemConfigKey, out ItemConfig itemConfig))
                 {
                     ItemUIModel uiModel = new(itemData, itemConfig);
                     _containerUIModel.Items.Add(uiModel);

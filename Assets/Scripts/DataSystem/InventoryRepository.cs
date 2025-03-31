@@ -70,7 +70,23 @@ namespace DataSystem
             }
         }
 
-        internal bool TryGetItemByID(string itemId, out ItemData item)
+        public bool TryGetItemByConfigKey(string configKey, out ItemData item)
+        {
+            ItemData existingItem = _items.FirstOrDefault(item => item.ItemConfigKey == configKey);
+
+            if (existingItem != null)
+            {
+                item = existingItem;
+                return true;
+            }
+            else
+            {
+                item = null;
+                return false;
+            }
+        }
+
+        public bool TryGetItemByID(string itemId, out ItemData item)
         {
             ItemData existingItem = _items.FirstOrDefault(item => item.ItemID == itemId);
 
@@ -99,15 +115,20 @@ namespace DataSystem
             }
         }
 
-        public void AddItem(string itemId, int quantity)
+        public void AddItem(ItemData itemData)
         {
-            _items.Add(new ItemData(itemId, quantity));
+            _items.Add(itemData);
         }
 
         public void RemoveItemById(string itemId)
         {
             ItemData itemToRemove = _items.Find(item => item.ItemID == itemId);
             _items.Remove(itemToRemove);
+        }
+
+        public bool ItemExists(string itemId)
+        {
+            return _items.Any(item => item.ItemID == itemId);
         }
 
         [Serializable]
@@ -124,9 +145,10 @@ namespace DataSystem
         public string ItemConfigKey { get; }
         public int Quantity { get; set; }
 
-        public ItemData(string itemID, string itemConfigKey,int quantity = 1)
+        public ItemData(string itemID, string itemConfigKey, int quantity = 1)
         {
             ItemID = itemID;
+            ItemConfigKey = itemConfigKey;
             Quantity = quantity;
         }
     }
