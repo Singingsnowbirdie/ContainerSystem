@@ -12,4 +12,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3d2883a42a34ed547927b44f790f93bf, type: 3}
   m_Name: ItemIconsMap
   m_EditorClassIdentifier: 
-  Icons: []
+  Icons:
+  - EnumValue: 0
+    Sprite: {fileID: 21300000, guid: ce2057a1a6d52cc4dbe9d239ad4f9003, type: 3}
+    Color: {r: 1, g: 1, b: 1, a: 1}
+  - EnumValue: 1
+    Sprite: {fileID: 21300000, guid: 09635b47e3ea07740bd83ce74eadb7fb, type: 3}
+    Color: {r: 1, g: 1, b: 1, a: 1}
+  - EnumValue: 2
+    Sprite: {fileID: 21300000, guid: 44be187faf8b4064383e8c8dbdebf0ea, type: 3}
+    Color: {r: 1, g: 1, b: 1, a: 1}
+  - EnumValue: 3
+    Sprite: {fileID: 21300000, guid: 04ecb50a8e504874182bf12403e4391c, type: 3}
+    Color: {r: 1, g: 1, b: 1, a: 1}
+  - EnumValue: 4
+    Sprite: {fileID: 21300000, guid: 92097bde6f65e4647a5c3031e016ba6a, type: 3}
+    Color: {r: 1, g: 1, b: 1, a: 1}
+  - EnumValue: 5
+    Sprite: {fileID: 21300000, guid: 1eba0b908cc72db4db4e52d21cdf50da, type: 3}
+    Color: {r: 1, g: 1, b: 1, a: 1}

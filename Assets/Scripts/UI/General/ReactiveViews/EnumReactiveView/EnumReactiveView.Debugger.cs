@@ -21,5 +21,4 @@ namespace Gameplay.UI.ReactiveViews
         }
 #endif
     }
-
 }

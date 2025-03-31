@@ -1,5 +1,4 @@
-﻿using NUnit.Framework.Interfaces;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -122,9 +121,10 @@ namespace DataSystem
     public class ItemData
     {
         public string ItemID { get; }
+        public string ItemConfigKey { get; }
         public int Quantity { get; set; }
 
-        public ItemData(string itemID, int quantity = 1)
+        public ItemData(string itemID, string itemConfigKey,int quantity = 1)
         {
             ItemID = itemID;
             Quantity = quantity;

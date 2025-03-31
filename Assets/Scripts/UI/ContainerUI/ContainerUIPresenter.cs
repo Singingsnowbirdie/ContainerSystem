@@ -33,22 +33,14 @@ namespace UI
 
             foreach (ItemData itemData in data.Items)
             {
-                bool canBeEquipped = GetCanBeEquipped(itemData.ItemID);
-
-                ItemUIModel uiModel = new ItemUIModel(canBeEquipped);
-                _containerUIModel.Items.Add(uiModel);
+                if (_containersModel.ItemDatabase.TryGetConfig(itemData.ItemID, out ItemConfig itemConfig))
+                {
+                    ItemUIModel uiModel = new(itemData, itemConfig);
+                    _containerUIModel.Items.Add(uiModel);
+                }
             }
 
             _containerUIView.ShowContainerUI(true);
-        }
-
-        private bool GetCanBeEquipped(string itemID)
-        {
-            if (_containersModel.ItemDatabase.TryGetConfig(itemID, out ItemConfig itemConfig) &&
-                itemConfig is EquipmentConfig)
-                return true;
-
-            return false;
         }
     }
 }

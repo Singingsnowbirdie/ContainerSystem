@@ -9,10 +9,18 @@ namespace ContainerSystem
     public class ContainerFactory
     {
         private readonly ItemDatabase _itemDatabase;
+        private readonly HashSet<string> _usedIDs = new HashSet<string>();
 
         public ContainerFactory(ItemDatabase itemDatabase)
         {
             _itemDatabase = itemDatabase;
+        }
+
+        public ContainerData CreateNewContainer(string containerID, EContainerType containerType)
+        {
+            _usedIDs.Clear();
+            List<ItemData> contents = GenerateContents(containerType);
+            return new ContainerData(containerID, contents);
         }
 
         private List<ItemData> GenerateContents(EContainerType type)
@@ -47,17 +55,38 @@ namespace ContainerSystem
             }
 
             var selectedItem = weightedItems[Random.Range(0, weightedItems.Count)];
-            items.Add(new ItemData(selectedItem.ItemID, Random.Range(1, 6)));
+            items.Add(new ItemData(CreateUniqueItemID(), selectedItem.ItemConfigKey, Random.Range(1, 6)));
 
             return items;
+        }
+
+        private string CreateUniqueItemID()
+        {
+            const string CHARS = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+            var random = new System.Random();
+            string newID;
+
+            do
+            {
+                var stringChars = new char[8];
+                for (int i = 0; i < stringChars.Length; i++)
+                {
+                    stringChars[i] = CHARS[random.Next(CHARS.Length)];
+                }
+                newID = new string(stringChars);
+            }
+            while (_usedIDs.Contains(newID));
+
+            _usedIDs.Add(newID);
+            return newID;
         }
 
         private List<ItemData> GenerateRandomGroceries(List<FoodConfig> foodConfigs)
         {
             var items = new List<ItemData>
-            {
-                new ItemData("salt", Random.Range(1, 6))
-            };
+    {
+        new ItemData(CreateUniqueItemID(), "salt", Random.Range(1, 6))
+    };
 
             if (foodConfigs.Count == 0)
                 return items;
@@ -74,24 +103,26 @@ namespace ContainerSystem
 
             int additionalItemsCount = Random.Range(1, 4);
             var selectedItems = new HashSet<string>();
+            int attempts = 0;
+            const int MaxAttempts = 100;
 
-            for (int i = 0; i < additionalItemsCount; i++)
+            while (selectedItems.Count < additionalItemsCount && attempts < MaxAttempts)
             {
+                attempts++;
                 if (weightedItems.Count == 0)
                     break;
 
                 var selectedItem = weightedItems[Random.Range(0, weightedItems.Count)];
 
-                if (selectedItems.Contains(selectedItem.ItemID))
-                    continue;
-
-                selectedItems.Add(selectedItem.ItemID);
-                items.Add(new ItemData(selectedItem.ItemID, Random.Range(1, 6)));
+                if (!selectedItems.Contains(selectedItem.ItemConfigKey))
+                {
+                    selectedItems.Add(selectedItem.ItemConfigKey);
+                    items.Add(new ItemData(CreateUniqueItemID(), selectedItem.ItemConfigKey, Random.Range(1, 6)));
+                }
             }
 
             return items;
         }
-
         private List<ItemData> GenerateBagContents()
         {
             return GenerateRandomFoodItems(_itemDatabase.GetGrains().ToList());
@@ -120,12 +151,6 @@ namespace ContainerSystem
         private List<ItemData> GenerateGroceriesContents()
         {
             return GenerateRandomGroceries(_itemDatabase.GetGroceries().ToList());
-        }
-
-        public ContainerData CreateNewContainer(string containerID, EContainerType containerType)
-        {
-            List<ItemData> contents = GenerateContents(containerType);
-            return new ContainerData(containerID, contents);
         }
     }
 }

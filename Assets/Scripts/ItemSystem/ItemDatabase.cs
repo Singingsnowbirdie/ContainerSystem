@@ -319,7 +319,7 @@ namespace ItemSystem
 
         private void AddConfig(ItemConfig config)
         {
-            _configs[config.ItemID] = config;
+            _configs[config.ItemConfigKey] = config;
         }
 
         public bool TryGetConfig(string itemID, out ItemConfig config)

@@ -1,12 +1,17 @@
-﻿namespace UI
+﻿using DataSystem;
+using ItemSystem;
+
+namespace UI
 {
     public class ItemUIModel : UIModel
     {
-        public ItemUIModel(bool canBeEquipped)
+        public ItemUIModel(ItemData itemData, ItemConfig itemConfig)
         {
-            CanBeEquipped = canBeEquipped;
+            CanBeEquipped = itemConfig.CanBeEquipped;
+            UniqueID = itemData.ItemID;
         }
 
-        public bool CanBeEquipped { get; internal set; }
+        public bool CanBeEquipped { get; }
+        public string UniqueID { get; }
     }
 }
