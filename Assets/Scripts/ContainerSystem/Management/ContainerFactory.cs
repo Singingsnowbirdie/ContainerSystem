@@ -8,7 +8,7 @@ namespace ContainerSystem
 {
     public class ContainerFactory
     {
-        private ItemDatabase _itemDatabase;
+        private readonly ItemDatabase _itemDatabase;
 
         public ContainerFactory(ItemDatabase itemDatabase)
         {
@@ -20,36 +20,106 @@ namespace ContainerSystem
             return type switch
             {
                 EContainerType.Barrel => GenerateBarrelContents(),
+                EContainerType.Bag => GenerateBagContents(),
+                EContainerType.BeverageСrate => GenerateBeverageContents(),
+                EContainerType.ButcherCrate => GenerateMeatContents(),
+                EContainerType.FishCrate => GenerateFishContents(),
+                EContainerType.GroceriesCrate => GenerateGroceriesContents(),
                 _ => new List<ItemData>()
             };
         }
 
-        private List<ItemData> GenerateBarrelContents()
+        private List<ItemData> GenerateRandomFoodItems(List<FoodConfig> itemList)
         {
             var items = new List<ItemData>();
 
-            var fruitsAndVegetables = _itemDatabase.GetFruitsAndVegetables().ToList();
-
-            if (fruitsAndVegetables.Count == 0)
+            if (itemList.Count == 0)
                 return items;
 
-            var weightedFoods = new List<ItemConfig>();
-            foreach (FoodConfig food in fruitsAndVegetables)
+            var weightedItems = new List<ItemConfig>();
+            foreach (var item in itemList)
             {
-                int weight = Mathf.Max(1, 10 - food.BasicСost);
+                int weight = Mathf.Max(1, 10 - item.BasicСost);
                 for (int i = 0; i < weight; i++)
                 {
-                    weightedFoods.Add(food);
+                    weightedItems.Add(item);
                 }
             }
 
-            var selectedFood = weightedFoods[Random.Range(0, weightedFoods.Count)];
-
-            int quantity = Random.Range(1, 6);
-
-            items.Add(new ItemData(selectedFood.ItemID, quantity));
+            var selectedItem = weightedItems[Random.Range(0, weightedItems.Count)];
+            items.Add(new ItemData(selectedItem.ItemID, Random.Range(1, 6)));
 
             return items;
+        }
+
+        private List<ItemData> GenerateRandomGroceries(List<FoodConfig> foodConfigs)
+        {
+            var items = new List<ItemData>
+            {
+                new ItemData("salt", Random.Range(1, 6))
+            };
+
+            if (foodConfigs.Count == 0)
+                return items;
+
+            var weightedItems = new List<ItemConfig>();
+            foreach (var item in foodConfigs)
+            {
+                int weight = Mathf.Max(1, 10 - item.BasicСost);
+                for (int i = 0; i < weight; i++)
+                {
+                    weightedItems.Add(item);
+                }
+            }
+
+            int additionalItemsCount = Random.Range(1, 4);
+            var selectedItems = new HashSet<string>();
+
+            for (int i = 0; i < additionalItemsCount; i++)
+            {
+                if (weightedItems.Count == 0)
+                    break;
+
+                var selectedItem = weightedItems[Random.Range(0, weightedItems.Count)];
+
+                if (selectedItems.Contains(selectedItem.ItemID))
+                    continue;
+
+                selectedItems.Add(selectedItem.ItemID);
+                items.Add(new ItemData(selectedItem.ItemID, Random.Range(1, 6)));
+            }
+
+            return items;
+        }
+
+        private List<ItemData> GenerateBagContents()
+        {
+            return GenerateRandomFoodItems(_itemDatabase.GetGrains().ToList());
+        }
+
+        private List<ItemData> GenerateBarrelContents()
+        {
+            return GenerateRandomFoodItems(_itemDatabase.GetFruitsAndVegetables().ToList());
+        }
+
+        private List<ItemData> GenerateBeverageContents()
+        {
+            return GenerateRandomFoodItems(_itemDatabase.GetBeverages().ToList());
+        }
+
+        private List<ItemData> GenerateMeatContents()
+        {
+            return GenerateRandomFoodItems(_itemDatabase.GetMeats().ToList());
+        }
+
+        private List<ItemData> GenerateFishContents()
+        {
+            return GenerateRandomFoodItems(_itemDatabase.GetFish().ToList());
+        }
+
+        private List<ItemData> GenerateGroceriesContents()
+        {
+            return GenerateRandomGroceries(_itemDatabase.GetGroceries().ToList());
         }
 
         public ContainerData CreateNewContainer(string containerID, EContainerType containerType)

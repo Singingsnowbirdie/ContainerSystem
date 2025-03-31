@@ -30,4 +30,5 @@ namespace Gameplay.UI.ReactiveViews
             compositeDisposable?.Dispose();
         }
     }
+
 }

@@ -2,44 +2,41 @@
 {
     public class ItemConfig
     {
-        public ItemConfig(string itemID, string itemName, float weight, int basicСost, bool isCulinary, bool isAlchemy)
+        public ItemConfig(string itemID, string itemName, float weight, int basicСost, EItemIconType itemIconType)
         {
             ItemID = itemID;
             ItemName = itemName;
             Weight = weight;
             BasicСost = basicСost;
-            IsCulinary = isCulinary;
-            IsAlchemy = isAlchemy;
+            ItemIconType = itemIconType;
         }
 
         public string ItemID { get; }
         public string ItemName { get; }
         public float Weight { get; }
         public int BasicСost { get; }
-        public bool IsFood { get; protected set; }
-        public bool IsCulinary { get; }
-        public bool IsAlchemy { get; }
+        public EItemIconType ItemIconType { get; }
     }
 
     public class FoodConfig : ItemConfig
     {
-        public EFoodType FoodType { get; }
-
-        public FoodConfig(string itemID, string itemName, float weight,
-            int basicCost, bool isCulinary, bool isAlchemy,
-            EFoodType foodType)
-            : base(itemID, itemName, weight, basicCost, isCulinary, isAlchemy)
+        public FoodConfig(string itemID, string itemName, float weight, 
+            int basicСost, EItemIconType itemIconType, EFoodType foodType, bool isIngredient
+            ) : 
+            base(itemID, itemName, weight, basicСost, itemIconType)
         {
-            IsFood = true;
             FoodType = foodType;
+            IsIngredient = isIngredient;
         }
+
+        public EFoodType FoodType { get; }
+        public bool IsIngredient { get; }
     }
 
     public class EquipmentConfig : ItemConfig
     {
-        public EquipmentConfig(string itemID, string itemName, float weight,
-            int basicСost, bool isCulinary, bool isAlchemy) :
-            base(itemID, itemName, weight, basicСost, isCulinary, isAlchemy)
+        public EquipmentConfig(string itemID, string itemName, float weight, int basicСost, EItemIconType itemIconType) : 
+            base(itemID, itemName, weight, basicСost, itemIconType)
         {
         }
     }

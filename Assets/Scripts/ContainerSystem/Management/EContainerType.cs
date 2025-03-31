@@ -2,7 +2,12 @@
 {
     public enum EContainerType
     {
-        Barrel
+        Barrel,
+        Bag,
+        BeverageСrate,
+        ButcherCrate,
+        FishCrate,
+        GroceriesCrate
     }
 }
 

@@ -18,6 +18,9 @@ namespace UI
 
         private void OnItemSelected(ItemUIView itemView)
         {
+            if (itemView == null)
+                return;
+
             gameObject.SetActive(itemView.UIModel.CanBeEquipped);
         }
     }

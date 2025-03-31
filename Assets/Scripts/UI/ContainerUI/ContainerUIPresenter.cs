@@ -2,8 +2,10 @@
 using DataSystem;
 using ItemSystem;
 using UniRx;
+using UnityEngine;
 using VContainer;
 using VContainer.Unity;
+using static UnityEditor.Progress;
 
 namespace UI
 {
@@ -42,7 +44,7 @@ namespace UI
 
         private bool GetCanBeEquipped(string itemID)
         {
-            if (_containersModel.ItemDatabase.TryGetConfig(itemID, out ItemConfig itemConfig) && 
+            if (_containersModel.ItemDatabase.TryGetConfig(itemID, out ItemConfig itemConfig) &&
                 itemConfig is EquipmentConfig)
                 return true;
 
