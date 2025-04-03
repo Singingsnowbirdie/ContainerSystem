@@ -1,6 +1,6 @@
 ﻿using Localization;
 
-namespace Gameplay.UI.ReactiveViews
+namespace UI.ReactiveViews
 {
     public class LanguageFlagIconView : EnumReactiveView<ELanguageFlagIcon>
     {

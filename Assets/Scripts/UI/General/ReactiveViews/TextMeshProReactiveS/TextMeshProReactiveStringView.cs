@@ -1,4 +1,4 @@
-namespace Gameplay.UI.ReactiveViews
+namespace UI.ReactiveViews
 {
     public class TextMeshProReactiveStringView : TextMeshProReactiveView<string>
     {

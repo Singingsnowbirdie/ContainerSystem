@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
 
-namespace Gameplay.UI.ReactiveViews
+namespace UI.ReactiveViews
 {
     public partial class EnumReactiveView<T>
     {

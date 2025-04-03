@@ -2,7 +2,7 @@
 using UniRx;
 using UnityEngine;
 
-namespace Gameplay.UI.ReactiveViews
+namespace UI.ReactiveViews
 {
     public abstract class UIReactiveList<IUIReactiveView, TUIModel> : UIReactiveView<ReactiveCollection<TUIModel>>
     where IUIReactiveView : UIReactiveView<TUIModel>

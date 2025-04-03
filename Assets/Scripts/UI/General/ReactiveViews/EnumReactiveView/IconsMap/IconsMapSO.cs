@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
-namespace Gameplay.UI.ReactiveViews
+namespace UI.ReactiveViews
 {
     public abstract partial class IconsMapSO<TEnum> : ScriptableObject
     where TEnum : Enum

@@ -3,7 +3,7 @@ using UniRx;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace Gameplay.UI.ReactiveViews
+namespace UI.ReactiveViews
 {
     [RequireComponent(typeof(TextMeshProUGUI))]
     public abstract class TextMeshProReactiveView<T> : UIReactiveView<IReadOnlyReactiveProperty<T>>

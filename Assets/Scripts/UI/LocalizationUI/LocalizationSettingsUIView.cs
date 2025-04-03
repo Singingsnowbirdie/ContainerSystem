@@ -1,5 +1,5 @@
-﻿using Gameplay.UI.ReactiveViews;
-using Localization;
+﻿using Localization;
+using UI.ReactiveViews;
 using UniRx;
 using UnityEngine;
 using UnityEngine.UI;
@@ -21,6 +21,8 @@ namespace UI
 
         internal void SetUIModel(LocalizationSettingsUIModel uiModel)
         {
+            Debug.Log($"SetUIModel {uiModel}");
+
             _englishFlagIcon.SetUIModel(uiModel.LanguageButtonIcon_En);
             _russianFlagIcon.SetUIModel(uiModel.LanguageButtonIcon_Ru);
 
@@ -35,12 +37,12 @@ namespace UI
 
         private void SetLanguage(ELanguage lang)
         {
+            Debug.Log($"SetLanguage {lang}");
+
             _localizationModel.CurrentLanguage.Value = lang;
 
             PlayerPrefs.SetString("AppLanguage", lang == ELanguage.English ? "en" : "ru");
             PlayerPrefs.Save();
         }
     }
-
 }
-

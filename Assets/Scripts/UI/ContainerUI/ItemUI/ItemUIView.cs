@@ -1,4 +1,4 @@
-﻿using Gameplay.UI.ReactiveViews;
+﻿using UI.ReactiveViews;
 using UniRx;
 using UnityEngine;
 using UnityEngine.UI;

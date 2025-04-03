@@ -6,8 +6,8 @@ namespace ContainerSystem
 {
     public class ContainerView : MonoBehaviour, IContainerView, IInteractable
     {
-        [field: SerializeField] public string UniqueID { get; private set; }
-        [field: SerializeField] public EContainerType ContainerType { get; private set; }
+        [field: SerializeField] public string UniqueID { get; }
+        [field: SerializeField] public EContainerType ContainerType { get; }
 
         private ContainerModel _containerModel;
 

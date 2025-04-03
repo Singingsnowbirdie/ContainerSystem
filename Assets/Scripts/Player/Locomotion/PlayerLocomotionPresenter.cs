@@ -1,3 +1,5 @@
+using System;
+using UI.MainMenu;
 using UniRx;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -11,6 +13,7 @@ namespace Player
         [Inject] private readonly PlayerLocomotionModel _locomotionModel;
         [Inject] private readonly PlayerView _view;
         [Inject] private readonly PlayerInput _playerInput;
+        [Inject] private readonly MainMenuModel _mainMenuModel;
 
         public void Start()
         {
@@ -33,6 +36,15 @@ namespace Player
 
             Cursor.lockState = CursorLockMode.Locked;
             Cursor.visible = false;
+
+            _mainMenuModel.IsMainMenuOpen
+                .Subscribe(val => OnMainMenuOpen(val))
+                .AddTo(_view);
+        }
+
+        private void OnMainMenuOpen(bool val)
+        {
+            _locomotionModel.CanMove = !val;
         }
 
         private void OnMove(InputAction.CallbackContext context)

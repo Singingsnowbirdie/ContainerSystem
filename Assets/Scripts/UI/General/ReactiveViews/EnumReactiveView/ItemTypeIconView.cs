@@ -1,6 +1,6 @@
 ﻿using ItemSystem;
 
-namespace Gameplay.UI.ReactiveViews
+namespace UI.ReactiveViews
 {
     public class ItemTypeIconView : EnumReactiveView<EItemTypeIcon>
     {

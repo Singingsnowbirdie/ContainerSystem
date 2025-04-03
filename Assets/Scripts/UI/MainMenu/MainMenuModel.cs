@@ -4,7 +4,7 @@ namespace UI.MainMenu
 {
     public class MainMenuModel
     {
-        public ReactiveProperty<bool> IsMenuOpen { get; } = new ReactiveProperty<bool>(false);
+        public ReactiveProperty<bool> IsMainMenuOpen { get; } = new ReactiveProperty<bool>(false);
     }
 }
 

@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace Gameplay.UI.ReactiveViews
+namespace UI.ReactiveViews
 {
     public class TextMeshProReactiveFloat : TextMeshProReactiveNumber<float>
     {

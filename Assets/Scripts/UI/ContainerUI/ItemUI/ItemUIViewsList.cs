@@ -1,4 +1,4 @@
-﻿using Gameplay.UI.ReactiveViews;
+﻿using UI.ReactiveViews;
 
 namespace UI
 {

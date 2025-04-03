@@ -2,7 +2,7 @@
 
 namespace ContainerSystem
 {
-    public abstract class ContainerModel : IContainerModel
+    public abstract class ContainerModel
     {
         public abstract string UniqueID { get; }
         public ISubject<ContainerOpenData> TryOpen { get; } = new Subject<ContainerOpenData>();
