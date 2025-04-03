@@ -1,0 +1,92 @@
+[
+  {
+    "key": "iron_mushroom",
+    "english": "Iron Mushroom",
+    "russian": "Железный гриб"
+  },
+  {
+    "key": "moon_dust",
+    "english": "Moon Dust",
+    "russian": "Лунная пыль"
+  },
+  {
+    "key": "solar_berry",
+    "english": "Solar Berry",
+    "russian": "Солнечная ягода"
+  },
+  {
+    "key": "life_root",
+    "english": "Life Root",
+    "russian": "Корень жизни"
+  },
+  {
+    "key": "star_shard",
+    "english": "Star Shard",
+    "russian": "Звездный осколок"
+  },
+  {
+    "key": "thunder_root",
+    "english": "Thunder Root",
+    "russian": "Громовой корень"
+  },
+  {
+    "key": "phoenix_heart",
+    "english": "Phoenix Heart",
+    "russian": "Сердце феникса"
+  },
+  {
+    "key": "arcane_crystal",
+    "english": "Arcane Crystal",
+    "russian": "Кристалл арканы"
+  },
+  {
+    "key": "dragon_claw",
+    "english": "Dragon Claw",
+    "russian": "Коготь дракона"
+  },
+  {
+    "key": "healing_moss",
+    "english": "Healing Moss",
+    "russian": "Целебный мох"
+  },
+  {
+    "key": "bone_powder",
+    "english": "Bone Powder",
+    "russian": "Костяной порошок"
+  },
+  {
+    "key": "healing_dew",
+    "english": "Healing Dew",
+    "russian": "Исцеляющая роса"
+  },
+  {
+    "key": "fern_flower",
+    "english": "Fern Flower",
+    "russian": "Цветок папоротника"
+  },
+  {
+    "key": "adamantite_dust",
+    "english": "Adamantite Dust",
+    "russian": "Адамантитовая крошка"
+  },
+  {
+    "key": "etheric_lichen",
+    "english": "Etheric Lichen",
+    "russian": "Эфирный лишайник"
+  },
+  {
+    "key": "angel_tear",
+    "english": "Angel Tear",
+    "russian": "Слеза ангела"
+  },
+  {
+    "key": "dragon_scale",
+    "english": "Dragon Scale",
+    "russian": "Чешуя дракона"
+  },
+  {
+    "key": "time_sand",
+    "english": "Time Sand",
+    "russian": "Песок времени"
+  }
+]

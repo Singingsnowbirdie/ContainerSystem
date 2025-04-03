@@ -1,6 +1,6 @@
 ﻿namespace ItemSystem
 {
-    public enum EItemIconType
+    public enum EItemTypeIcon
     {
         RawMeat,
         RawPlant,

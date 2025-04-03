@@ -1,47 +1,77 @@
-﻿namespace ItemSystem
+﻿using Localization;
+
+namespace ItemSystem
 {
-    public class ItemConfig
+    public abstract class ItemConfig
     {
-        public ItemConfig(string itemConfigKey, string itemName, float weight, int basicСost, EItemIconType itemIconType)
+        public ItemConfig(string itemConfigKey, string itemName, float weight, int basicСost, EItemTypeIcon itemTypeIcon)
         {
             ItemConfigKey = itemConfigKey;
-            ItemName = itemName;
+            ItemDefaultName = itemName;
             Weight = weight;
             BasicСost = basicСost;
-            ItemIconType = itemIconType;
+            ItemTypeIcon = itemTypeIcon;
         }
 
         public string ItemConfigKey { get; }
-        public string ItemName { get; }
+        public string ItemDefaultName { get; }
         public float Weight { get; }
         public int BasicСost { get; }
-        public EItemIconType ItemIconType { get; }
-        public bool CanBeEquipped { get; protected set; }
+        public EItemTypeIcon ItemTypeIcon { get; }
+        public abstract bool CanBeEquipped { get; }
+        public abstract ELocalizationRegion LocalizationRegion { get; }
     }
 
     public class FoodConfig : ItemConfig
     {
         public FoodConfig(string itemConfigKey, string itemName, float weight,
-            int basicСost, EItemIconType itemIconType, EFoodType foodType, bool isIngredient
+            int basicСost, EItemTypeIcon itemTypeIcon, EFoodType foodType, bool isIngredient
             ) :
-            base(itemConfigKey, itemName, weight, basicСost, itemIconType)
+            base(itemConfigKey, itemName, weight, basicСost, itemTypeIcon)
         {
             FoodType = foodType;
             IsIngredient = isIngredient;
-            CanBeEquipped = false;
         }
 
         public EFoodType FoodType { get; }
         public bool IsIngredient { get; }
+
+        public override bool CanBeEquipped => false;
+
+        public override ELocalizationRegion LocalizationRegion => ELocalizationRegion.FoodName;
     }
 
-    public class EquipmentConfig : ItemConfig
+    public class AlchemyIngredientConfig : ItemConfig
     {
-        public EquipmentConfig(string itemConfigKey, string itemName, float weight, int basicСost, EItemIconType itemIconType) :
-            base(itemConfigKey, itemName, weight, basicСost, itemIconType)
+        public AlchemyIngredientConfig(string itemConfigKey, string itemName, float weight, int basicСost, EItemTypeIcon itemTypeIcon) :
+            base(itemConfigKey, itemName, weight, basicСost, itemTypeIcon)
         {
-            CanBeEquipped = true;
         }
+        public override bool CanBeEquipped => false;
+
+        public override ELocalizationRegion LocalizationRegion => ELocalizationRegion.AlchemyName;
+    }
+
+    public class PotionConfig : ItemConfig
+    {
+        public PotionConfig(string itemConfigKey, string itemName, float weight, int basicСost, EItemTypeIcon itemTypeIcon) :
+            base(itemConfigKey, itemName, weight, basicСost, itemTypeIcon)
+        {
+        }
+
+        public override bool CanBeEquipped => false;
+
+        public override ELocalizationRegion LocalizationRegion => ELocalizationRegion.PotionName;
+    }
+
+    public abstract class EquipmentConfig : ItemConfig
+    {
+        public EquipmentConfig(string itemConfigKey, string itemName, float weight, int basicСost, EItemTypeIcon itemTypeIcon) :
+            base(itemConfigKey, itemName, weight, basicСost, itemTypeIcon)
+        {
+        }
+        public override bool CanBeEquipped => true;
+        public override ELocalizationRegion LocalizationRegion => throw new System.NotImplementedException();
     }
 }
 

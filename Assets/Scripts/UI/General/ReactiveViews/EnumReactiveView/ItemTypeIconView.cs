@@ -2,7 +2,7 @@
 
 namespace Gameplay.UI.ReactiveViews
 {
-    public class ItemTypeIconView : EnumReactiveView<EItemIconType>
+    public class ItemTypeIconView : EnumReactiveView<EItemTypeIcon>
     {
     }
 }

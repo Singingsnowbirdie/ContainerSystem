@@ -1,5 +1,6 @@
 using ContainerSystem;
 using InventorySystem;
+using Localization;
 using Player;
 using UI;
 using UnityEngine;
@@ -12,6 +13,7 @@ public class GameLifetimeScope : LifetimeScope
     [Header("UI")]
     [SerializeField] private InteractionPromptView _interactionPromptView;
     [SerializeField] private ContainerUIView _containerUIView;
+    [SerializeField] private LocalizationUIView _localizationUIView;
 
     [Header("PLAYER")]
     [SerializeField] private PlayerView _playerView;
@@ -32,6 +34,7 @@ public class GameLifetimeScope : LifetimeScope
         // Register UI Views
         builder.RegisterComponent(_interactionPromptView).AsSelf();
         builder.RegisterComponent(_containerUIView).AsSelf();
+        builder.RegisterComponent(_localizationUIView).AsSelf();
 
         // Register Other Components
         builder.RegisterComponent(_playerInput).AsSelf();
@@ -43,6 +46,7 @@ public class GameLifetimeScope : LifetimeScope
         builder.Register<InventoryModel>(Lifetime.Singleton);
         builder.Register<CursorModel>(Lifetime.Singleton);
         builder.Register<ContainersModel>(Lifetime.Singleton);
+        builder.Register<LocalizationModel>(Lifetime.Singleton);
 
         // Register UI Models
         builder.Register<InteractionPromptUIModel>(Lifetime.Singleton);
@@ -55,6 +59,7 @@ public class GameLifetimeScope : LifetimeScope
         builder.RegisterEntryPoint<InventoryPresenter>(Lifetime.Singleton);
         builder.RegisterEntryPoint<CursorPresenter>(Lifetime.Singleton);
         builder.RegisterEntryPoint<ContainersPresenter>(Lifetime.Singleton);
+        builder.RegisterEntryPoint<LocalizationPresenter>(Lifetime.Singleton);
 
         // Register UI Presenters
         builder.RegisterEntryPoint<InteractionPromptPresenter>(Lifetime.Singleton);

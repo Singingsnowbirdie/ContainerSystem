@@ -1,11 +1,10 @@
 ﻿using ContainerSystem;
 using DataSystem;
 using ItemSystem;
+using Localization;
 using UniRx;
-using UnityEngine;
 using VContainer;
 using VContainer.Unity;
-using static UnityEditor.Progress;
 
 namespace UI
 {
@@ -17,6 +16,7 @@ namespace UI
 
         // Other
         [Inject] private readonly ContainersModel _containersModel;
+        [Inject] private readonly LocalizationModel _localizationModel;
 
         public void Start()
         {
@@ -35,12 +35,27 @@ namespace UI
             {
                 if (_containersModel.ItemDatabase.TryGetConfig(itemData.ItemConfigKey, out ItemConfig itemConfig))
                 {
-                    ItemUIModel uiModel = new(itemData, itemConfig);
+                    string itemName = GetItemName(itemConfig);
+
+                    ItemUIModel uiModel = new(itemData, itemConfig, itemName);
                     _containerUIModel.Items.Add(uiModel);
                 }
             }
 
+            if (_containerUIModel.Items.Count > 0)
+                _containerUIModel.Items[0].IsSelected.Value = true;
+
             _containerUIView.ShowContainerUI(true);
+        }
+
+        private string GetItemName(ItemConfig itemConfig)
+        {
+            if (_localizationModel.TryGetTranslation(itemConfig.LocalizationRegion,itemConfig.ItemConfigKey, out string translation))
+            {
+                return translation;
+            }
+
+            return itemConfig.ItemDefaultName;
         }
     }
 }
