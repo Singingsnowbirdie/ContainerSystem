@@ -2,6 +2,7 @@
 using DataSystem;
 using ItemSystem;
 using Localization;
+using System;
 using UniRx;
 using VContainer;
 using VContainer.Unity;
@@ -36,8 +37,11 @@ namespace UI
                 if (_containersModel.ItemDatabase.TryGetConfig(itemData.ItemConfigKey, out ItemConfig itemConfig))
                 {
                     string itemName = GetItemName(itemConfig);
+                    string itemType = GetItemType(itemConfig);
+                    int itemCost = GetItemCost(itemConfig);
+                    string equipmentClass = GetEquipmentClass(itemConfig);
 
-                    ItemUIModel uiModel = new(itemData, itemConfig, itemName);
+                    ItemUIModel uiModel = new(itemData, itemConfig, itemName, itemCost, itemType, equipmentClass);
                     _containerUIModel.Items.Add(uiModel);
                 }
             }
@@ -48,9 +52,35 @@ namespace UI
             _containerUIView.ShowContainerUI(true);
         }
 
+        private string GetItemType(ItemConfig itemConfig)
+        {
+            if (_localizationModel.TryGetTranslation(ELocalizationRegion.ItemType, itemConfig.ItemType.ToString(), out string translation))
+            {
+                return translation;
+            }
+            return itemConfig.ItemType.ToString();
+        }
+
+        private string GetEquipmentClass(ItemConfig itemConfig)
+        {
+            if (itemConfig is EquipmentConfig equipmentConfig &&
+                _localizationModel.TryGetTranslation(ELocalizationRegion.EquipmentClass, equipmentConfig.EquipmentClass.ToString(), out string translation))
+            {
+                return translation;
+            }
+            return null;
+        }
+
+        private int GetItemCost(ItemConfig itemConfig)
+        {
+            // TODO: When you sell or buy an item, its base value will change.
+
+            return itemConfig.BasicСost;
+        }
+
         private string GetItemName(ItemConfig itemConfig)
         {
-            if (_localizationModel.TryGetTranslation(itemConfig.LocalizationRegion,itemConfig.ItemConfigKey, out string translation))
+            if (_localizationModel.TryGetTranslation(itemConfig.LocalizationRegion, itemConfig.ItemConfigKey, out string translation))
             {
                 return translation;
             }

@@ -4,20 +4,20 @@ namespace ItemSystem
 {
     public abstract class ItemConfig
     {
-        public ItemConfig(string itemConfigKey, string itemName, float weight, int basicСost, EItemTypeIcon itemTypeIcon)
+        public ItemConfig(string itemConfigKey, string itemName, float weight, int basicСost, EItemType itemType)
         {
             ItemConfigKey = itemConfigKey;
             ItemDefaultName = itemName;
             Weight = weight;
             BasicСost = basicСost;
-            ItemTypeIcon = itemTypeIcon;
+            ItemType = itemType;
         }
 
         public string ItemConfigKey { get; }
         public string ItemDefaultName { get; }
         public float Weight { get; }
         public int BasicСost { get; }
-        public EItemTypeIcon ItemTypeIcon { get; }
+        public EItemType ItemType { get; }
         public abstract bool CanBeEquipped { get; }
         public abstract ELocalizationRegion LocalizationRegion { get; }
     }
@@ -25,9 +25,9 @@ namespace ItemSystem
     public class FoodConfig : ItemConfig
     {
         public FoodConfig(string itemConfigKey, string itemName, float weight,
-            int basicСost, EItemTypeIcon itemTypeIcon, EFoodType foodType, bool isIngredient
+            int basicСost, EItemType itemType, EFoodType foodType, bool isIngredient
             ) :
-            base(itemConfigKey, itemName, weight, basicСost, itemTypeIcon)
+            base(itemConfigKey, itemName, weight, basicСost, itemType)
         {
             FoodType = foodType;
             IsIngredient = isIngredient;
@@ -43,8 +43,8 @@ namespace ItemSystem
 
     public class AlchemyIngredientConfig : ItemConfig
     {
-        public AlchemyIngredientConfig(string itemConfigKey, string itemName, float weight, int basicСost, EItemTypeIcon itemTypeIcon) :
-            base(itemConfigKey, itemName, weight, basicСost, itemTypeIcon)
+        public AlchemyIngredientConfig(string itemConfigKey, string itemName, float weight, int basicСost, EItemType itemType) :
+            base(itemConfigKey, itemName, weight, basicСost, itemType)
         {
         }
         public override bool CanBeEquipped => false;
@@ -54,8 +54,8 @@ namespace ItemSystem
 
     public class PotionConfig : ItemConfig
     {
-        public PotionConfig(string itemConfigKey, string itemName, float weight, int basicСost, EItemTypeIcon itemTypeIcon) :
-            base(itemConfigKey, itemName, weight, basicСost, itemTypeIcon)
+        public PotionConfig(string itemConfigKey, string itemName, float weight, int basicСost, EItemType itemType) :
+            base(itemConfigKey, itemName, weight, basicСost, itemType)
         {
         }
 
@@ -66,12 +66,33 @@ namespace ItemSystem
 
     public abstract class EquipmentConfig : ItemConfig
     {
-        public EquipmentConfig(string itemConfigKey, string itemName, float weight, int basicСost, EItemTypeIcon itemTypeIcon) :
-            base(itemConfigKey, itemName, weight, basicСost, itemTypeIcon)
+        public EquipmentConfig(string itemConfigKey, string itemName, float weight, int basicСost, EItemType itemType) :
+            base(itemConfigKey, itemName, weight, basicСost, itemType)
         {
         }
         public override bool CanBeEquipped => true;
         public override ELocalizationRegion LocalizationRegion => throw new System.NotImplementedException();
+        public EEquipmentClass EquipmentClass { get; protected set; }
+    }
+
+    public class WeaponConfig : EquipmentConfig
+    {
+        protected WeaponConfig(string itemConfigKey, string itemName, float weight, 
+            int basicСost, EItemType itemType, EEquipmentClass equipmentClass) :
+            base(itemConfigKey, itemName, weight, basicСost, itemType)
+        {
+            EquipmentClass = equipmentClass;
+        }
+
+    }
+
+    public class ArmorConfig : EquipmentConfig
+    {
+        protected ArmorConfig(string itemConfigKey, string itemName, float weight, 
+            int basicСost, EItemType itemType, EEquipmentClass equipmentClass) :
+            base(itemConfigKey, itemName, weight, basicСost, itemType)
+        {
+            EquipmentClass = equipmentClass;
+        }
     }
 }
-

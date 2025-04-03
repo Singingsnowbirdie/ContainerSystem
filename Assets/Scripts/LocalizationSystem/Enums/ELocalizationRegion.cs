@@ -5,6 +5,8 @@
         FoodName,
         AlchemyName,
         PotionName,
+        EquipmentClass,
+        ItemType,
     }
 
 }

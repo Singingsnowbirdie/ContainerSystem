@@ -28,7 +28,7 @@ namespace ItemSystem
         {
             const bool IsIngredient = true;
             const EFoodType FoodType = EFoodType.Vegetable;
-            const EItemTypeIcon IconType = EItemTypeIcon.RawPlant;
+            const EItemType IconType = EItemType.RawPlant;
 
             // Vegetables with weight 0.1
             const float LightVegetableWeight = 0.1f;
@@ -55,7 +55,7 @@ namespace ItemSystem
             const float FruitWeight = 0.1f;
             const bool IsIngredient = true;
             const EFoodType FoodType = EFoodType.Fruit;
-            const EItemTypeIcon IconType = EItemTypeIcon.RawPlant;
+            const EItemType IconType = EItemType.RawPlant;
 
             AddConfig(new FoodConfig("apple_green", "Green Apple", FruitWeight, 2, IconType, FoodType, IsIngredient));
             AddConfig(new FoodConfig("apple_red", "Red Apple", FruitWeight, 2, IconType, FoodType, IsIngredient));
@@ -68,7 +68,7 @@ namespace ItemSystem
         {
             const bool IsIngredient = true;
             const EFoodType FoodType = EFoodType.Grain;
-            const EItemTypeIcon IconType = EItemTypeIcon.RawPlant;
+            const EItemType IconType = EItemType.RawPlant;
 
             // Basic cereals in bags (~1 kg)
             AddConfig(new FoodConfig("peas", "Dried Peas", 0.1f, 2, IconType, FoodType, IsIngredient));
@@ -91,7 +91,7 @@ namespace ItemSystem
         {
             const bool IsIngredient = true;
             const EFoodType FoodType = EFoodType.Drink;
-            const EItemTypeIcon IconType = EItemTypeIcon.Drink;
+            const EItemType IconType = EItemType.Drink;
 
             // Basic drinks
             AddConfig(new FoodConfig("water_bottle", "Bottle of Water", 1.0f, 1, IconType, FoodType, IsIngredient));
@@ -121,7 +121,7 @@ namespace ItemSystem
         {
             const bool IsIngredient = true;
             const EFoodType FoodType = EFoodType.Grocery;
-            const EItemTypeIcon IconType = EItemTypeIcon.Grocery;
+            const EItemType IconType = EItemType.Grocery;
 
             // Сheapest spices
             AddConfig(new FoodConfig("garlic", "Garlic", 0.25f, 1, IconType, FoodType, IsIngredient));
@@ -173,7 +173,7 @@ namespace ItemSystem
         {
             const bool IsIngredient = true;
             const EFoodType FoodType = EFoodType.RawMeat;
-            const EItemTypeIcon IconType = EItemTypeIcon.RawMeat;
+            const EItemType IconType = EItemType.RawMeat;
 
             AddConfig(new FoodConfig("chicken", "Chicken", 0.8f, 8, IconType, FoodType, IsIngredient));
             AddConfig(new FoodConfig("goat_meat", "Goat Meat", 0.7f, 7, IconType, FoodType, IsIngredient));
@@ -191,7 +191,7 @@ namespace ItemSystem
         {
             const bool IsIngredient = true;
             const EFoodType FoodType = EFoodType.RawFish;
-            const EItemTypeIcon IconType = EItemTypeIcon.RawFish;
+            const EItemType IconType = EItemType.RawFish;
 
             AddConfig(new FoodConfig("salmon", "Salmon", 0.7f, 25, IconType, FoodType, IsIngredient));
             AddConfig(new FoodConfig("trout", "Trout", 0.6f, 18, IconType, FoodType, IsIngredient));
@@ -209,7 +209,7 @@ namespace ItemSystem
         {
             const bool IsIngredient = false;
             const EFoodType FoodType = EFoodType.SideDish;
-            const EItemTypeIcon IconType = EItemTypeIcon.CookedFood;
+            const EItemType IconType = EItemType.CookedFood;
             const float PortionWeight = 0.3f;
 
             // 2 ingredients (main grain + salt)
@@ -231,7 +231,7 @@ namespace ItemSystem
         private void AddCookedMeats()
         {
             const bool IsIngredient = false;
-            const EItemTypeIcon IconType = EItemTypeIcon.CookedFood;
+            const EItemType IconType = EItemType.CookedFood;
             const EFoodType FoodType = EFoodType.MainCourse;
             const float PortionWeight = 0.25f;
 
@@ -258,7 +258,7 @@ namespace ItemSystem
         private void AddAdvancedMeatCourses()
         {
             const float PortionWeight = 0.25f;
-            const EItemTypeIcon IconType = EItemTypeIcon.CookedFood;
+            const EItemType IconType = EItemType.CookedFood;
             const EFoodType FoodType = EFoodType.MainCourse;
             const bool IsIngredient = false;
 
@@ -278,7 +278,7 @@ namespace ItemSystem
         private void AddAdvancedFishCourses()
         {
             const float PortionWeight = 0.25f;
-            const EItemTypeIcon IconType = EItemTypeIcon.CookedFood;
+            const EItemType IconType = EItemType.CookedFood;
             const EFoodType FoodType = EFoodType.MainCourse;
             const bool IsIngredient = false;
 
@@ -299,7 +299,7 @@ namespace ItemSystem
         {
             const bool IsIngredient = false;
             const EFoodType FoodType = EFoodType.Soup;
-            const EItemTypeIcon IconType = EItemTypeIcon.CookedFood;
+            const EItemType IconType = EItemType.CookedFood;
             const float BowlWeight = 0.35f;
 
             // 6 ingredients
