@@ -128,6 +128,8 @@ MonoBehaviour:
   _toggle: {fileID: 5699257646578519211}
   _selectionIndicationImg: {fileID: 9208987326238091637}
   _itemIcon: {fileID: 7634989100501547463}
+  _itemNameTF: {fileID: 6602342716782005723}
+  _itemWeightTF: {fileID: 5709117155502446608}
 --- !u!1 &3511998059593884865
 GameObject:
   m_ObjectHideFlags: 0

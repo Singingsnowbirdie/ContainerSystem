@@ -50,14 +50,14 @@ namespace ContainerSystem
             if (_model.ContainersRepository.TryGetContainerByID(data.UniqueID, out ContainerData containerData))
             {
                 Debug.Log($"There is already a container with ID {data.UniqueID} in the repository");
-                _containerUIModel.OpenContainerUI.OnNext(containerData);
+                _containerUIModel.SetContainerOpenState(true, containerData);
             }
             else
             {
                 Debug.Log($"Container with ID {data.UniqueID} was not found in the repository and will be created.");
                 ContainerData newContainer = _containerFactory.CreateNewContainer(data.UniqueID, data.ContainerType);
                 _model.ContainersRepository.AddContainer(newContainer);
-                _containerUIModel.OpenContainerUI.OnNext(newContainer);
+                _containerUIModel.SetContainerOpenState(true, newContainer);
             }
         }
     }

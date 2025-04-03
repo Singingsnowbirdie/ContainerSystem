@@ -9,7 +9,7 @@ namespace Localization
     public class LocalizationPresenter : IStartable
     {
         [Inject] private readonly LocalizationModel _localizationModel;
-        [Inject] private readonly LocalizationUIView _localizationUIView;
+        [Inject] private readonly LocalizationSettingsUIView _localizationUIView;
 
         public void Start()
         {

@@ -7,7 +7,7 @@ using VContainer;
 
 namespace UI
 {
-    public class LocalizationUIView : MonoBehaviour
+    public class LocalizationSettingsUIView : MonoBehaviour
     {
         [Inject] private readonly LocalizationModel _localizationModel;
 
@@ -19,7 +19,7 @@ namespace UI
         [SerializeField] private LanguageFlagIconView _englishFlagIcon;
         [SerializeField] private LanguageFlagIconView _russianFlagIcon;
 
-        internal void SetUIModel(LocalizationUIModel uiModel)
+        internal void SetUIModel(LocalizationSettingsUIModel uiModel)
         {
             _englishFlagIcon.SetUIModel(uiModel.LanguageButtonIcon_En);
             _russianFlagIcon.SetUIModel(uiModel.LanguageButtonIcon_Ru);

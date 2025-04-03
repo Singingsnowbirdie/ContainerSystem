@@ -11,6 +11,7 @@ namespace UI
         [SerializeField] private Image _selectionIndicationImg;
         [SerializeField] private ItemTypeIconView _itemIcon;
         [SerializeField] private TextMeshProReactiveStringView _itemNameTF;
+        [SerializeField] private TextMeshProReactiveFloat _itemWeightTF;
 
         public ItemUIModel UIModel { get; private set; }
 

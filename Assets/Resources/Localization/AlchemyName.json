@@ -1,0 +1,94 @@
+{
+    "Items": [
+        {
+          "Key": "iron_mushroom",
+          "english": "Iron Mushroom",
+          "russian": "Железный гриб"
+        },
+        {
+          "Key": "moon_dust",
+          "english": "Moon Dust",
+          "russian": "Лунная пыль"
+        },
+        {
+          "Key": "solar_berry",
+          "english": "Solar Berry",
+          "russian": "Солнечная ягода"
+        },
+        {
+          "Key": "life_root",
+          "english": "Life Root",
+          "russian": "Корень жизни"
+        },
+        {
+          "Key": "star_shard",
+          "english": "Star Shard",
+          "russian": "Звездный осколок"
+        },
+        {
+          "Key": "thunder_root",
+          "english": "Thunder Root",
+          "russian": "Громовой корень"
+        },
+        {
+          "Key": "phoenix_heart",
+          "english": "Phoenix Heart",
+          "russian": "Сердце феникса"
+        },
+        {
+          "Key": "arcane_crystal",
+          "english": "Arcane Crystal",
+          "russian": "Кристалл арканы"
+        },
+        {
+          "Key": "dragon_claw",
+          "english": "Dragon Claw",
+          "russian": "Коготь дракона"
+        },
+        {
+          "Key": "healing_moss",
+          "english": "Healing Moss",
+          "russian": "Целебный мох"
+        },
+        {
+          "Key": "bone_powder",
+          "english": "Bone Powder",
+          "russian": "Костяной порошок"
+        },
+        {
+          "Key": "healing_dew",
+          "english": "Healing Dew",
+          "russian": "Исцеляющая роса"
+        },
+        {
+          "Key": "fern_flower",
+          "english": "Fern Flower",
+          "russian": "Цветок папоротника"
+        },
+        {
+          "Key": "adamantite_dust",
+          "english": "Adamantite Dust",
+          "russian": "Адамантитовая крошка"
+        },
+        {
+          "Key": "etheric_lichen",
+          "english": "Etheric Lichen",
+          "russian": "Эфирный лишайник"
+        },
+        {
+          "Key": "angel_tear",
+          "english": "Angel Tear",
+          "russian": "Слеза ангела"
+        },
+        {
+          "Key": "dragon_scale",
+          "english": "Dragon Scale",
+          "russian": "Чешуя дракона"
+        },
+        {
+          "Key": "time_sand",
+          "english": "Time Sand",
+          "russian": "Песок времени"
+        }
+      ]
+}
