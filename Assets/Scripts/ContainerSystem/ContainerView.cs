@@ -6,8 +6,8 @@ namespace ContainerSystem
 {
     public class ContainerView : MonoBehaviour, IContainerView, IInteractable
     {
-        [field: SerializeField] public string UniqueID { get; }
-        [field: SerializeField] public EContainerType ContainerType { get; }
+        [field: SerializeField] public string UniqueID { get; private set; }
+        [field: SerializeField] public EContainerType ContainerType { get; private set; }
 
         private ContainerModel _containerModel;
 
@@ -16,6 +16,7 @@ namespace ContainerSystem
         public void Interact(PlayerInteractionPresenter playerInteractionPresenter)
         {
             ContainerOpenData openData = new ContainerOpenData(UniqueID, ContainerType);
+
             _containerModel.TryOpen.OnNext(openData);
         }
 

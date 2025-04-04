@@ -1,0 +1,19 @@
+{
+    "Items": [
+        {
+            "Key": "ui_menu_title",
+            "English": "Main Menu",
+            "Russian": "Главное меню"
+        },
+        {
+            "Key": "ui_menu_play",
+            "English": "Play",
+            "Russian": "Играть"
+        },
+        {
+            "Key": "ui_menu_exit",
+            "English": "Exit",
+            "Russian": "Выход"
+        }
+    ]
+}

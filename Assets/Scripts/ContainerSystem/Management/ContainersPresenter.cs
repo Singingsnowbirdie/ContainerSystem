@@ -28,16 +28,13 @@ namespace ContainerSystem
                 {
                     uniqueIDs.Add(uniqueID);
 
-                    if (containerView.ContainerType == EContainerType.Barrel)
-                    {
-                        SupplyContainerModel containerModel = new SupplyContainerModel(containerView.UniqueID);
-                        containerView.SetContainerModel(containerModel);
-                        _model.ContainerModels[containerView.UniqueID] = containerModel;
+                    SupplyContainerModel containerModel = new SupplyContainerModel(containerView.UniqueID);
+                    containerView.SetContainerModel(containerModel);
+                    _model.ContainerModels[containerView.UniqueID] = containerModel;
 
-                        containerModel.TryOpen
-                            .Subscribe(OnTryOpen)
-                            .AddTo(containerView);
-                    }
+                    containerModel.TryOpen
+                        .Subscribe(OnTryOpen)
+                        .AddTo(containerView);
 
                     _model.ContainerViews[containerView.UniqueID] = containerView;
                     _model.ContainersRepository.LoadData();
