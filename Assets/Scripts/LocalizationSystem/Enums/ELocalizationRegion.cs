@@ -7,6 +7,8 @@
         PotionName,
         EquipmentClass,
         ItemType,
+        HUD,
+        MainMenu
     }
 
 }

@@ -50,7 +50,9 @@ namespace Localization
             if (Translations.TryGetValue(localizationRegion, out Dictionary<string, string> dict))
             {
                 if (dict.TryGetValue(itemConfigKey, out translation))
+                {
                     return true;
+                }
             }
             translation = null;
             return false;
