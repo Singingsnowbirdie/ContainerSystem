@@ -2,723 +2,723 @@
   "Items": [
     {
       "Key": "potato",
-      "english": "Potato",
-      "russian": "Картофель"
+      "English": "Potato",
+      "Russian": "Картофель"
     },
     {
       "Key": "carrot",
-      "english": "Carrot",
-      "russian": "Морковь"
+      "English": "Carrot",
+      "Russian": "Морковь"
     },
     {
       "Key": "onion",
-      "english": "Onion",
-      "russian": "Лук"
+      "English": "Onion",
+      "Russian": "Лук"
     },
     {
       "Key": "tomato",
-      "english": "Tomato",
-      "russian": "Помидор"
+      "English": "Tomato",
+      "Russian": "Помидор"
     },
     {
       "Key": "cucumber",
-      "english": "Cucumber",
-      "russian": "Огурец"
+      "English": "Cucumber",
+      "Russian": "Огурец"
     },
     {
       "Key": "mushroom",
-      "english": "Mushroom",
-      "russian": "Гриб"
+      "English": "Mushroom",
+      "Russian": "Гриб"
     },
     {
       "Key": "pumpkin",
-      "english": "Pumpkin",
-      "russian": "Тыква"
+      "English": "Pumpkin",
+      "Russian": "Тыква"
     },
     {
       "Key": "zucchini",
-      "english": "Zucchini",
-      "russian": "Цуккини"
+      "English": "Zucchini",
+      "Russian": "Цуккини"
     },
     {
       "Key": "beet",
-      "english": "Beetroot",
-      "russian": "Свекла"
+      "English": "Beetroot",
+      "Russian": "Свекла"
     },
     {
       "Key": "cabbage",
-      "english": "Cabbage",
-      "russian": "Капуста"
+      "English": "Cabbage",
+      "Russian": "Капуста"
     },
     {
       "Key": "apple_green",
-      "english": "Green Apple",
-      "russian": "Зеленое яблоко"
+      "English": "Green Apple",
+      "Russian": "Зеленое яблоко"
     },
     {
       "Key": "apple_red",
-      "english": "Red Apple",
-      "russian": "Красное яблоко"
+      "English": "Red Apple",
+      "Russian": "Красное яблоко"
     },
     {
       "Key": "pear",
-      "english": "Pear",
-      "russian": "Груша"
+      "English": "Pear",
+      "Russian": "Груша"
     },
     {
       "Key": "lemon",
-      "english": "Lemon",
-      "russian": "Лимон"
+      "English": "Lemon",
+      "Russian": "Лимон"
     },
     {
       "Key": "orange",
-      "english": "Orange",
-      "russian": "Апельсин"
+      "English": "Orange",
+      "Russian": "Апельсин"
     },
     {
       "Key": "peas",
-      "english": "Dried Peas",
-      "russian": "Сушеный горох"
+      "English": "Dried Peas",
+      "Russian": "Сушеный горох"
     },
     {
       "Key": "rye",
-      "english": "Rye Grains",
-      "russian": "Ржаные зерна"
+      "English": "Rye Grains",
+      "Russian": "Ржаные зерна"
     },
     {
       "Key": "oat",
-      "english": "Oat Grains",
-      "russian": "Овсяные зерна"
+      "English": "Oat Grains",
+      "Russian": "Овсяные зерна"
     },
     {
       "Key": "barley",
-      "english": "Barley",
-      "russian": "Ячмень"
+      "English": "Barley",
+      "Russian": "Ячмень"
     },
     {
       "Key": "wheat",
-      "english": "Wheat Grains",
-      "russian": "Пшеничные зерна"
+      "English": "Wheat Grains",
+      "Russian": "Пшеничные зерна"
     },
     {
       "Key": "millet",
-      "english": "Millet",
-      "russian": "Пшено"
+      "English": "Millet",
+      "Russian": "Пшено"
     },
     {
       "Key": "buckwheat",
-      "english": "Buckwheat",
-      "russian": "Гречка"
+      "English": "Buckwheat",
+      "Russian": "Гречка"
     },
     {
       "Key": "rice",
-      "english": "Rice",
-      "russian": "Рис"
+      "English": "Rice",
+      "Russian": "Рис"
     },
     {
       "Key": "flour_wheat",
-      "english": "Wheat Flour",
-      "russian": "Пшеничная мука"
+      "English": "Wheat Flour",
+      "Russian": "Пшеничная мука"
     },
     {
       "Key": "flour_rye",
-      "english": "Rye Flour",
-      "russian": "Ржаная мука"
+      "English": "Rye Flour",
+      "Russian": "Ржаная мука"
     },
     {
       "Key": "water_bottle",
-      "english": "Bottle of Water",
-      "russian": "Бутылка воды"
+      "English": "Bottle of Water",
+      "Russian": "Бутылка воды"
     },
     {
       "Key": "milk_jug",
-      "english": "Jug of Milk",
-      "russian": "Кувшин молока"
+      "English": "Jug of Milk",
+      "Russian": "Кувшин молока"
     },
     {
       "Key": "young_red_wine",
-      "english": "Young Red Wine",
-      "russian": "Молодое красное вино"
+      "English": "Young Red Wine",
+      "Russian": "Молодое красное вино"
     },
     {
       "Key": "young_white_wine",
-      "english": "Young White Wine",
-      "russian": "Молодое белое вино"
+      "English": "Young White Wine",
+      "Russian": "Молодое белое вино"
     },
     {
       "Key": "mature_red_wine",
-      "english": "Mature Red Wine",
-      "russian": "Зрелое красное вино"
+      "English": "Mature Red Wine",
+      "Russian": "Зрелое красное вино"
     },
     {
       "Key": "mature_white_wine",
-      "english": "Mature White Wine",
-      "russian": "Зрелое белое вино"
+      "English": "Mature White Wine",
+      "Russian": "Зрелое белое вино"
     },
     {
       "Key": "aged_red_wine",
-      "english": "Aged Red Wine",
-      "russian": "Выдержанное красное вино"
+      "English": "Aged Red Wine",
+      "Russian": "Выдержанное красное вино"
     },
     {
       "Key": "aged_white_wine",
-      "english": "Aged White Wine",
-      "russian": "Выдержанное белое вино"
+      "English": "Aged White Wine",
+      "Russian": "Выдержанное белое вино"
     },
     {
       "Key": "wheat_beer",
-      "english": "Wheat Beer",
-      "russian": "Пшеничное пиво"
+      "English": "Wheat Beer",
+      "Russian": "Пшеничное пиво"
     },
     {
       "Key": "seasonal_ale",
-      "english": "Seasonal Ale",
-      "russian": "Сезонный эль"
+      "English": "Seasonal Ale",
+      "Russian": "Сезонный эль"
     },
     {
       "Key": "old_ale",
-      "english": "Old Ale",
-      "russian": "Старый эль"
+      "English": "Old Ale",
+      "Russian": "Старый эль"
     },
     {
       "Key": "dark_ale",
-      "english": "Dark Ale",
-      "russian": "Темный эль"
+      "English": "Dark Ale",
+      "Russian": "Темный эль"
     },
     {
       "Key": "stout",
-      "english": "Stout",
-      "russian": "Стаут"
+      "English": "Stout",
+      "Russian": "Стаут"
     },
     {
       "Key": "garlic",
-      "english": "Garlic",
-      "russian": "Чеснок"
+      "English": "Garlic",
+      "Russian": "Чеснок"
     },
     {
       "Key": "greens",
-      "english": "Fresh Greens",
-      "russian": "Свежая зелень"
+      "English": "Fresh Greens",
+      "Russian": "Свежая зелень"
     },
     {
       "Key": "salt",
-      "english": "Salt",
-      "russian": "Соль"
+      "English": "Salt",
+      "Russian": "Соль"
     },
     {
       "Key": "bay_leaf",
-      "english": "Bay Leaf",
-      "russian": "Лавровый лист"
+      "English": "Bay Leaf",
+      "Russian": "Лавровый лист"
     },
     {
       "Key": "sugar",
-      "english": "Sugar",
-      "russian": "Сахар"
+      "English": "Sugar",
+      "Russian": "Сахар"
     },
     {
       "Key": "pickle",
-      "english": "Pickled Cucumber",
-      "russian": "Соленый огурец"
+      "English": "Pickled Cucumber",
+      "Russian": "Соленый огурец"
     },
     {
       "Key": "sour_cream",
-      "english": "Sour Cream",
-      "russian": "Сметана"
+      "English": "Sour Cream",
+      "Russian": "Сметана"
     },
     {
       "Key": "rosemary",
-      "english": "Rosemary",
-      "russian": "Розмарин"
+      "English": "Rosemary",
+      "Russian": "Розмарин"
     },
     {
       "Key": "cumin",
-      "english": "Cumin",
-      "russian": "Тмин"
+      "English": "Cumin",
+      "Russian": "Тмин"
     },
     {
       "Key": "pepper",
-      "english": "Pepper",
-      "russian": "Перец"
+      "English": "Pepper",
+      "Russian": "Перец"
     },
     {
       "Key": "mustard",
-      "english": "Mustard",
-      "russian": "Горчица"
+      "English": "Mustard",
+      "Russian": "Горчица"
     },
     {
       "Key": "juniper_berries",
-      "english": "Juniper Berries",
-      "russian": "Ягоды можжевельника"
+      "English": "Juniper Berries",
+      "Russian": "Ягоды можжевельника"
     },
     {
       "Key": "lingonberry",
-      "english": "Lingonberry",
-      "russian": "Брусника"
+      "English": "Lingonberry",
+      "Russian": "Брусника"
     },
     {
       "Key": "capers",
-      "english": "Capers",
-      "russian": "Каперсы"
+      "English": "Capers",
+      "Russian": "Каперсы"
     },
     {
       "Key": "ginger",
-      "english": "Ginger Root",
-      "russian": "Корень имбиря"
+      "English": "Ginger Root",
+      "Russian": "Корень имбиря"
     },
     {
       "Key": "honey",
-      "english": "Honey",
-      "russian": "Мед"
+      "English": "Honey",
+      "Russian": "Мед"
     },
     {
       "Key": "cinnamon",
-      "english": "Cinnamon",
-      "russian": "Корица"
+      "English": "Cinnamon",
+      "Russian": "Корица"
     },
     {
       "Key": "olives",
-      "english": "Olives",
-      "russian": "Оливки"
+      "English": "Olives",
+      "Russian": "Оливки"
     },
     {
       "Key": "butter",
-      "english": "Butter",
-      "russian": "Масло сливочное"
+      "English": "Butter",
+      "Russian": "Масло сливочное"
     },
     {
       "Key": "vegetable_oil",
-      "english": "Vegetable Oil",
-      "russian": "Растительное масло"
+      "English": "Vegetable Oil",
+      "Russian": "Растительное масло"
     },
     {
       "Key": "tarragon",
-      "english": "Tarragon",
-      "russian": "Эстрагон"
+      "English": "Tarragon",
+      "Russian": "Эстрагон"
     },
     {
       "Key": "saffron",
-      "english": "Saffron",
-      "russian": "Шафран"
+      "English": "Saffron",
+      "Russian": "Шафран"
     },
     {
       "Key": "paprika",
-      "english": "Paprika",
-      "russian": "Паприка"
+      "English": "Paprika",
+      "Russian": "Паприка"
     },
     {
       "Key": "soy_sauce",
-      "english": "Soy Sauce",
-      "russian": "Соевый соус"
+      "English": "Soy Sauce",
+      "Russian": "Соевый соус"
     },
     {
       "Key": "cheese_young",
-      "english": "Young Cheese",
-      "russian": "Молодой сыр"
+      "English": "Young Cheese",
+      "Russian": "Молодой сыр"
     },
     {
       "Key": "cheese_aged",
-      "english": "Aged Cheese",
-      "russian": "Выдержанный сыр"
+      "English": "Aged Cheese",
+      "Russian": "Выдержанный сыр"
     },
     {
       "Key": "cheese_sheep",
-      "english": "Sheep Cheese",
-      "russian": "Овечий сыр"
+      "English": "Sheep Cheese",
+      "Russian": "Овечий сыр"
     },
     {
       "Key": "cheese_goat",
-      "english": "Goat Cheese",
-      "russian": "Козий сыр"
+      "English": "Goat Cheese",
+      "Russian": "Козий сыр"
     },
     {
       "Key": "cheese_hard",
-      "english": "Hard Cheese",
-      "russian": "Твердый сыр"
+      "English": "Hard Cheese",
+      "Russian": "Твердый сыр"
     },
     {
       "Key": "smoked_pork_ribs",
-      "english": "Smoked Pork Ribs",
-      "russian": "Копченые свиные ребрышки"
+      "English": "Smoked Pork Ribs",
+      "Russian": "Копченые свиные ребрышки"
     },
     {
       "Key": "ham",
-      "english": "Ham",
-      "russian": "Ветчина"
+      "English": "Ham",
+      "Russian": "Ветчина"
     },
     {
       "Key": "sausage",
-      "english": "Sausage",
-      "russian": "Колбаса"
+      "English": "Sausage",
+      "Russian": "Колбаса"
     },
     {
       "Key": "chicken",
-      "english": "Chicken",
-      "russian": "Курица"
+      "English": "Chicken",
+      "Russian": "Курица"
     },
     {
       "Key": "goat_meat",
-      "english": "Goat Meat",
-      "russian": "Козлятина"
+      "English": "Goat Meat",
+      "Russian": "Козлятина"
     },
     {
       "Key": "pork",
-      "english": "Pork",
-      "russian": "Свинина"
+      "English": "Pork",
+      "Russian": "Свинина"
     },
     {
       "Key": "rabbit",
-      "english": "Rabbit",
-      "russian": "Кролик"
+      "English": "Rabbit",
+      "Russian": "Кролик"
     },
     {
       "Key": "lamb",
-      "english": "Lamb",
-      "russian": "Баранина"
+      "English": "Lamb",
+      "Russian": "Баранина"
     },
     {
       "Key": "duck",
-      "english": "Duck",
-      "russian": "Утка"
+      "English": "Duck",
+      "Russian": "Утка"
     },
     {
       "Key": "beef",
-      "english": "Beef",
-      "russian": "Говядина"
+      "English": "Beef",
+      "Russian": "Говядина"
     },
     {
       "Key": "horse_meat",
-      "english": "Horse Meat",
-      "russian": "Конина"
+      "English": "Horse Meat",
+      "Russian": "Конина"
     },
     {
       "Key": "venison",
-      "english": "Venison",
-      "russian": "Оленина"
+      "English": "Venison",
+      "Russian": "Оленина"
     },
     {
       "Key": "goose",
-      "english": "Goose",
-      "russian": "Гусь"
+      "English": "Goose",
+      "Russian": "Гусь"
     },
     {
       "Key": "salmon",
-      "english": "Salmon",
-      "russian": "Лосось"
+      "English": "Salmon",
+      "Russian": "Лосось"
     },
     {
       "Key": "trout",
-      "english": "Trout",
-      "russian": "Форель"
+      "English": "Trout",
+      "Russian": "Форель"
     },
     {
       "Key": "pike",
-      "english": "Pike",
-      "russian": "Щука"
+      "English": "Pike",
+      "Russian": "Щука"
     },
     {
       "Key": "sturgeon",
-      "english": "Sturgeon",
-      "russian": "Осётр"
+      "English": "Sturgeon",
+      "Russian": "Осётр"
     },
     {
       "Key": "perch",
-      "english": "Perch",
-      "russian": "Окунь"
+      "English": "Perch",
+      "Russian": "Окунь"
     },
     {
       "Key": "carp",
-      "english": "Carp",
-      "russian": "Карп"
+      "English": "Carp",
+      "Russian": "Карп"
     },
     {
       "Key": "bream",
-      "english": "Bream",
-      "russian": "Лещ"
+      "English": "Bream",
+      "Russian": "Лещ"
     },
     {
       "Key": "catfish",
-      "english": "Catfish",
-      "russian": "Сом"
+      "English": "Catfish",
+      "Russian": "Сом"
     },
     {
       "Key": "cod",
-      "english": "Cod",
-      "russian": "Треска"
+      "English": "Cod",
+      "Russian": "Треска"
     },
     {
       "Key": "zander",
-      "english": "Zander",
-      "russian": "Судак"
+      "English": "Zander",
+      "Russian": "Судак"
     },
     {
       "Key": "wheat_porridge",
-      "english": "Wheat Porridge",
-      "russian": "Пшеничная каша"
+      "English": "Wheat Porridge",
+      "Russian": "Пшеничная каша"
     },
     {
       "Key": "rye_flatbread",
-      "english": "Rye Flatbread",
-      "russian": "Ржаная лепёшка"
+      "English": "Rye Flatbread",
+      "Russian": "Ржаная лепёшка"
     },
     {
       "Key": "barley_porridge",
-      "english": "Barley Porridge",
-      "russian": "Ячменная каша"
+      "English": "Barley Porridge",
+      "Russian": "Ячменная каша"
     },
     {
       "Key": "buckwheat_porridge",
-      "english": "Buckwheat Porridge",
-      "russian": "Гречневая каша"
+      "English": "Buckwheat Porridge",
+      "Russian": "Гречневая каша"
     },
     {
       "Key": "boiled_rice",
-      "english": "Boiled Rice",
-      "russian": "Варёный рис"
+      "English": "Boiled Rice",
+      "Russian": "Варёный рис"
     },
     {
       "Key": "millet_porridge",
-      "english": "Millet Porridge",
-      "russian": "Пшённая каша"
+      "English": "Millet Porridge",
+      "Russian": "Пшённая каша"
     },
     {
       "Key": "wheat_bread",
-      "english": "Wheat Bread",
-      "russian": "Пшеничный хлеб"
+      "English": "Wheat Bread",
+      "Russian": "Пшеничный хлеб"
     },
     {
       "Key": "stewed_cabbage",
-      "english": "Stewed Cabbage",
-      "russian": "Тушёная капуста"
+      "English": "Stewed Cabbage",
+      "Russian": "Тушёная капуста"
     },
     {
       "Key": "boiled_potato",
-      "english": "Boiled Potato",
-      "russian": "Варёный картофель"
+      "English": "Boiled Potato",
+      "Russian": "Варёный картофель"
     },
     {
       "Key": "carrot_puree",
-      "english": "Carrot Puree",
-      "russian": "Морковное пюре"
+      "English": "Carrot Puree",
+      "Russian": "Морковное пюре"
     },
     {
       "Key": "pumpkin_puree",
-      "english": "Pumpkin Puree",
-      "russian": "Тыквенное пюре"
+      "English": "Pumpkin Puree",
+      "Russian": "Тыквенное пюре"
     },
     {
       "Key": "cooked_chicken",
-      "english": "Fried Chicken",
-      "russian": "Жареная курица"
+      "English": "Fried Chicken",
+      "Russian": "Жареная курица"
     },
     {
       "Key": "cooked_goat_meat",
-      "english": "Fried Goat Meat",
-      "russian": "Жареная козлятина"
+      "English": "Fried Goat Meat",
+      "Russian": "Жареная козлятина"
     },
     {
       "Key": "cooked_pork",
-      "english": "Fried Pork",
-      "russian": "Жареная свинина"
+      "English": "Fried Pork",
+      "Russian": "Жареная свинина"
     },
     {
       "Key": "cooked_rabbit",
-      "english": "Fried Rabbit",
-      "russian": "Жареный кролик"
+      "English": "Fried Rabbit",
+      "Russian": "Жареный кролик"
     },
     {
       "Key": "cooked_lamb",
-      "english": "Fried Lamb",
-      "russian": "Жареная баранина"
+      "English": "Fried Lamb",
+      "Russian": "Жареная баранина"
     },
     {
       "Key": "cooked_duck",
-      "english": "Fried Duck",
-      "russian": "Жареная утка"
+      "English": "Fried Duck",
+      "Russian": "Жареная утка"
     },
     {
       "Key": "cooked_beef",
-      "english": "Fried Beef",
-      "russian": "Жареная говядина"
+      "English": "Fried Beef",
+      "Russian": "Жареная говядина"
     },
     {
       "Key": "cooked_horse_meat",
-      "english": "Fried Horse Meat",
-      "russian": "Жареная конина"
+      "English": "Fried Horse Meat",
+      "Russian": "Жареная конина"
     },
     {
       "Key": "cooked_venison",
-      "english": "Fried Venison",
-      "russian": "Жареная оленина"
+      "English": "Fried Venison",
+      "Russian": "Жареная оленина"
     },
     {
       "Key": "cooked_goose",
-      "english": "Fried Goose",
-      "russian": "Жареный гусь"
+      "English": "Fried Goose",
+      "Russian": "Жареный гусь"
     },
     {
       "Key": "fried_carp",
-      "english": "Fried Carp",
-      "russian": "Жареный карп"
+      "English": "Fried Carp",
+      "Russian": "Жареный карп"
     },
     {
       "Key": "fried_perch",
-      "english": "Baked Perch",
-      "russian": "Печёный окунь"
+      "English": "Baked Perch",
+      "Russian": "Печёный окунь"
     },
     {
       "Key": "fried_pike",
-      "english": "Fried Pike",
-      "russian": "Жареная щука"
+      "English": "Fried Pike",
+      "Russian": "Жареная щука"
     },
     {
       "Key": "steamed_salmon",
-      "english": "Steamed Salmon",
-      "russian": "Лосось на пару"
+      "English": "Steamed Salmon",
+      "Russian": "Лосось на пару"
     },
     {
       "Key": "fried_trout",
-      "english": "Fried Trout",
-      "russian": "Жареная форель"
+      "English": "Fried Trout",
+      "Russian": "Жареная форель"
     },
     {
       "Key": "chicken_rosemary",
-      "english": "Chicken with Rosemary",
-      "russian": "Курица с розмарином"
+      "English": "Chicken with Rosemary",
+      "Russian": "Курица с розмарином"
     },
     {
       "Key": "goat_cumin",
-      "english": "Goat Meat with Cumin",
-      "russian": "Козлятина с тмином"
+      "English": "Goat Meat with Cumin",
+      "Russian": "Козлятина с тмином"
     },
     {
       "Key": "pork_mustard",
-      "english": "Pork with Mustard",
-      "russian": "Свинина с горчицей"
+      "English": "Pork with Mustard",
+      "Russian": "Свинина с горчицей"
     },
     {
       "Key": "lamb_garlic",
-      "english": "Lamb with Garlic",
-      "russian": "Баранина с чесноком"
+      "English": "Lamb with Garlic",
+      "Russian": "Баранина с чесноком"
     },
     {
       "Key": "rabbit_lingonberry",
-      "english": "Rabbit with Lingonberry",
-      "russian": "Кролик с брусникой"
+      "English": "Rabbit with Lingonberry",
+      "Russian": "Кролик с брусникой"
     },
     {
       "Key": "duck_orange",
-      "english": "Duck with Orange",
-      "russian": "Утка с апельсином"
+      "English": "Duck with Orange",
+      "Russian": "Утка с апельсином"
     },
     {
       "Key": "beef_juniper",
-      "english": "Beef with Juniper",
-      "russian": "Говядина с можжевельником"
+      "English": "Beef with Juniper",
+      "Russian": "Говядина с можжевельником"
     },
     {
       "Key": "goose_apple",
-      "english": "Goose with Apple",
-      "russian": "Гусь с яблоком"
+      "English": "Goose with Apple",
+      "Russian": "Гусь с яблоком"
     },
     {
       "Key": "horse_pepper",
-      "english": "Horse Meat with Pepper",
-      "russian": "Конина с перцем"
+      "English": "Horse Meat with Pepper",
+      "Russian": "Конина с перцем"
     },
     {
       "Key": "venison_lingonberry",
-      "english": "Venison with Lingonberry",
-      "russian": "Оленина с брусникой"
+      "English": "Venison with Lingonberry",
+      "Russian": "Оленина с брусникой"
     },
     {
       "Key": "perch_herbs",
-      "english": "Perch with Herbs",
-      "russian": "Окунь с травами"
+      "English": "Perch with Herbs",
+      "Russian": "Окунь с травами"
     },
     {
       "Key": "trout_lemon",
-      "english": "Trout with Lemon Butter",
-      "russian": "Форель с лимонным маслом"
+      "English": "Trout with Lemon Butter",
+      "Russian": "Форель с лимонным маслом"
     },
     {
       "Key": "pike_cream",
-      "english": "Pike in Cream Sauce",
-      "russian": "Щука в сливочном соусе"
+      "English": "Pike in Cream Sauce",
+      "Russian": "Щука в сливочном соусе"
     },
     {
       "Key": "catfish_paprika",
-      "english": "Catfish with Paprika",
-      "russian": "Сом с паприкой"
+      "English": "Catfish with Paprika",
+      "Russian": "Сом с паприкой"
     },
     {
       "Key": "salmon_dill",
-      "english": "Salmon with Dill Crust",
-      "russian": "Лосось в укропной корочке"
+      "English": "Salmon with Dill Crust",
+      "Russian": "Лосось в укропной корочке"
     },
     {
       "Key": "cod_mustard",
-      "english": "Cod with Mustard",
-      "russian": "Треска с горчицей"
+      "English": "Cod with Mustard",
+      "Russian": "Треска с горчицей"
     },
     {
       "Key": "carp_saffron",
-      "english": "Carp with Saffron",
-      "russian": "Карп с шафраном"
+      "English": "Carp with Saffron",
+      "Russian": "Карп с шафраном"
     },
     {
       "Key": "bream_wine",
-      "english": "Bream in Wine Sauce",
-      "russian": "Лещ в винном соусе"
+      "English": "Bream in Wine Sauce",
+      "Russian": "Лещ в винном соусе"
     },
     {
       "Key": "zander_ginger",
-      "english": "Zander with Ginger",
-      "russian": "Судак с имбирём"
+      "English": "Zander with Ginger",
+      "Russian": "Судак с имбирём"
     },
     {
       "Key": "sturgeon_tarragon",
-      "english": "Sturgeon with Tarragon",
-      "russian": "Осётр с эстрагоном"
+      "English": "Sturgeon with Tarragon",
+      "Russian": "Осётр с эстрагоном"
     },
     {
       "Key": "pumpkin_cream_soup",
-      "english": "Pumpkin Cream Soup",
-      "russian": "Тыквенный крем-суп"
+      "English": "Pumpkin Cream Soup",
+      "Russian": "Тыквенный крем-суп"
     },
     {
       "Key": "chicken_noodle_soup",
-      "english": "Chicken Noodle Soup",
-      "russian": "Куриный суп с лапшой"
+      "English": "Chicken Noodle Soup",
+      "Russian": "Куриный суп с лапшой"
     },
     {
       "Key": "seasonal_vegetable_soup",
-      "english": "Seasonal Vegetable Soup",
-      "russian": "Овощной сезонный суп"
+      "English": "Seasonal Vegetable Soup",
+      "Russian": "Овощной сезонный суп"
     },
     {
       "Key": "mushroom_cream_soup",
-      "english": "Mushroom Cream Soup",
-      "russian": "Грибной крем-суп"
+      "English": "Mushroom Cream Soup",
+      "Russian": "Грибной крем-суп"
     },
     {
       "Key": "pea_smoked_soup",
-      "english": "Pea Soup with Smoked Meat",
-      "russian": "Гороховый суп с копчёностями"
+      "English": "Pea Soup with Smoked Meat",
+      "Russian": "Гороховый суп с копчёностями"
     },
     {
       "Key": "ukha",
-      "english": "Ukha",
-      "russian": "Уха"
+      "English": "Ukha",
+      "Russian": "Уха"
     },
     {
       "Key": "borscht",
-      "english": "Borscht",
-      "russian": "Борщ"
+      "English": "Borscht",
+      "Russian": "Борщ"
     },
     {
       "Key": "meat_solyanka",
-      "english": "Meat Solyanka",
-      "russian": "Мясная солянка"
+      "English": "Meat Solyanka",
+      "Russian": "Мясная солянка"
     }
   ]
 }

@@ -1,4 +1,4 @@
-using System;
+using UI;
 using UI.MainMenu;
 using UniRx;
 using UnityEngine;
@@ -12,8 +12,10 @@ namespace Player
     {
         [Inject] private readonly PlayerLocomotionModel _locomotionModel;
         [Inject] private readonly PlayerView _view;
+
         [Inject] private readonly PlayerInput _playerInput;
         [Inject] private readonly MainMenuUIModel _mainMenuModel;
+        [Inject] private readonly ContainerUIModel _containerUIModel;
 
         public void Start()
         {
@@ -38,11 +40,15 @@ namespace Player
             Cursor.visible = false;
 
             _mainMenuModel.IsMainMenuOpen
-                .Subscribe(val => OnMainMenuOpen(val))
+                .Subscribe(val => OnSomeUIOpen(val))
+                .AddTo(_view);
+
+            _containerUIModel.IsContainerUIOpen
+                .Subscribe(val => OnSomeUIOpen(val))
                 .AddTo(_view);
         }
 
-        private void OnMainMenuOpen(bool val)
+        private void OnSomeUIOpen(bool val)
         {
             _locomotionModel.CanMove = !val;
         }

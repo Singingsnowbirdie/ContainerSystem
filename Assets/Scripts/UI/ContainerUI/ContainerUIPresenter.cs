@@ -2,6 +2,7 @@
 using DataSystem;
 using ItemSystem;
 using Localization;
+using NUnit.Framework.Interfaces;
 using System;
 using UniRx;
 using UnityEngine;
@@ -83,6 +84,8 @@ namespace UI
 
         private string GetItemName(ItemConfig itemConfig)
         {
+            Debug.Log($"GetItemName; itemConfig = {itemConfig}");
+
             if (_localizationModel.TryGetTranslation(itemConfig.LocalizationRegion, itemConfig.ItemConfigKey, out string translation))
             {
                 return translation;
