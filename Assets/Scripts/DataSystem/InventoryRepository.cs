@@ -141,9 +141,9 @@ namespace DataSystem
     [Serializable]
     public class ItemData
     {
-        public string ItemID { get; }
-        public string ItemConfigKey { get; }
-        public int Quantity { get; set; }
+        public string ItemID;
+        public string ItemConfigKey;
+        public int Quantity;
 
         public ItemData(string itemID, string itemConfigKey, int quantity = 1)
         {

@@ -48,15 +48,10 @@ namespace Localization
 
         internal bool TryGetTranslation(ELocalizationRegion localizationRegion, string itemConfigKey, out string translation)
         {
-            Debug.Log($"TryGetTranslation; localizationRegion = {localizationRegion}");
-            Debug.Log($"itemConfigKey = {itemConfigKey}");
-
             if (Translations.TryGetValue(localizationRegion, out Dictionary<string, string> dict))
             {
-                if (dict.TryGetValue(itemConfigKey, out string value))
+                if (dict.TryGetValue(itemConfigKey, out translation))
                 {
-                    Debug.Log($"translation = {value}");
-                    translation = value;
                     return true;
                 }
             }

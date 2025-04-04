@@ -2,8 +2,6 @@
 using DataSystem;
 using ItemSystem;
 using Localization;
-using NUnit.Framework.Interfaces;
-using System;
 using UniRx;
 using UnityEngine;
 using VContainer;
@@ -36,8 +34,6 @@ namespace UI
 
             foreach (ItemData itemData in data.Items)
             {
-                Debug.Log($"itemData.ItemConfigKey = {itemData.ItemConfigKey}");
-
                 if (_containersModel.ItemDatabase.TryGetConfig(itemData.ItemConfigKey, out ItemConfig itemConfig))
                 {
                     string itemName = GetItemName(itemConfig);
@@ -84,8 +80,6 @@ namespace UI
 
         private string GetItemName(ItemConfig itemConfig)
         {
-            Debug.Log($"GetItemName; itemConfig = {itemConfig}");
-
             if (_localizationModel.TryGetTranslation(itemConfig.LocalizationRegion, itemConfig.ItemConfigKey, out string translation))
             {
                 return translation;

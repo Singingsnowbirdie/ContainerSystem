@@ -7,8 +7,8 @@ namespace DataSystem
 {
     public class ContainersRepository : IRepository
     {
-        private List<ContainerData> _containers;
 
+        private List<ContainerData> _containers;
         private string _jsonFilePath;
 
         public string JsonFilePath
@@ -27,15 +27,23 @@ namespace DataSystem
 
         public List<ContainerData> LoadContainersData()
         {
-            List<ContainerData> containers = new List<ContainerData>();
-
-            if (File.Exists(JsonFilePath))
+            if (!File.Exists(JsonFilePath))
             {
-                string json = File.ReadAllText(JsonFilePath);
-                containers = JsonUtility.FromJson<ContainersDatabaseWrapper>(json).Containers;
+                Debug.Log("No save file found, creating new container list");
+                return new List<ContainerData>();
             }
 
-            return containers;
+            try
+            {
+                string json = File.ReadAllText(JsonFilePath);
+                ContainersDatabaseWrapper wrapper = JsonUtility.FromJson<ContainersDatabaseWrapper>(json);
+                return wrapper.Containers ?? new List<ContainerData>();
+            }
+            catch (Exception e)
+            {
+                Debug.LogError($"Load failed: {e.Message}");
+                return new List<ContainerData>();
+            }
         }
 
         public bool TryGetContainerByID(string id, out ContainerData containerData)
@@ -46,7 +54,7 @@ namespace DataSystem
                 return false;
             }
 
-            containerData = _containers.Find(container => container.Id == id);
+            containerData = _containers.Find(container => container.ContainerID == id);
 
             return containerData != null;
         }
@@ -64,41 +72,49 @@ namespace DataSystem
             }
         }
 
-        public void SaveData()
+        public void SaveContainers()
         {
-            SaveData(_containers);
-        }
+            var wrapper = new ContainersDatabaseWrapper(_containers);
 
-        public void SaveData(List<ContainerData> containers)
-        {
-            ContainersDatabaseWrapper wrapper = new() { Containers = containers };
-            string json = JsonUtility.ToJson(wrapper, true);
-            File.WriteAllText(JsonFilePath, json);
-            Debug.Log("Containers data saved to JSON.");
+            string json = JsonUtility.ToJson(wrapper, prettyPrint: true);
+
+            try
+            {
+                File.WriteAllText(JsonFilePath, json);
+            }
+            catch (Exception e)
+            {
+                Debug.LogError($"Save failed: {e.Message}");
+            }
         }
 
         public void AddContainer(ContainerData container)
         {
             _containers.Add(container);
-            SaveData();
+            SaveContainers();
         }
 
         [Serializable]
-        private class ContainersDatabaseWrapper
+        public class ContainersDatabaseWrapper
         {
             public List<ContainerData> Containers;
+
+            public ContainersDatabaseWrapper(List<ContainerData> containers)
+            {
+                Containers = containers;
+            }
         }
     }
 
     [Serializable]
     public class ContainerData
     {
-        public string Id;
+        public string ContainerID;
         public List<ItemData> Items;
 
         public ContainerData(string id, List<ItemData> items)
         {
-            Id = id;
+            ContainerID = id;
             Items = items;
         }
     }

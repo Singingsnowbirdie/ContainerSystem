@@ -1,6 +1,5 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
-using UnityEngine;
 
 namespace ItemSystem
 {
@@ -16,8 +15,6 @@ namespace ItemSystem
 
         public bool TryGetConfig(string itemConfigKey, out ItemConfig config)
         {
-            Debug.Log($"itemConfigKey = {itemConfigKey}");
-
             if (_configs.TryGetValue(itemConfigKey, out config))
             {
                 return true;

@@ -55,7 +55,10 @@ namespace ContainerSystem
             }
 
             var selectedItem = weightedItems[Random.Range(0, weightedItems.Count)];
-            items.Add(new ItemData(CreateUniqueItemID(), selectedItem.ItemConfigKey, Random.Range(1, 6)));
+
+            var uniqueID = CreateUniqueItemID();
+            int amount = Random.Range(1, 6);
+            items.Add(new ItemData(uniqueID, selectedItem.ItemConfigKey, amount));
 
             return items;
         }
