@@ -4,6 +4,7 @@ using ItemSystem;
 using Localization;
 using System;
 using UniRx;
+using UnityEngine;
 using VContainer;
 using VContainer.Unity;
 
@@ -34,6 +35,8 @@ namespace UI
 
             foreach (ItemData itemData in data.Items)
             {
+                Debug.Log($"itemData.ItemConfigKey = {itemData.ItemConfigKey}");
+
                 if (_containersModel.ItemDatabase.TryGetConfig(itemData.ItemConfigKey, out ItemConfig itemConfig))
                 {
                     string itemName = GetItemName(itemConfig);

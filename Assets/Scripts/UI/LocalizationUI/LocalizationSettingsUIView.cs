@@ -21,8 +21,6 @@ namespace UI
 
         internal void SetUIModel(LocalizationSettingsUIModel uiModel)
         {
-            Debug.Log($"SetUIModel {uiModel}");
-
             _englishFlagIcon.SetUIModel(uiModel.LanguageButtonIcon_En);
             _russianFlagIcon.SetUIModel(uiModel.LanguageButtonIcon_Ru);
 

@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
+using UnityEngine;
 
 namespace ItemSystem
 {
@@ -13,9 +14,16 @@ namespace ItemSystem
             _foodConfigsHandler.AddFoodConfigs(_configs);
         }
 
-        public bool TryGetConfig(string itemID, out ItemConfig config)
+        public bool TryGetConfig(string itemConfigKey, out ItemConfig config)
         {
-            return _configs.TryGetValue(itemID, out config);
+            Debug.Log($"itemConfigKey = {itemConfigKey}");
+
+            if (_configs.TryGetValue(itemConfigKey, out config))
+            {
+                return true;
+            }
+            config = null;
+            return false;
         }
 
         public IEnumerable<FoodConfig> GetFoodsByType(params EFoodType[] foodTypes)
