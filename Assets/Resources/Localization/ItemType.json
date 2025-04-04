@@ -1,19 +1,34 @@
 {
     "Items": [
         {
-            "Key": "ui_menu_title",
-            "English": "Main Menu",
-            "Russian": "Главное меню"
+            "Key": "RawMeat",
+            "English": "Meat",
+            "Russian": "Мясо"
         },
         {
-            "Key": "ui_menu_play",
-            "English": "Play",
-            "Russian": "Играть"
+            "Key": "RawPlant",
+            "English": "Fetus",
+            "Russian": "Плод"
         },
         {
-            "Key": "ui_menu_exit",
-            "English": "Exit",
-            "Russian": "Выход"
+            "Key": "RawFish",
+            "English": "Fish",
+            "Russian": "Рыба"
+        },
+        {
+            "Key": "Drink",
+            "English": "Drink",
+            "Russian": "Напиток"
+        },
+        {
+            "Key": "Grocery",
+            "English": "Grocery",
+            "Russian": "Бакалея"
+        },
+        {
+            "Key": "CookedFood",
+            "English": "Cooked",
+            "Russian": "Блюдо"
         }
     ]
 }

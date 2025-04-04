@@ -41,8 +41,6 @@ namespace UI
 
         private void OnCurrentInteractableUpdated(IInteractable val)
         {
-            Debug.Log($"OnCurrentInteractableUpdated: {val}");
-
             if (val != null)
                 _model.PromptText.Value = GetPromptText();
             else
