@@ -1,5 +1,6 @@
 ﻿using InteractionSystem;
 using System;
+using UI;
 using UniRx;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -13,13 +14,38 @@ namespace Player
         [Inject] private readonly PlayerInteractionModel _model;
         [Inject] private readonly PlayerInput _playerInput;
         [Inject] private readonly Camera _camera;
+        [Inject] private readonly ContainerUIModel _containerUIModel;
 
         private readonly CompositeDisposable _compositeDisposable = new CompositeDisposable();
         private readonly float _interactionDistance = 3f;
 
+        // PUBLIC
         public void Start()
         {
             _playerInput.actions["Interact"].started += OnTryInteract;
+
+            _containerUIModel.IsContainerUIOpen
+                .Subscribe(val => OnContainerUIOpen(val))
+                .AddTo(_compositeDisposable);
+        }
+
+        public void Dispose()
+        {
+            _compositeDisposable.Dispose();
+        }
+
+        public void Tick()
+        {
+            DetectInteractable();
+        }
+
+        // PRIVATE
+
+        private void OnContainerUIOpen(bool val)
+        {
+            if (!val && _model.IsInteracting.Value)
+                _model.IsInteracting.Value = false;
+
         }
 
         private void OnTryInteract(InputAction.CallbackContext context)
@@ -54,21 +80,6 @@ namespace Player
         {
             interactable.Interact(this);
             _model.IsInteracting.Value = true;
-        }
-
-        internal void OnInteractionCompleted()
-        {
-            _model.IsInteracting.Value = false;
-        }
-
-        public void Dispose()
-        {
-            _compositeDisposable.Dispose();
-        }
-
-        public void Tick()
-        {
-            DetectInteractable();
         }
     }
 }
