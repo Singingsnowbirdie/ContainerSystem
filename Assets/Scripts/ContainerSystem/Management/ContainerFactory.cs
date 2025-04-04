@@ -27,12 +27,12 @@ namespace ContainerSystem
         {
             return type switch
             {
-                EContainerType.Barrel => GenerateBarrelContents(),
-                EContainerType.Bag => GenerateBagContents(),
-                EContainerType.BeverageСrate => GenerateBeverageContents(),
-                EContainerType.ButcherCrate => GenerateMeatContents(),
-                EContainerType.FishCrate => GenerateFishContents(),
-                EContainerType.GroceriesCrate => GenerateGroceriesContents(),
+                EContainerType.Barrel => GenerateRandomFoodItems(_itemDatabase.GetFoodsByType(EFoodType.Fruit, EFoodType.Vegetable).ToList()),
+                EContainerType.Bag => GenerateRandomFoodItems(_itemDatabase.GetFoodsByType(EFoodType.Grain).ToList()),
+                EContainerType.BeverageСrate => GenerateRandomFoodItems(_itemDatabase.GetFoodsByType(EFoodType.Drink).ToList()),
+                EContainerType.ButcherCrate => GenerateRandomFoodItems(_itemDatabase.GetFoodsByType(EFoodType.RawMeat).ToList()),
+                EContainerType.FishCrate => GenerateRandomFoodItems(_itemDatabase.GetFoodsByType(EFoodType.RawFish).ToList()),
+                EContainerType.GroceriesCrate => GenerateRandomGroceries(_itemDatabase.GetFoodsByType(EFoodType.Grocery).ToList()),
                 _ => new List<ItemData>()
             };
         }
@@ -122,35 +122,6 @@ namespace ContainerSystem
             }
 
             return items;
-        }
-        private List<ItemData> GenerateBagContents()
-        {
-            return GenerateRandomFoodItems(_itemDatabase.GetGrains().ToList());
-        }
-
-        private List<ItemData> GenerateBarrelContents()
-        {
-            return GenerateRandomFoodItems(_itemDatabase.GetFruitsAndVegetables().ToList());
-        }
-
-        private List<ItemData> GenerateBeverageContents()
-        {
-            return GenerateRandomFoodItems(_itemDatabase.GetBeverages().ToList());
-        }
-
-        private List<ItemData> GenerateMeatContents()
-        {
-            return GenerateRandomFoodItems(_itemDatabase.GetMeats().ToList());
-        }
-
-        private List<ItemData> GenerateFishContents()
-        {
-            return GenerateRandomFoodItems(_itemDatabase.GetFish().ToList());
-        }
-
-        private List<ItemData> GenerateGroceriesContents()
-        {
-            return GenerateRandomGroceries(_itemDatabase.GetGroceries().ToList());
         }
     }
 }
