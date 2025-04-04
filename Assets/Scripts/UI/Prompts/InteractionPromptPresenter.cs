@@ -2,7 +2,6 @@
 using Localization;
 using Player;
 using UniRx;
-using UnityEngine;
 using VContainer;
 using VContainer.Unity;
 

@@ -42,6 +42,7 @@ namespace Localization
                 _localizationModel.UiModel.LanguageButtonIcon_Ru.Value = ELanguageFlagIcon.Russian_Inactive;
                 _localizationModel.UiModel.LanguageButtonIcon_En.Value = ELanguageFlagIcon.English_Active;
             }
+
         }
     }
 }

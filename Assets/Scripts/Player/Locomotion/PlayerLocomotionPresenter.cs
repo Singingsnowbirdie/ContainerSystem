@@ -13,7 +13,7 @@ namespace Player
         [Inject] private readonly PlayerLocomotionModel _locomotionModel;
         [Inject] private readonly PlayerView _view;
         [Inject] private readonly PlayerInput _playerInput;
-        [Inject] private readonly MainMenuModel _mainMenuModel;
+        [Inject] private readonly MainMenuUIModel _mainMenuModel;
 
         public void Start()
         {

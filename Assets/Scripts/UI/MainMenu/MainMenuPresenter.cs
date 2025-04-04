@@ -1,4 +1,5 @@
-﻿using UniRx;
+﻿using Localization;
+using UniRx;
 using UnityEngine;
 using VContainer;
 using VContainer.Unity;
@@ -7,11 +8,15 @@ namespace UI.MainMenu
 {
     public class MainMenuPresenter : IStartable
     {
-        [Inject] private readonly MainMenuModel _model;
-        [Inject] private readonly MainMenuView _view;
+        [Inject] private readonly MainMenuUIModel _model;
+        [Inject] private readonly MainMenuUIView _view;
+
         [Inject] private readonly UIInputHandler _menuInputHandler;
         [Inject] private readonly ContainerUIModel _containerUIModel;
         [Inject] private readonly CursorModel _cursorModel;
+        [Inject] private readonly LocalizationModel _localizationModel;
+
+        private readonly string _localizationSettingsTextKey = "settings_localization";
 
         public void Start()
         {
@@ -22,6 +27,24 @@ namespace UI.MainMenu
             _menuInputHandler.OnCancelPressed
                 .Subscribe(_ => OnCancelPressed())
                 .AddTo(_view);
+
+            _localizationModel.CurrentLanguage
+                .Subscribe(_ => OnCurrentLanguageUpdated())
+                .AddTo(_view);
+
+            _view.OnSetModel(_model);
+        }
+
+        private void OnCurrentLanguageUpdated()
+        {
+            if (_localizationModel.TryGetTranslation(ELocalizationRegion.MainMenu, _localizationSettingsTextKey, out string translation))
+            {
+                _model.LocalizationSettingsText.Value = translation;
+            }
+            else
+            {
+                _model.LocalizationSettingsText.Value = "translation missed";
+            }
         }
 
         private void OnMainMenuOpen(bool isOpen)

@@ -1,9 +1,9 @@
 {
     "Items": [
         {
-            "Key": "ui_menu_title",
-            "English": "Main Menu",
-            "Russian": "Главное меню"
+            "Key": "settings_localization",
+            "English": "Select language",
+            "Russian": "Выберите язык"
         },
         {
             "Key": "ui_menu_play",

@@ -16,7 +16,7 @@ public class GameLifetimeScope : LifetimeScope
     [SerializeField] private UIInputHandler _uiInputHandler;
 
     [Header("UI")]
-    [SerializeField] private MainMenuView _mainMenuView;
+    [SerializeField] private MainMenuUIView _mainMenuView;
     [SerializeField] private LocalizationSettingsUIView _localizationUIView;
     [SerializeField] private InteractionPromptView _interactionPromptView;
     [SerializeField] private ContainerUIView _containerUIView;
@@ -58,7 +58,7 @@ public class GameLifetimeScope : LifetimeScope
         builder.Register<LocalizationModel>(Lifetime.Singleton);
 
         // Register UI Models
-        builder.Register<MainMenuModel>(Lifetime.Singleton);
+        builder.Register<MainMenuUIModel>(Lifetime.Singleton);
         builder.Register<InteractionPromptUIModel>(Lifetime.Singleton);
         builder.Register<ContainerUIModel>(Lifetime.Singleton);
 
