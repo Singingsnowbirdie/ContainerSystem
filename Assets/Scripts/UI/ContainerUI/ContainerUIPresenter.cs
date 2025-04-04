@@ -3,7 +3,6 @@ using DataSystem;
 using ItemSystem;
 using Localization;
 using UniRx;
-using UnityEngine;
 using VContainer;
 using VContainer.Unity;
 
@@ -25,6 +24,10 @@ namespace UI
 
             _containerUIModel.OpenContainerUI
                 .Subscribe(OpenContainerUI)
+                .AddTo(_containerUIView);
+
+            _containerUIModel.IsContainerUIOpen
+                .Subscribe(val => _containerUIView.ShowContainerUI(val))
                 .AddTo(_containerUIView);
         }
 
@@ -48,8 +51,6 @@ namespace UI
 
             if (_containerUIModel.Items.Count > 0)
                 _containerUIModel.Items[0].IsSelected.Value = true;
-
-            _containerUIView.ShowContainerUI(true);
         }
 
         private string GetItemType(ItemConfig itemConfig)

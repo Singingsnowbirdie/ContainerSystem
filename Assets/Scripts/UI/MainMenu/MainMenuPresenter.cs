@@ -49,7 +49,6 @@ namespace UI.MainMenu
 
         private void OnMainMenuOpen(bool isOpen)
         {
-            _cursorModel.SetCursorState(isOpen);
             _view.SetVisibility(isOpen);
             Time.timeScale = isOpen ? 0 : 1;
         }

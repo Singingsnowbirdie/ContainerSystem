@@ -21,10 +21,7 @@ namespace UI
 
         internal void ShowContainerUI(bool value)
         {
-            if (value)
-            {
-                gameObject.SetActive(true);
-            }
+            gameObject.SetActive(value);
         }
     }
 }

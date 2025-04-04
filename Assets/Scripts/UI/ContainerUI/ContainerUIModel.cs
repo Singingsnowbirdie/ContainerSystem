@@ -1,5 +1,6 @@
 using DataSystem;
 using UniRx;
+using UnityEngine;
 
 namespace UI
 {
@@ -12,6 +13,8 @@ namespace UI
 
         public void SetContainerOpenState(bool isOpen, ContainerData data = null)
         {
+            Debug.Log($"SetContainerOpenState; isOpen = {isOpen}");
+
             IsContainerUIOpen.Value = isOpen;
             if (isOpen && data != null)
             {
