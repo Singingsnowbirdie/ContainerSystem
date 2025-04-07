@@ -7,6 +7,4 @@ namespace UI.ReactiveViews
     public class ItemTypeIconsSO : IconsMapSO<EItemType>
     {
     }
-
-
 }

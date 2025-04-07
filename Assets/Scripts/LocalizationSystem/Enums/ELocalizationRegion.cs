@@ -8,7 +8,8 @@
         EquipmentClass,
         ItemType,
         HUD,
-        MainMenu
+        MainMenu,
+        ContainerUI
     }
 
 }

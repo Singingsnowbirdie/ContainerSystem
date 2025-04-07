@@ -1,0 +1,33 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 80351ce2d8791ba4c9ca803962420bd6, type: 3}
+  m_Name: ContainerActionIcon
+  m_EditorClassIdentifier: 
+  Icons:
+  - EnumValue: 0
+    Sprite: {fileID: 21300000, guid: 49448fd9b7e5b944699b5b356e875bbd, type: 3}
+    Color: {r: 1, g: 1, b: 1, a: 1}
+  - EnumValue: 1
+    Sprite: {fileID: 21300000, guid: 49448fd9b7e5b944699b5b356e875bbd, type: 3}
+    Color: {r: 1, g: 1, b: 1, a: 0.39215687}
+  - EnumValue: 2
+    Sprite: {fileID: 21300000, guid: 4e3f7e467d7cf65459782fb57fb05b3d, type: 3}
+    Color: {r: 1, g: 1, b: 1, a: 1}
+  - EnumValue: 3
+    Sprite: {fileID: 21300000, guid: 4e3f7e467d7cf65459782fb57fb05b3d, type: 3}
+    Color: {r: 1, g: 1, b: 1, a: 0.39215687}
+  - EnumValue: 4
+    Sprite: {fileID: 21300000, guid: 2a8f8c374822830419db27c12ff58a74, type: 3}
+    Color: {r: 1, g: 1, b: 1, a: 1}
+  - EnumValue: 5
+    Sprite: {fileID: 21300000, guid: 023047431badc5e4aadd1a0d5f97d6c7, type: 3}
+    Color: {r: 1, g: 1, b: 1, a: 1}

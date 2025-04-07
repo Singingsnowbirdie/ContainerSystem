@@ -6,7 +6,8 @@ namespace UI
 {
     public class ItemUIModel : UIModel
     {
-        public ItemUIModel(ItemData itemData, ItemConfig itemConfig, string itemName, int itemCost, string itemTypeStr, string equipmentClass)
+        public ItemUIModel(ItemData itemData, ItemConfig itemConfig, string itemName, int itemCost, 
+            string itemTypeStr, string equipmentClass, ContainerUIModel containerUIModel)
         {
             CanBeEquipped = itemConfig.CanBeEquipped;
             UniqueID = itemData.ItemID;
@@ -16,6 +17,7 @@ namespace UI
             ItemCost.Value = itemCost;
             EquipmentClass.Value = equipmentClass;
             ItemTypeStr.Value = itemTypeStr;
+            ContainerUIModel = containerUIModel;
         }
 
         public bool CanBeEquipped { get; }
@@ -32,5 +34,8 @@ namespace UI
         // CHANGEABLE
         public ReactiveProperty<bool> IsSelected { get; } = new ReactiveProperty<bool>();
         public ReactiveProperty<EContainerFilter> SelectedFilter { get; } = new ReactiveProperty<EContainerFilter>();
+
+        // OTHER
+        public ContainerUIModel ContainerUIModel { get; }
     }
 }

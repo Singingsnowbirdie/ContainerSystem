@@ -8,7 +8,7 @@ namespace UI
 {
     public class ItemUIView : UIReactiveView<ItemUIModel>
     {
-        [SerializeField] private Toggle _toggle;
+        [SerializeField] private Button _button;
         [SerializeField] private Image _selectionIndicationImg;
         [SerializeField] private ItemTypeIconView _itemIcon;
         [SerializeField] private TextMeshProReactiveStringView _itemNameTF;
@@ -24,24 +24,18 @@ namespace UI
         protected override void OnSetModel(ItemUIModel uiModel)
         {
             UIModel = uiModel;
-            UpdateToggleVisuals(_toggle.isOn);
 
-            _toggle.OnValueChangedAsObservable()
-                .Subscribe(isOn => OnItemSelected(isOn))
+            _button.OnClickAsObservable()
+                .Subscribe(_ => OnButtonPressed())
                 .AddTo(this);
 
             UIModel.IsSelected
-                .Subscribe(isSelected =>
-                {
-                    _toggle.isOn = isSelected;
-                    UpdateToggleVisuals(isSelected);
-                })
+                .Subscribe(val => OnItemSelected(val))
                 .AddTo(this);
 
             uiModel.SelectedFilter
                 .Subscribe(filter => OnFiltered(filter))
                 .AddTo(this);
-
 
             _itemIcon.SetUIModel(uiModel.ItemTypeIcon);
             _itemNameTF.SetUIModel(uiModel.ItemName);
@@ -51,6 +45,12 @@ namespace UI
 
             if (!string.IsNullOrEmpty(uiModel.EquipmentClass.Value))
                 _equipmentClassTF.SetUIModel(uiModel.EquipmentClass);
+        }
+
+        private void OnButtonPressed()
+        {
+            // TODO: If equip mode is active, equip or consume
+            uiModel.IsSelected.Value = true;
         }
 
         private void OnFiltered(EContainerFilter filter)
@@ -67,17 +67,13 @@ namespace UI
             };
         }
 
-        private void OnItemSelected(bool isOn)
+        private void OnItemSelected(bool isSelected)
         {
-            UpdateToggleVisuals(isOn);
-            UIModel.IsSelected.Value = isOn;
-        }
+            _selectionIndicationImg.enabled = isSelected;
 
-        private void UpdateToggleVisuals(bool isOn)
-        {
-            if (_selectionIndicationImg != null)
+            if (isSelected)
             {
-                _selectionIndicationImg.enabled = isOn;
+                UIModel.ContainerUIModel.SelectedItemID.Value = UIModel.UniqueID;
             }
         }
     }

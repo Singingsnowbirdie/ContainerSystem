@@ -18,6 +18,8 @@ namespace UI
         [Inject] private readonly ContainersModel _containersModel;
         [Inject] private readonly LocalizationModel _localizationModel;
 
+        private ContainerUILocalizationHandler _localizationHandler = new ContainerUILocalizationHandler();
+
         public void Start()
         {
             _containerUIView.OnSetModel(_containerUIModel);
@@ -29,6 +31,27 @@ namespace UI
             _containerUIModel.IsContainerUIOpen
                 .Subscribe(val => _containerUIView.ShowContainerUI(val))
                 .AddTo(_containerUIView);
+
+            _containerUIModel.SelectedItemID
+                .Subscribe(val => OnItemSelected(val))
+                .AddTo(_containerUIView);
+
+            _localizationHandler.Localize(_localizationModel, _containerUIModel, _containerUIView);
+        }
+
+        private void OnItemSelected(string selecteditemID)
+        {
+            if (string.IsNullOrEmpty(selecteditemID))
+                return;
+
+            foreach (ItemUIModel item in _containerUIModel.Items)
+            {
+                if (item.UniqueID != selecteditemID &&
+                    item.IsSelected.Value)
+                {
+                    item.IsSelected.Value = false;
+                }
+            }
         }
 
         private void OpenContainerUI(ContainerData data)
@@ -44,7 +67,7 @@ namespace UI
                     int itemCost = GetItemCost(itemConfig);
                     string equipmentClass = GetEquipmentClass(itemConfig);
 
-                    ItemUIModel uiModel = new(itemData, itemConfig, itemName, itemCost, itemType, equipmentClass);
+                    ItemUIModel uiModel = new(itemData, itemConfig, itemName, itemCost, itemType, equipmentClass, _containerUIModel);
                     _containerUIModel.Items.Add(uiModel);
                 }
             }

@@ -1,0 +1,29 @@
+{
+    "Items": [
+        {
+            "Key": "inventory",
+            "English": "Inventory",
+            "Russian": "Инвентарь"
+        },
+        {
+            "Key": "container",
+            "English": "Container",
+            "Russian": "Контейнер"
+        },
+        {
+            "Key": "take",
+            "English": "Take",
+            "Russian": "Взять"
+        },
+        {
+            "Key": "take_all",
+            "English": "Take All",
+            "Russian": "Взять все"
+        },
+        {
+            "Key": "equipment_mode",
+            "English": "Equip Mode",
+            "Russian": "Экипировать"
+        }
+    ]
+}

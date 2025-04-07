@@ -1,6 +1,4 @@
-﻿using UniRx;
-
-namespace UI
+﻿namespace UI
 {
     public class HintView_EquipMode : UIView
     {
@@ -8,20 +6,7 @@ namespace UI
         {
             base.OnSetModel(uiModel);
 
-            if (uiModel is ContainerUIModel containerUIModel)
-            {
-                containerUIModel.SelectedItem
-                    .Subscribe(val => OnItemSelected(val))
-                .AddTo(this);
-            }
-        }
-
-        private void OnItemSelected(ItemUIView itemView)
-        {
-            if (itemView == null)
-                return;
-
-            gameObject.SetActive(itemView.UIModel.CanBeEquipped);
+            // TODO: Hide if container displays items for purchase.
         }
     }
 }
