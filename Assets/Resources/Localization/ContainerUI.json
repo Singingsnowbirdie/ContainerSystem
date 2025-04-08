@@ -24,6 +24,26 @@
             "Key": "equipment_mode",
             "English": "Equip Mode",
             "Russian": "Экипировать"
+        },
+        {
+            "Key": "sorting_name",
+            "English": "Name",
+            "Russian": "Имя"
+        },
+        {
+            "Key": "sorting_type",
+            "English": "Type",
+            "Russian": "Тип"
+        },
+        {
+            "Key": "sorting_weight",
+            "English": "WGT",
+            "Russian": "Вес"
+        },
+        {
+            "Key": "sorting_cost",
+            "English": "Cost",
+            "Russian": "СТМ"
         }
     ]
 }

@@ -3,12 +3,12 @@ using UnityEngine;
 
 namespace UI
 {
-
     public class ContainerUIView : UIView
     {
         [SerializeField] private UIView _hintView_EquipMode;
         [SerializeField] private ItemUIViewsList _itemsList;
         [SerializeField] private ContainerSwitchAreaView _containerSwitchArea;
+        [SerializeField] private SortingButtonsAreaView _sortingButtonsArea;
 
         [Header("LOCALIZATION")]
         [SerializeField] private TextMeshProReactiveStringView _takeTF;
@@ -25,6 +25,7 @@ namespace UI
             {
                 _itemsList.SetUIModel(containerUIModel.Items);
                 _containerSwitchArea.OnSetModel(containerUIModel.ContainerSwitchAreaModel);
+                _sortingButtonsArea.OnSetModel(containerUIModel.SortingButtonsAreaModel);
 
                 _takeTF.SetUIModel(containerUIModel.HintText_Take);
                 _takeAllTF.SetUIModel(containerUIModel.HintText_TakeAll);

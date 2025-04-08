@@ -7,16 +7,16 @@ namespace UI
 {
     public class ContainerSwitchAreaView : UIView
     {
-        // ICONS
+        [Header("ICONS")]
         [SerializeField] private ContainerActionIconView _containerActionIcon;
         [SerializeField] private ContainerActionIconView _inventoryActionIcon;
         [SerializeField] private ContainerActionIconView _switcherActionIcon;
 
-        // REACTIVE TEXT
+        [Header("REACTIVE TEXT")]
         [SerializeField] private TextMeshProReactiveStringView _containerNameTF;
         [SerializeField] private TextMeshProReactiveStringView _inventoryNameTF;
 
-        // TEXT
+        [Header("TMP")]
         [SerializeField] private TMP_Text _containerNameTMP;
         [SerializeField] private TMP_Text _inventoryNameTMP;
 

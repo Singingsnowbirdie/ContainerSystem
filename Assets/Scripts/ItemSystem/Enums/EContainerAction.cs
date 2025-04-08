@@ -8,6 +8,8 @@
         Inventory_Inactive,
         TakeItem,
         PutItem,
+        Up,
+        Down
     }
 }
 

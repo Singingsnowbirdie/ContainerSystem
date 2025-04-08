@@ -213,8 +213,8 @@ RectTransform:
   - {fileID: 6281115309869685164}
   - {fileID: 8136722508009614765}
   - {fileID: 7368131861149993387}
-  - {fileID: 3754812565242377930}
   - {fileID: 8412174398379429459}
+  - {fileID: 3754812565242377930}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.5}
@@ -308,7 +308,7 @@ MonoBehaviour:
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
   m_Interactable: 1
-  m_TargetGraphic: {fileID: 0}
+  m_TargetGraphic: {fileID: 2480350398786134359}
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []

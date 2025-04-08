@@ -28,6 +28,11 @@ namespace UI
 
             _containerUIModel.ContainerSwitchAreaModel.InventoryName.Value = GetLocalizedName("inventory");
             _containerUIModel.ContainerSwitchAreaModel.ContainerName.Value = GetLocalizedName("container");
+
+            _containerUIModel.SortingButtonsAreaModel.Sorting_Name.Value = GetLocalizedName("sorting_name");
+            _containerUIModel.SortingButtonsAreaModel.Sorting_Type.Value = GetLocalizedName("sorting_type");
+            _containerUIModel.SortingButtonsAreaModel.Sorting_Weight.Value = GetLocalizedName("sorting_weight");
+            _containerUIModel.SortingButtonsAreaModel.Sorting_Cost.Value = GetLocalizedName("sorting_cost");
         }
 
         private string GetLocalizedName(string key)
