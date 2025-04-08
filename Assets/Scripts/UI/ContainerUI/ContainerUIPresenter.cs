@@ -2,7 +2,11 @@
 using DataSystem;
 using ItemSystem;
 using Localization;
+using System;
+using System.Collections.Generic;
+using System.Linq;
 using UniRx;
+using UniRx.Triggers;
 using VContainer;
 using VContainer.Unity;
 
@@ -36,7 +40,96 @@ namespace UI
                 .Subscribe(val => OnItemSelected(val))
                 .AddTo(_containerUIView);
 
+            _containerUIModel.SortingButtonsAreaModel.SortingType
+                .Subscribe(val => OnSortingTypeUpdated(val))
+                .AddTo(_containerUIView);
+
             _localizationHandler.Localize(_localizationModel, _containerUIModel, _containerUIView);
+        }
+
+        private void OnSortingTypeUpdated(ESortingType sortingType)
+        {
+            switch (sortingType)
+            {
+                case ESortingType.NameUp:
+                    SortByName(false);
+                    break;
+                case ESortingType.NameDown:
+                    SortByName(true);
+                    break;
+
+                case ESortingType.TypeUp:
+                    SortByType(false);
+                    break;
+                case ESortingType.TypeDown:
+                    SortByType(true);
+                    break;
+
+                case ESortingType.WeightUp:
+                    SortByWeight(false);
+                    break;
+                case ESortingType.WeightDown:
+                    SortByWeight(true);
+                    break;
+
+                case ESortingType.CostUp:
+                    SortByCost(false);
+                    break;
+                case ESortingType.CostDown:
+                    SortByCost(true);
+                    break;
+
+                default:
+                    throw new ArgumentOutOfRangeException(nameof(sortingType), sortingType, "Unknown sorting type");
+            }
+        }
+
+        private void SortByName(bool isDescending)
+        {
+            var comparer = isDescending
+                ? Comparer<ItemUIModel>.Create((x, y) => -string.Compare(x.ItemName.Value, y.ItemName.Value, StringComparison.OrdinalIgnoreCase))
+                : Comparer<ItemUIModel>.Create((x, y) => string.Compare(x.ItemName.Value, y.ItemName.Value, StringComparison.OrdinalIgnoreCase));
+
+            SortCollection(comparer);
+        }
+
+        private void SortByType(bool isDescending)
+        {
+            var comparer = isDescending
+                ? Comparer<ItemUIModel>.Create((x, y) => -string.Compare(x.ItemType.Value.ToString(), y.ItemType.Value.ToString(), StringComparison.OrdinalIgnoreCase))
+                : Comparer<ItemUIModel>.Create((x, y) => string.Compare(x.ItemType.Value.ToString(), y.ItemType.Value.ToString(), StringComparison.OrdinalIgnoreCase));
+
+            SortCollection(comparer);
+        }
+
+        private void SortByWeight(bool isDescending)
+        {
+            var comparer = isDescending
+                ? Comparer<ItemUIModel>.Create((x, y) => -x.ItemWeight.Value.CompareTo(y.ItemWeight.Value))
+                : Comparer<ItemUIModel>.Create((x, y) => x.ItemWeight.Value.CompareTo(y.ItemWeight.Value));
+
+            SortCollection(comparer);
+        }
+
+        private void SortByCost(bool isDescending)
+        {
+            var comparer = isDescending
+                ? Comparer<ItemUIModel>.Create((x, y) => -x.ItemCost.Value.CompareTo(y.ItemCost.Value))
+                : Comparer<ItemUIModel>.Create((x, y) => x.ItemCost.Value.CompareTo(y.ItemCost.Value));
+
+            SortCollection(comparer);
+        }
+
+        private void SortCollection(IComparer<ItemUIModel> comparer)
+        {
+            var itemsList = _containerUIModel.Items.ToList();
+            itemsList.Sort(comparer);
+
+            _containerUIModel.Items.Clear();
+            foreach (var item in itemsList)
+            {
+                _containerUIModel.Items.Add(item);
+            }
         }
 
         private void OnItemSelected(string selecteditemID)
@@ -71,6 +164,8 @@ namespace UI
                     _containerUIModel.Items.Add(uiModel);
                 }
             }
+
+            _containerUIModel.SortingButtonsAreaModel.SortingType.Value = ESortingType.NameUp;
 
             if (_containerUIModel.Items.Count > 0)
                 _containerUIModel.Items[0].IsSelected.Value = true;

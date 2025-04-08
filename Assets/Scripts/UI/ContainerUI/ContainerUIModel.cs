@@ -14,7 +14,7 @@ namespace UI
         public ContainerSwitchAreaModel ContainerSwitchAreaModel { get; } = new ContainerSwitchAreaModel();
         public SortingButtonsAreaUIModel SortingButtonsAreaModel { get; } = new SortingButtonsAreaUIModel();
 
-        // LOCALIZATION
+        // LOCALIZATION 
         public ReactiveProperty<string> HintText_Take { get; } = new ReactiveProperty<string>();
         public ReactiveProperty<string> HintText_TakeAll { get; } = new ReactiveProperty<string>();
         public ReactiveProperty<string> HintText_EquipMode { get; } = new ReactiveProperty<string>();

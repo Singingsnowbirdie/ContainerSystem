@@ -41,7 +41,7 @@ namespace UI
             _itemNameTF.SetUIModel(uiModel.ItemName);
             _itemWeightTF.SetUIModel(uiModel.ItemWeight);
             _itemCostTF.SetUIModel(uiModel.ItemCost);
-            _itemTypeTF.SetUIModel(uiModel.ItemTypeStr);
+            _itemTypeTF.SetUIModel(uiModel.ItemType);
 
             if (!string.IsNullOrEmpty(uiModel.EquipmentClass.Value))
                 _equipmentClassTF.SetUIModel(uiModel.EquipmentClass);

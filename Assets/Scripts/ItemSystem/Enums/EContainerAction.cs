@@ -8,8 +8,8 @@
         Inventory_Inactive,
         TakeItem,
         PutItem,
-        Up,
-        Down
+        ArrowDown,
+        ArrowUp
     }
 }
 

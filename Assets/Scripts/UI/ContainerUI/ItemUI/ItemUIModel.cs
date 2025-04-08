@@ -16,14 +16,14 @@ namespace UI
             ItemWeight.Value = itemConfig.Weight;
             ItemCost.Value = itemCost;
             EquipmentClass.Value = equipmentClass;
-            ItemTypeStr.Value = itemTypeStr;
+            ItemType.Value = itemTypeStr;
             ContainerUIModel = containerUIModel;
         }
 
         public bool CanBeEquipped { get; }
         public string UniqueID { get; }
         public ReactiveProperty<EItemType> ItemTypeIcon { get; } = new ReactiveProperty<EItemType>();
-        public ReactiveProperty<string> ItemTypeStr { get; } = new ReactiveProperty<string>();
+        public ReactiveProperty<string> ItemType { get; } = new ReactiveProperty<string>();
         public ReactiveProperty<string> ItemName { get; } = new ReactiveProperty<string>();
         public ReactiveProperty<float> ItemWeight { get; } = new ReactiveProperty<float>();
         public ReactiveProperty<int> ItemCost { get; } = new ReactiveProperty<int>();

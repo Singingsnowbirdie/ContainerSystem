@@ -1,5 +1,4 @@
-﻿using ItemSystem;
-using UI.ReactiveViews;
+﻿using UI.ReactiveViews;
 using UniRx;
 using UnityEngine;
 using UnityEngine.UI;
