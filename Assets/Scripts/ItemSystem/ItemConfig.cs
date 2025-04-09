@@ -4,95 +4,85 @@ namespace ItemSystem
 {
     public abstract class ItemConfig
     {
-        public ItemConfig(string itemConfigKey, string itemName, float weight, int basicСost, EItemType itemType)
-        {
-            ItemConfigKey = itemConfigKey;
-            ItemDefaultName = itemName;
-            Weight = weight;
-            BasicСost = basicСost;
-            ItemType = itemType;
-        }
+        // Init
+        public string ItemConfigKey { get; init; }
+        public string ItemDefaultName { get; init; }
+        public float Weight { get; init; }
+        public int BasicСost { get; init; }
+        public EItemType ItemType { get; init; }
 
-        public string ItemConfigKey { get; }
-        public string ItemDefaultName { get; }
-        public float Weight { get; }
-        public int BasicСost { get; }
-        public EItemType ItemType { get; }
+        // Abstract
         public abstract bool CanBeEquipped { get; }
         public abstract ELocalizationRegion LocalizationRegion { get; }
     }
 
     public class FoodConfig : ItemConfig
     {
-        public FoodConfig(string itemConfigKey, string itemName, float weight,
-            int basicСost, EItemType itemType, EFoodType foodType, bool isIngredient
-            ) :
-            base(itemConfigKey, itemName, weight, basicСost, itemType)
-        {
-            FoodType = foodType;
-            IsIngredient = isIngredient;
-        }
+        // Food properties
+        public EFoodType FoodType { get; init; }
+        public bool IsIngredient { get; init; }
 
-        public EFoodType FoodType { get; }
-        public bool IsIngredient { get; }
-
+        // Implementation of abstract properties
         public override bool CanBeEquipped => false;
-
         public override ELocalizationRegion LocalizationRegion => ELocalizationRegion.FoodName;
     }
 
     public class AlchemyIngredientConfig : ItemConfig
     {
-        public AlchemyIngredientConfig(string itemConfigKey, string itemName, float weight, int basicСost, EItemType itemType) :
-            base(itemConfigKey, itemName, weight, basicСost, itemType)
-        {
-        }
+        // Implementation of abstract properties
         public override bool CanBeEquipped => false;
-
         public override ELocalizationRegion LocalizationRegion => ELocalizationRegion.AlchemyName;
     }
 
     public class PotionConfig : ItemConfig
     {
-        public PotionConfig(string itemConfigKey, string itemName, float weight, int basicСost, EItemType itemType) :
-            base(itemConfigKey, itemName, weight, basicСost, itemType)
-        {
-        }
-
         public override bool CanBeEquipped => false;
-
         public override ELocalizationRegion LocalizationRegion => ELocalizationRegion.PotionName;
     }
 
     public abstract class EquipmentConfig : ItemConfig
     {
-        public EquipmentConfig(string itemConfigKey, string itemName, float weight, int basicСost, EItemType itemType) :
-            base(itemConfigKey, itemName, weight, basicСost, itemType)
-        {
-        }
         public override bool CanBeEquipped => true;
-        public override ELocalizationRegion LocalizationRegion => throw new System.NotImplementedException();
-        public EEquipmentClass EquipmentClass { get; protected set; }
+        public abstract override ELocalizationRegion LocalizationRegion { get; }
+        public EEquipmentClass EquipmentClass { get; init; }
     }
 
     public class WeaponConfig : EquipmentConfig
     {
-        protected WeaponConfig(string itemConfigKey, string itemName, float weight, 
-            int basicСost, EItemType itemType, EEquipmentClass equipmentClass) :
-            base(itemConfigKey, itemName, weight, basicСost, itemType)
-        {
-            EquipmentClass = equipmentClass;
-        }
+        public override ELocalizationRegion LocalizationRegion => ELocalizationRegion.WeaponName;
 
+        // Additional properties of weapons
+        public EWeaponType WeaponType { get; init; }
+        public int Damage { get; init; }
+        public float AttackSpeed { get; init; }
     }
 
     public class ArmorConfig : EquipmentConfig
     {
-        protected ArmorConfig(string itemConfigKey, string itemName, float weight, 
-            int basicСost, EItemType itemType, EEquipmentClass equipmentClass) :
-            base(itemConfigKey, itemName, weight, basicСost, itemType)
-        {
-            EquipmentClass = equipmentClass;
-        }
+        public override ELocalizationRegion LocalizationRegion => ELocalizationRegion.ArmorName;
+
+        // Specific properties of armor
+        public EArmorType ArmorType { get; init; }
+        public int Defense { get; init; }
+        public float MobilityModifier { get; init; } = 1.0f;
+    }
+
+    public class BookConfig : ItemConfig
+    {
+        public override bool CanBeEquipped => false;
+        public override ELocalizationRegion LocalizationRegion => ELocalizationRegion.BookName;
+
+        // Additional properties of books
+        public EBookType BookType { get; init; }
+    }
+
+    public class KeyConfig : ItemConfig
+    {
+        public override bool CanBeEquipped => false;
+        public override ELocalizationRegion LocalizationRegion => ELocalizationRegion.KeyName;
+
+        // Key specific properties
+        public string TargetLockId { get; init; }
+ 
     }
 }

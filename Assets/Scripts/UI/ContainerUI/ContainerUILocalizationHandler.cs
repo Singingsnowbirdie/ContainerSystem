@@ -1,4 +1,5 @@
-﻿using Localization;
+﻿using ItemSystem;
+using Localization;
 using UniRx;
 
 namespace UI
@@ -41,6 +42,35 @@ namespace UI
                 return translation;
 
             return _localizationMissed;
+        }
+
+        public string GetItemTypeTranslation(ItemConfig itemConfig)
+        {
+            if (_localizationModel.TryGetTranslation(ELocalizationRegion.ItemType, itemConfig.ItemType.ToString(), out string translation))
+            {
+                return translation;
+            }
+            return itemConfig.ItemType.ToString();
+        }
+
+        public string GetEquipmentClassTranslation(ItemConfig itemConfig)
+        {
+            if (itemConfig is EquipmentConfig equipmentConfig &&
+                _localizationModel.TryGetTranslation(ELocalizationRegion.EquipmentClass, equipmentConfig.EquipmentClass.ToString(), out string translation))
+            {
+                return translation;
+            }
+            return null;
+        }
+
+        public string GetItemNameTranslation(ItemConfig itemConfig)
+        {
+            if (_localizationModel.TryGetTranslation(itemConfig.LocalizationRegion, itemConfig.ItemConfigKey, out string translation))
+            {
+                return translation;
+            }
+
+            return itemConfig.ItemDefaultName;
         }
     }
 }

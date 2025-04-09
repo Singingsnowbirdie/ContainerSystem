@@ -2,12 +2,14 @@
 {
     public enum EContainerFilter
     {
-        Favorites,
         All,
         Weapons,
         Armor,
         Consumables,
         Ingredients,
+        Books,
+        Other,
+        Favorites,
     }
 }
 

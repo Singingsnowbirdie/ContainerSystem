@@ -5,8 +5,9 @@ using Localization;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using UI.MainMenu;
 using UniRx;
-using UniRx.Triggers;
+using Unity.VisualScripting;
 using VContainer;
 using VContainer.Unity;
 
@@ -21,6 +22,7 @@ namespace UI
         // Other
         [Inject] private readonly ContainersModel _containersModel;
         [Inject] private readonly LocalizationModel _localizationModel;
+        [Inject] private readonly UIInputHandler _menuInputHandler;
 
         private ContainerUILocalizationHandler _localizationHandler = new ContainerUILocalizationHandler();
 
@@ -44,9 +46,66 @@ namespace UI
                 .Subscribe(val => OnSortingTypeUpdated(val))
                 .AddTo(_containerUIView);
 
+            _menuInputHandler.OnCancelPressed
+                .Subscribe(_ => OnCancelPressed())
+                .AddTo(_containerUIView);
+
             _localizationHandler.Localize(_localizationModel, _containerUIModel, _containerUIView);
         }
 
+        private void OnItemSelected(string selecteditemID)
+        {
+            if (string.IsNullOrEmpty(selecteditemID))
+                return;
+
+            foreach (ItemUIModel item in _containerUIModel.Items)
+            {
+                if (item.UniqueID != selecteditemID &&
+                    item.IsSelected.Value)
+                {
+                    item.IsSelected.Value = false;
+                }
+            }
+        }
+
+        private void OpenContainerUI(ContainerData data)
+        {
+            // Items
+            _containerUIModel.Items.Clear();
+
+            foreach (ItemData itemData in data.Items)
+            {
+                if (_containersModel.ItemDatabase.TryGetConfig(itemData.ItemConfigKey, out ItemConfig itemConfig))
+                {
+                    ItemUIModel uiModel = new ItemUIModel
+                    {
+                        UniqueID = itemData.ItemID,
+                        ItemConfig = itemConfig,
+                        SelectedFilter = _containerUIModel.SelectedFilter,
+                        ItemTypeIcon = new ReactiveProperty<EItemType>(itemConfig.ItemType),
+                        ItemCost = new ReactiveProperty<int>(itemConfig.BasicСost),
+                    };
+
+                    uiModel.ItemType.Value = _localizationHandler.GetItemTypeTranslation(itemConfig);
+                    uiModel.ItemName.Value = _localizationHandler.GetItemNameTranslation(itemConfig);
+                    uiModel.EquipmentClass.Value = _localizationHandler.GetEquipmentClassTranslation(itemConfig);
+
+                    _containerUIModel.Items.Add(uiModel);
+                }
+            }
+
+            _containerUIModel.SortingButtonsAreaModel.SortingType.Value = ESortingType.NameUp;
+
+            if (_containerUIModel.Items.Count > 0)
+                _containerUIModel.Items[0].IsSelected.Value = true;
+
+            // Filters
+            _containerUIModel.ItemFilters.Clear();
+            _containerUIModel.ItemFilters.AddRange(CreateContainerFilters());
+        }
+
+        // SORTING
+        #region SORTING
         private void OnSortingTypeUpdated(ESortingType sortingType)
         {
             switch (sortingType)
@@ -83,6 +142,7 @@ namespace UI
                     throw new ArgumentOutOfRangeException(nameof(sortingType), sortingType, "Unknown sorting type");
             }
         }
+
 
         private void SortByName(bool isDescending)
         {
@@ -131,80 +191,49 @@ namespace UI
                 _containerUIModel.Items.Add(item);
             }
         }
+        #endregion
 
-        private void OnItemSelected(string selecteditemID)
+        // FILTERS
+        #region FILTERS
+        private List<ItemFilterUIModel> CreateContainerFilters()
         {
-            if (string.IsNullOrEmpty(selecteditemID))
-                return;
+            var filtersList = new List<ItemFilterUIModel>();
 
-            foreach (ItemUIModel item in _containerUIModel.Items)
+            var filterTypes = Enum.GetValues(typeof(EContainerFilter))
+                                  .Cast<EContainerFilter>()
+                                  .Where(f => f != EContainerFilter.Favorites);
+
+            foreach (var filterType in filterTypes)
             {
-                if (item.UniqueID != selecteditemID &&
-                    item.IsSelected.Value)
-                {
-                    item.IsSelected.Value = false;
-                }
-            }
-        }
+                ItemFilterUIModel filterModel = new ItemFilterUIModel(filterType);
 
-        private void OpenContainerUI(ContainerData data)
-        {
-            _containerUIModel.Items.Clear();
+                filterModel.SelectedFilter = _containerUIModel.SelectedFilter;
 
-            foreach (ItemData itemData in data.Items)
-            {
-                if (_containersModel.ItemDatabase.TryGetConfig(itemData.ItemConfigKey, out ItemConfig itemConfig))
-                {
-                    string itemName = GetItemName(itemConfig);
-                    string itemType = GetItemType(itemConfig);
-                    int itemCost = GetItemCost(itemConfig);
-                    string equipmentClass = GetEquipmentClass(itemConfig);
+                filterModel.SelectFilter
+                    .Subscribe(val => OnFilterSelected(val))
+                .AddTo(_containerUIView);
 
-                    ItemUIModel uiModel = new(itemData, itemConfig, itemName, itemCost, itemType, equipmentClass, _containerUIModel);
-                    _containerUIModel.Items.Add(uiModel);
-                }
+                filterModel.FilteredItems.AddRange(GetFilteredItems(filterType));
+
+                filtersList.Add(filterModel);
             }
 
-            _containerUIModel.SortingButtonsAreaModel.SortingType.Value = ESortingType.NameUp;
-
-            if (_containerUIModel.Items.Count > 0)
-                _containerUIModel.Items[0].IsSelected.Value = true;
+            return filtersList;
         }
 
-        private string GetItemType(ItemConfig itemConfig)
+        private void OnFilterSelected(SelectFilterData val)
         {
-            if (_localizationModel.TryGetTranslation(ELocalizationRegion.ItemType, itemConfig.ItemType.ToString(), out string translation))
-            {
-                return translation;
-            }
-            return itemConfig.ItemType.ToString();
+            _containerUIModel.SelectedFilter.Value = val.FilterType;
         }
+        #endregion
 
-        private string GetEquipmentClass(ItemConfig itemConfig)
+        // HOTKEYS
+        #region HOTKEYS
+        private void OnCancelPressed()
         {
-            if (itemConfig is EquipmentConfig equipmentConfig &&
-                _localizationModel.TryGetTranslation(ELocalizationRegion.EquipmentClass, equipmentConfig.EquipmentClass.ToString(), out string translation))
-            {
-                return translation;
-            }
-            return null;
+            if (_containerUIModel.IsContainerUIOpen.Value)
+                _containerUIModel.SetContainerOpenState(false, null);
         }
-
-        private int GetItemCost(ItemConfig itemConfig)
-        {
-            // TODO: When you sell or buy an item, its base value will change.
-
-            return itemConfig.BasicСost;
-        }
-
-        private string GetItemName(ItemConfig itemConfig)
-        {
-            if (_localizationModel.TryGetTranslation(itemConfig.LocalizationRegion, itemConfig.ItemConfigKey, out string translation))
-            {
-                return translation;
-            }
-
-            return itemConfig.ItemDefaultName;
-        }
+        #endregion
     }
 }

@@ -53,9 +53,30 @@ namespace UI
             uiModel.IsSelected.Value = true;
         }
 
+        private void OnItemSelected(bool isSelected)
+        {
+            _selectionIndicationImg.enabled = isSelected;
+
+            if (isSelected)
+            {
+                UIModel.SelectItem.OnNext(UIModel.UniqueID);
+            }
+        }
+
+        // FILTERING
+        #region
         private void OnFiltered(EContainerFilter filter)
         {
             _equipmentClassTF.gameObject.SetActive(IsEquipmentFiltered(filter));
+            gameObject.SetActive(FitsToFilter(filter));
+        }
+
+        public bool FitsToFilter(EContainerFilter filter)
+        {
+            if (filter == EContainerFilter.All)
+                return true;
+
+            return UIModel.SuitableFilters.Contains(filter);
         }
 
         private bool IsEquipmentFiltered(EContainerFilter filter)
@@ -66,15 +87,6 @@ namespace UI
                 _ => false,
             };
         }
-
-        private void OnItemSelected(bool isSelected)
-        {
-            _selectionIndicationImg.enabled = isSelected;
-
-            if (isSelected)
-            {
-                UIModel.ContainerUIModel.SelectedItemID.Value = UIModel.UniqueID;
-            }
-        }
+        #endregion
     }
 }

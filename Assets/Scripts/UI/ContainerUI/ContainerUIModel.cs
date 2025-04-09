@@ -1,4 +1,5 @@
 using DataSystem;
+using ItemSystem;
 using UniRx;
 
 namespace UI
@@ -6,9 +7,13 @@ namespace UI
     public class ContainerUIModel : UIModel
     {
         public ISubject<ContainerData> OpenContainerUI { get; } = new Subject<ContainerData>();
-        public ReactiveCollection<ItemUIModel> Items { get; } = new ReactiveCollection<ItemUIModel>();
         public ReactiveProperty<bool> IsContainerUIOpen { get; } = new ReactiveProperty<bool>(false);
         public ReactiveProperty<string> SelectedItemID { get; } = new ReactiveProperty<string>(null);
+        public ReactiveProperty<EContainerFilter> SelectedFilter { get; } = new ReactiveProperty<EContainerFilter>();
+
+        // COLLECTIONS
+        public ReactiveCollection<ItemUIModel> Items { get; } = new ReactiveCollection<ItemUIModel>();
+        public ReactiveCollection<ItemFilterUIModel> ItemFilters { get; } = new ReactiveCollection<ItemFilterUIModel>();
 
         // MODELS
         public ContainerSwitchAreaModel ContainerSwitchAreaModel { get; } = new ContainerSwitchAreaModel();
@@ -18,7 +23,6 @@ namespace UI
         public ReactiveProperty<string> HintText_Take { get; } = new ReactiveProperty<string>();
         public ReactiveProperty<string> HintText_TakeAll { get; } = new ReactiveProperty<string>();
         public ReactiveProperty<string> HintText_EquipMode { get; } = new ReactiveProperty<string>();
-
 
         public void SetContainerOpenState(bool isOpen, ContainerData data = null)
         {

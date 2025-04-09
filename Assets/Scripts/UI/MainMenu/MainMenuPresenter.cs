@@ -55,9 +55,7 @@ namespace UI.MainMenu
 
         private void OnCancelPressed()
         {
-            if (_containerUIModel.IsContainerUIOpen.Value)
-                _containerUIModel.SetContainerOpenState(false, null);
-            else
+            if (!_containerUIModel.IsContainerUIOpen.Value)
                 _model.IsMainMenuOpen.Value = !_model.IsMainMenuOpen.Value;
         }
     }

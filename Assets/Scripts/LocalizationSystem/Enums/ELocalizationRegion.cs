@@ -9,7 +9,11 @@
         ItemType,
         HUD,
         MainMenu,
-        ContainerUI
+        ContainerUI,
+        WeaponName,
+        ArmorName,
+        BookName,
+        KeyName
     }
 
 }
