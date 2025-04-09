@@ -6,11 +6,17 @@ namespace ItemSystem
     public class ItemDatabase
     {
         private readonly Dictionary<string, ItemConfig> _configs = new();
-        private readonly FoodConfigsHandler _foodConfigsHandler = new FoodConfigsHandler();
+
+        // Handlers
+        private readonly FoodFactory _foodFactory = new FoodFactory();
+        private readonly PotionsFactory _potionsFactory = new PotionsFactory();
+        private readonly BooksFactory _booksFactory = new BooksFactory();
 
         public ItemDatabase()
         {
-            _foodConfigsHandler.AddFoodConfigs(_configs);
+            _foodFactory.AddConfigs(_configs);
+            _potionsFactory.AddConfigs(_configs);
+            _booksFactory.AddConfigs(_configs);
         }
 
         public bool TryGetConfig(string itemConfigKey, out ItemConfig config)

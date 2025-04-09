@@ -70,7 +70,7 @@ namespace UI
 
         private void OpenContainerUI(ContainerData data)
         {
-            // Items
+            // Show Items
             _containerUIModel.Items.Clear();
 
             foreach (ItemData itemData in data.Items)
@@ -99,7 +99,7 @@ namespace UI
             if (_containerUIModel.Items.Count > 0)
                 _containerUIModel.Items[0].IsSelected.Value = true;
 
-            // Filters
+            // Show Filters
             _containerUIModel.ItemFilters.Clear();
             _containerUIModel.ItemFilters.AddRange(CreateContainerFilters());
         }
@@ -213,12 +213,23 @@ namespace UI
                     .Subscribe(val => OnFilterSelected(val))
                 .AddTo(_containerUIView);
 
-                filterModel.FilteredItems.AddRange(GetFilteredItems(filterType));
+                filterModel.HasItemsOfThisType.Value = HasItemsOfThisType(filterModel.FilterType.Value);
 
                 filtersList.Add(filterModel);
             }
 
             return filtersList;
+        }
+
+        private bool HasItemsOfThisType(EContainerFilter filterType)
+        {
+            foreach (var item in _containerUIModel.Items)
+            {
+                if (item.SuitableFilters.Contains(filterType))
+                    return true;
+            }
+
+            return false; 
         }
 
         private void OnFilterSelected(SelectFilterData val)

@@ -38,6 +38,14 @@ namespace ItemSystem
     {
         public override bool CanBeEquipped => false;
         public override ELocalizationRegion LocalizationRegion => ELocalizationRegion.PotionName;
+        public int PotionLevel { get; init; }
+        public EPlayerStat AffectedStat { get; init; }
+        public int StatIncrease { get; init; }
+        public bool IsInstantEffect { get; init; }
+        public float BoostMultiplier { get; init; } // Regeneration multiplier (1.5 = +50%)
+        public float EffectDuration { get; init; } // Effect duration in seconds
+        public bool IsHarmfulEffect { get; init; } // Harmful effect (poison)
+        public float TickInterval { get; init; }   // Interval between damage ticks
     }
 
     public abstract class EquipmentConfig : ItemConfig
@@ -83,6 +91,5 @@ namespace ItemSystem
 
         // Key specific properties
         public string TargetLockId { get; init; }
- 
     }
 }

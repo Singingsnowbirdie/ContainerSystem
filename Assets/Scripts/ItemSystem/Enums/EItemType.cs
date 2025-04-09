@@ -11,6 +11,10 @@
         CookedFood,
 
         // POTIONS
+        ManaPotion,
+        HealthPotion,
+        StaminaPotion,
+        Poison,
 
         // INGREDIENTS
 
