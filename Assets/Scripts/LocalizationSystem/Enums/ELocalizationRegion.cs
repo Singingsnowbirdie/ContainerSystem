@@ -13,7 +13,10 @@
         WeaponName,
         ArmorName,
         BookName,
-        KeyName
+        KeyName,
+        JunkName,
+        ValuableName,
+        ShieldName
     }
 
 }

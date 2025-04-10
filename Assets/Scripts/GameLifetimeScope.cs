@@ -52,6 +52,7 @@ public class GameLifetimeScope : LifetimeScope
         // Register Models
         builder.Register<PlayerLocomotionModel>(Lifetime.Singleton);
         builder.Register<PlayerInteractionModel>(Lifetime.Singleton);
+        builder.Register<PlayerStatsModel>(Lifetime.Singleton);
         builder.Register<InventoryModel>(Lifetime.Singleton);
         builder.Register<CursorModel>(Lifetime.Singleton);
         builder.Register<ContainersModel>(Lifetime.Singleton);
@@ -66,6 +67,7 @@ public class GameLifetimeScope : LifetimeScope
         builder.RegisterEntryPoint<PlayerPresenter>(Lifetime.Singleton);
         builder.RegisterEntryPoint<PlayerLocomotionPresenter>(Lifetime.Singleton);
         builder.RegisterEntryPoint<PlayerInteractionPresenter>(Lifetime.Singleton);
+        builder.RegisterEntryPoint<PlayerStatsPresenter>(Lifetime.Singleton);
         builder.RegisterEntryPoint<InventoryPresenter>(Lifetime.Singleton);
         builder.RegisterEntryPoint<CursorPresenter>(Lifetime.Singleton);
         builder.RegisterEntryPoint<ContainersPresenter>(Lifetime.Singleton);

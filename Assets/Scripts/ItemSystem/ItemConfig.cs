@@ -8,7 +8,7 @@ namespace ItemSystem
         public string ItemConfigKey { get; init; }
         public string ItemDefaultName { get; init; }
         public float Weight { get; init; }
-        public int BasicСost { get; init; }
+        public int BasicCost { get; init; }
         public EItemType ItemType { get; init; }
 
         // Abstract
@@ -27,11 +27,15 @@ namespace ItemSystem
         public override ELocalizationRegion LocalizationRegion => ELocalizationRegion.FoodName;
     }
 
-    public class AlchemyIngredientConfig : ItemConfig
+    public class IngredientConfig : ItemConfig
     {
+        // Ingredient properties
+        public int IngredientLevel { get; internal set; }
+
         // Implementation of abstract properties
         public override bool CanBeEquipped => false;
         public override ELocalizationRegion LocalizationRegion => ELocalizationRegion.AlchemyName;
+
     }
 
     public class PotionConfig : ItemConfig
@@ -72,7 +76,17 @@ namespace ItemSystem
         // Specific properties of armor
         public EArmorType ArmorType { get; init; }
         public int Defense { get; init; }
-        public float MobilityModifier { get; init; } = 1.0f;
+        public int Tier { get; internal set; }
+    }
+
+    public class ShieldConfig : EquipmentConfig
+    {
+        public override ELocalizationRegion LocalizationRegion => ELocalizationRegion.ShieldName;
+
+        // Specific properties 
+        public EArmorType ArmorType { get; init; }
+        public int Defense { get; init; }
+        public int Tier { get; internal set; }
     }
 
     public class BookConfig : ItemConfig
@@ -91,5 +105,23 @@ namespace ItemSystem
 
         // Key specific properties
         public string TargetLockId { get; init; }
+    }
+
+    public abstract class MiscellaneousConfig : ItemConfig
+    {
+        public override bool CanBeEquipped => false;
+        public abstract override ELocalizationRegion LocalizationRegion { get; }
+    }
+
+    public class JunkConfig : MiscellaneousConfig
+    {
+        public override bool CanBeEquipped => false;
+        public override ELocalizationRegion LocalizationRegion => ELocalizationRegion.JunkName;
+    }
+
+    public class ValuableConfig : MiscellaneousConfig
+    {
+        public override bool CanBeEquipped => false;
+        public override ELocalizationRegion LocalizationRegion => ELocalizationRegion.ValuableName;
     }
 }

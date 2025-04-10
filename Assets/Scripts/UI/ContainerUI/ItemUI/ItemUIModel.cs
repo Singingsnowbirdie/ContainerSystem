@@ -34,7 +34,7 @@ namespace UI
                 if (((FoodConfig)config).IsIngredient)
                     list.Add(EContainerFilter.Ingredients);
             }},
-            { typeof(AlchemyIngredientConfig), (list, _) => list.Add(EContainerFilter.Ingredients) },
+            { typeof(IngredientConfig), (list, _) => list.Add(EContainerFilter.Ingredients) },
             { typeof(PotionConfig), (list, _) => list.Add(EContainerFilter.Consumables) },
             { typeof(WeaponConfig), (list, _) => list.Add(EContainerFilter.Weapons) },
             { typeof(ArmorConfig), (list, _) => list.Add(EContainerFilter.Armor) },

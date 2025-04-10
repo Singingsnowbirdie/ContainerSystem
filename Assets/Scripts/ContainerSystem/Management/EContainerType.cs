@@ -7,6 +7,7 @@
         BeverageСrate,
         ButcherCrate,
         FishCrate,
-        GroceriesCrate
+        GroceriesCrate,
+        ApothecaryBag
     }
 }

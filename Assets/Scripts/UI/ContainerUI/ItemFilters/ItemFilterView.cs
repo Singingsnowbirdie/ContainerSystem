@@ -50,8 +50,7 @@ namespace UI
 
         private void OnClick()
         {
-            SelectFilterData filterData = new SelectFilterData(uiModel.FilterType.Value);
-            uiModel.SelectFilter.OnNext(filterData);
+            uiModel.SelectedFilter.Value = uiModel.FilterType.Value;
         }
 
         private void UpdateIconColor(bool isActive, bool hasItems)

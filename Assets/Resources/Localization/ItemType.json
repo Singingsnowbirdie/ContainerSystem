@@ -29,6 +29,16 @@
             "Key": "CookedFood",
             "English": "Cooked",
             "Russian": "Блюдо"
+        },
+        {
+            "Key": "potion",
+            "English": "Potion",
+            "Russian": "Зелье"
+        },
+        {
+            "Key": "poison",
+            "English": "Poison",
+            "Russian": "Яд"
         }
     ]
 }

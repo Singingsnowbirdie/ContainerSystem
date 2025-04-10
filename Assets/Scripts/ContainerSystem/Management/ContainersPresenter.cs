@@ -1,4 +1,5 @@
 ﻿using DataSystem;
+using Player;
 using System.Collections.Generic;
 using UI;
 using UniRx;
@@ -13,6 +14,8 @@ namespace ContainerSystem
         [Inject] private readonly ContainersModel _model;
         [Inject] private readonly ContainersView _view;
         [Inject] private readonly ContainerUIModel _containerUIModel;
+
+        [Inject] private readonly PlayerStatsModel _playerStatsModel;
         private ContainerFactory _containerFactory;
 
         public void Start()
@@ -52,7 +55,7 @@ namespace ContainerSystem
             else
             {
                 Debug.Log($"Container with ID {data.UniqueID} was not found in the repository and will be created.");
-                ContainerData newContainer = _containerFactory.CreateNewContainer(data.UniqueID, data.ContainerType);
+                ContainerData newContainer = _containerFactory.CreateNewContainer(data.UniqueID, data.ContainerType, _playerStatsModel.CurrentPlayerLevel.Value);
                 _model.ContainersRepository.AddContainer(newContainer);
                 _containerUIModel.SetContainerOpenState(true, newContainer);
             }

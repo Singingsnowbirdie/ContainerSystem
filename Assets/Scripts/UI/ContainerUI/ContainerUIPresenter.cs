@@ -83,7 +83,7 @@ namespace UI
                         ItemConfig = itemConfig,
                         SelectedFilter = _containerUIModel.SelectedFilter,
                         ItemTypeIcon = new ReactiveProperty<EItemType>(itemConfig.ItemType),
-                        ItemCost = new ReactiveProperty<int>(itemConfig.BasicСost),
+                        ItemCost = new ReactiveProperty<int>(itemConfig.BasicCost),
                     };
 
                     uiModel.ItemType.Value = _localizationHandler.GetItemTypeTranslation(itemConfig);
@@ -206,15 +206,8 @@ namespace UI
             foreach (var filterType in filterTypes)
             {
                 ItemFilterUIModel filterModel = new ItemFilterUIModel(filterType);
-
                 filterModel.SelectedFilter = _containerUIModel.SelectedFilter;
-
-                filterModel.SelectFilter
-                    .Subscribe(val => OnFilterSelected(val))
-                .AddTo(_containerUIView);
-
                 filterModel.HasItemsOfThisType.Value = HasItemsOfThisType(filterModel.FilterType.Value);
-
                 filtersList.Add(filterModel);
             }
 
@@ -229,13 +222,9 @@ namespace UI
                     return true;
             }
 
-            return false; 
+            return false;
         }
 
-        private void OnFilterSelected(SelectFilterData val)
-        {
-            _containerUIModel.SelectedFilter.Value = val.FilterType;
-        }
         #endregion
 
         // HOTKEYS

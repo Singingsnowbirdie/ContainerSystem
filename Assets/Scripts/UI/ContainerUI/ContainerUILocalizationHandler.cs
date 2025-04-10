@@ -46,7 +46,14 @@ namespace UI
 
         public string GetItemTypeTranslation(ItemConfig itemConfig)
         {
-            if (_localizationModel.TryGetTranslation(ELocalizationRegion.ItemType, itemConfig.ItemType.ToString(), out string translation))
+            string localizationKey = itemConfig.ItemType.ToString();
+
+            if (itemConfig.ItemType == EItemType.ManaPotion ||
+                itemConfig.ItemType == EItemType.HealthPotion ||
+                itemConfig.ItemType == EItemType.HealthPotion)
+                localizationKey = "potion";
+
+            if (_localizationModel.TryGetTranslation(ELocalizationRegion.ItemType, localizationKey, out string translation))
             {
                 return translation;
             }

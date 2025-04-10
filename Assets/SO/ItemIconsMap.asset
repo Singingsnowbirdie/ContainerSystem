@@ -14,13 +14,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Icons:
   - EnumValue: 0
-    Sprite: {fileID: 21300000, guid: ce2057a1a6d52cc4dbe9d239ad4f9003, type: 3}
+    Sprite: {fileID: 21300000, guid: 7485f2cbda582af458309716ff21f889, type: 3}
     Color: {r: 1, g: 1, b: 1, a: 1}
   - EnumValue: 1
-    Sprite: {fileID: 21300000, guid: 09635b47e3ea07740bd83ce74eadb7fb, type: 3}
+    Sprite: {fileID: 21300000, guid: 8bb916245e372e44c94627b48848a956, type: 3}
     Color: {r: 1, g: 1, b: 1, a: 1}
   - EnumValue: 2
-    Sprite: {fileID: 21300000, guid: 44be187faf8b4064383e8c8dbdebf0ea, type: 3}
+    Sprite: {fileID: 21300000, guid: 9214278daa6cdc044af26a1de9ba0692, type: 3}
     Color: {r: 1, g: 1, b: 1, a: 1}
   - EnumValue: 3
     Sprite: {fileID: 21300000, guid: 04ecb50a8e504874182bf12403e4391c, type: 3}
@@ -28,6 +28,15 @@ MonoBehaviour:
   - EnumValue: 4
     Sprite: {fileID: 21300000, guid: 9aa4a9db10172cb4e9b6959997d460b9, type: 3}
     Color: {r: 1, g: 1, b: 1, a: 1}
-  - EnumValue: 5
-    Sprite: {fileID: 21300000, guid: 1eba0b908cc72db4db4e52d21cdf50da, type: 3}
+  - EnumValue: 6
+    Sprite: {fileID: 21300000, guid: 0b73bb5c19ae84a4a8c0e36bd2fe2c2d, type: 3}
+    Color: {r: 1, g: 1, b: 1, a: 1}
+  - EnumValue: 7
+    Sprite: {fileID: 21300000, guid: 2b7cb59c4c9c0684e8b48ac9b67b4a71, type: 3}
+    Color: {r: 1, g: 1, b: 1, a: 1}
+  - EnumValue: 8
+    Sprite: {fileID: 21300000, guid: 9b0de0c36aa4a734aa7c02a34570f139, type: 3}
+    Color: {r: 1, g: 1, b: 1, a: 1}
+  - EnumValue: 8
+    Sprite: {fileID: 21300000, guid: 9b0de0c36aa4a734aa7c02a34570f139, type: 3}
     Color: {r: 1, g: 1, b: 1, a: 1}

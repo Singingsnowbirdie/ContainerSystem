@@ -1,19 +1,254 @@
 {
     "Items": [
         {
-            "Key": "ui_menu_title",
-            "English": "Main Menu",
-            "Russian": "Главное меню"
+            "Key": "mana_boost_1",
+            "English": "Minor Mana Boost",
+            "Russian": "Слабое зелье маны"
         },
         {
-            "Key": "ui_menu_play",
-            "English": "Play",
-            "Russian": "Играть"
+            "Key": "mana_boost_2",
+            "English": "Light Mana Boost",
+            "Russian": "Лёгкое зелье маны"
         },
         {
-            "Key": "ui_menu_exit",
-            "English": "Exit",
-            "Russian": "Выход"
+            "Key": "mana_boost_3",
+            "English": "Standard Mana Boost",
+            "Russian": "Обычное зелье маны"
+        },
+        {
+            "Key": "mana_boost_4",
+            "English": "Greater Mana Boost",
+            "Russian": "Сильное зелье маны"
+        },
+        {
+            "Key": "mana_boost_5",
+            "English": "Supreme Mana Boost",
+            "Russian": "Мощнейшее зелье маны"
+        },
+        {
+            "Key": "health_boost_1",
+            "English": "Minor Health Boost",
+            "Russian": "Слабое зелье здоровья"
+        },
+        {
+            "Key": "health_boost_2",
+            "English": "Light Health Boost",
+            "Russian": "Лёгкое зелье здоровья"
+        },
+        {
+            "Key": "health_boost_3",
+            "English": "Standard Health Boost",
+            "Russian": "Обычное зелье здоровья"
+        },
+        {
+            "Key": "health_boost_4",
+            "English": "Greater Health Boost",
+            "Russian": "Сильное зелье здоровья"
+        },
+        {
+            "Key": "health_boost_5",
+            "English": "Supreme Health Boost",
+            "Russian": "Мощнейшее зелье здоровья"
+        },
+        {
+            "Key": "stamina_boost_1",
+            "English": "Minor Stamina Boost",
+            "Russian": "Слабое зелье выносливости"
+        },
+        {
+            "Key": "stamina_boost_2",
+            "English": "Light Stamina Boost",
+            "Russian": "Лёгкое зелье выносливости"
+        },
+        {
+            "Key": "stamina_boost_3",
+            "English": "Standard Stamina Boost",
+            "Russian": "Обычное зелье выносливости"
+        },
+        {
+            "Key": "stamina_boost_4",
+            "English": "Greater Stamina Boost",
+            "Russian": "Сильное зелье выносливости"
+        },
+        {
+            "Key": "stamina_boost_5",
+            "English": "Supreme Stamina Boost",
+            "Russian": "Мощнейшее зелье выносливости"
+        },
+        {
+            "Key": "max_mana_1",
+            "English": "Minor Wisdom Potion",
+            "Russian": "Слабое зелье мудрости"
+        },
+        {
+            "Key": "max_mana_2",
+            "English": "Light Wisdom Potion",
+            "Russian": "Лёгкое зелье мудрости"
+        },
+        {
+            "Key": "max_mana_3",
+            "English": "Standard Wisdom Potion",
+            "Russian": "Обычное зелье мудрости"
+        },
+        {
+            "Key": "max_mana_4",
+            "English": "Greater Wisdom Potion",
+            "Russian": "Сильное зелье мудрости"
+        },
+        {
+            "Key": "max_mana_5",
+            "English": "Supreme Wisdom Potion",
+            "Russian": "Мощнейшее зелье мудрости"
+        },
+        {
+            "Key": "max_stamina_1",
+            "English": "Minor Vigor Potion",
+            "Russian": "Слабое зелье бодрости"
+        },
+        {
+            "Key": "max_stamina_2",
+            "English": "Light Vigor Potion",
+            "Russian": "Лёгкое зелье бодрости"
+        },
+        {
+            "Key": "max_stamina_3",
+            "English": "Standard Vigor Potion",
+            "Russian": "Обычное зелье бодрости"
+        },
+        {
+            "Key": "max_stamina_4",
+            "English": "Greater Vigor Potion",
+            "Russian": "Сильное зелье бодрости"
+        },
+        {
+            "Key": "max_stamina_5",
+            "English": "Supreme Vigor Potion",
+            "Russian": "Мощнейшее зелье бодрости"
+        },
+        {
+            "Key": "max_health_1",
+            "English": "Minor Fortitude Potion",
+            "Russian": "Слабое зелье стойкости"
+        },
+        {
+            "Key": "max_health_2",
+            "English": "Light Fortitude Potion",
+            "Russian": "Лёгкое зелье стойкости"
+        },
+        {
+            "Key": "max_health_3",
+            "English": "Standard Fortitude Potion",
+            "Russian": "Обычное зелье стойкости"
+        },
+        {
+            "Key": "max_health_4",
+            "English": "Greater Fortitude Potion",
+            "Russian": "Сильное зелье стойкости"
+        },
+        {
+            "Key": "max_health_5",
+            "English": "Supreme Fortitude Potion",
+            "Russian": "Мощнейшее зелье стойкости"
+        },
+        {
+            "Key": "health_potion_1",
+            "English": "Minor Healing Potion",
+            "Russian": "Слабое зелье лечения"
+        },
+        {
+            "Key": "health_potion_2",
+            "English": "Light Healing Potion",
+            "Russian": "Лёгкое зелье лечения"
+        },
+        {
+            "Key": "health_potion_3",
+            "English": "Standard Healing Potion",
+            "Russian": "Обычное зелье лечения"
+        },
+        {
+            "Key": "health_potion_4",
+            "English": "Greater Healing Potion",
+            "Russian": "Сильное зелье лечения"
+        },
+        {
+            "Key": "health_potion_5",
+            "English": "Supreme Healing Potion",
+            "Russian": "Мощнейшее зелье лечения"
+        },
+        {
+            "Key": "mana_potion_1",
+            "English": "Minor Mana Potion",
+            "Russian": "Слабое зелье восстановления маны"
+        },
+        {
+            "Key": "mana_potion_2",
+            "English": "Light Mana Potion",
+            "Russian": "Лёгкое зелье восстановления маны"
+        },
+        {
+            "Key": "mana_potion_3",
+            "English": "Standard Mana Potion",
+            "Russian": "Обычное зелье восстановления маны"
+        },
+        {
+            "Key": "mana_potion_4",
+            "English": "Greater Mana Potion",
+            "Russian": "Сильное зелье восстановления маны"
+        },
+        {
+            "Key": "mana_potion_5",
+            "English": "Supreme Mana Potion",
+            "Russian": "Мощнейшее зелье восстановления маны"
+        },
+        {
+            "Key": "stamina_potion_1",
+            "English": "Minor Energy Potion",
+            "Russian": "Слабое зелье восстановления энергии"
+        },
+        {
+            "Key": "stamina_potion_2",
+            "English": "Light Energy Potion",
+            "Russian": "Лёгкое зелье восстановления энергии"
+        },
+        {
+            "Key": "stamina_potion_3",
+            "English": "Standard Energy Potion",
+            "Russian": "Обычное зелье восстановления энергии"
+        },
+        {
+            "Key": "stamina_potion_4",
+            "English": "Greater Energy Potion",
+            "Russian": "Сильное зелье восстановления энергии"
+        },
+        {
+            "Key": "stamina_potion_5",
+            "English": "Supreme Energy Potion",
+            "Russian": "Мощнейшее зелье восстановления энергии"
+        },
+        {
+            "Key": "weak_poison",
+            "English": "Weak Poison",
+            "Russian": "Слабый яд"
+        },
+        {
+            "Key": "mild_poison",
+            "English": "Mild Poison",
+            "Russian": "Умеренный яд"
+        },
+        {
+            "Key": "standard_poison",
+            "English": "Standard Poison",
+            "Russian": "Обычный яд"
+        },
+        {
+            "Key": "strong_poison",
+            "English": "Strong Poison",
+            "Russian": "Сильный яд"
+        },
+        {
+            "Key": "deadly_poison",
+            "English": "Deadly Poison",
+            "Russian": "Смертельный яд"
         }
     ]
 }
