@@ -18,6 +18,10 @@
 
         // WEAPON
         Sword,
+        Bow,
+        TwoHandedSword,
+        Staff,
+        Dagger,
 
         // ARMOR
         HeavyHelmet,
@@ -40,20 +44,19 @@
         HeavyShield,
         LightShield,
 
+        // ACCESSORIES
+        Ring,
+        Belt,
+        Tiara,
+        Necklace,
+
         // OTHER
         Ingredient,
         Book,
         Key,
         Junk,
         Valuable,
-        Ring,
-        Belt,
-        Tiara,
-        Necklace,
-        Bow,
-        TwoHandedSword,
-        Staff,
-        Dagger,
+        Arrow,
     }
 }
 

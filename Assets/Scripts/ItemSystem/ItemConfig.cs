@@ -1,4 +1,5 @@
 ﻿using Localization;
+using System;
 
 namespace ItemSystem
 {
@@ -46,10 +47,26 @@ namespace ItemSystem
         public EPlayerStat AffectedStat { get; init; }
         public int StatIncrease { get; init; }
         public bool IsInstantEffect { get; init; }
-        public float BoostMultiplier { get; init; } // Regeneration multiplier (1.5 = +50%)
-        public float EffectDuration { get; init; } // Effect duration in seconds
-        public bool IsHarmfulEffect { get; init; } // Harmful effect (poison)
-        public float TickInterval { get; init; }   // Interval between damage ticks
+        public float BoostMultiplier { get; init; }
+        public float EffectDuration { get; init; }
+        public bool HasHarmfulEffect { get; init; }
+        public float TickInterval { get; init; }
+
+        public EPotionType PotionType => DeterminePotionType();
+
+        private EPotionType DeterminePotionType()
+        {
+            if (HasHarmfulEffect)
+                return EPotionType.Poison;
+
+            return AffectedStat switch
+            {
+                EPlayerStat.Health => EPotionType.HealthPotion,
+                EPlayerStat.Mana => EPotionType.ManaPotion,
+                EPlayerStat.Stamina => EPotionType.StaminaPotion,
+                _ => throw new InvalidOperationException($"Unknown potion type for stat {AffectedStat}")
+            };
+        }
     }
 
     public abstract class EquipmentConfig : ItemConfig
@@ -57,6 +74,7 @@ namespace ItemSystem
         public override bool CanBeEquipped => true;
         public abstract override ELocalizationRegion LocalizationRegion { get; }
         public EEquipmentClass EquipmentClass { get; init; }
+        public int Tier { get; internal set; }
     }
 
     public class WeaponConfig : EquipmentConfig
@@ -66,7 +84,6 @@ namespace ItemSystem
         // Additional properties of weapons
         public int Damage { get; init; }
         public EWeaponClass WeaponClass { get; internal set; }
-        public int Tier { get; internal set; }
     }
 
     public class ArmorConfig : EquipmentConfig
@@ -77,7 +94,6 @@ namespace ItemSystem
         public EArmorType ArmorType { get; init; }
         public EArmorClass ArmorClass { get; internal set; }
         public int Defense { get; init; }
-        public int Tier { get; internal set; }
     }
 
     public class AccessoryConfig : EquipmentConfig
@@ -85,7 +101,6 @@ namespace ItemSystem
         public override ELocalizationRegion LocalizationRegion => ELocalizationRegion.ShieldName;
 
         // Specific properties 
-        public int Tier { get; internal set; }
     }
 
     public class ShieldConfig : EquipmentConfig
@@ -94,7 +109,14 @@ namespace ItemSystem
 
         // Specific properties 
         public int Defense { get; init; }
-        public int Tier { get; internal set; }
+    }
+
+    public class AmmoConfig : EquipmentConfig
+    {
+        public override ELocalizationRegion LocalizationRegion => ELocalizationRegion.ShieldName;
+
+        // Specific properties 
+        public int Damage { get; internal set; }
     }
 
     public class BookConfig : ItemConfig

@@ -311,7 +311,7 @@ namespace ItemSystem
                     StatIncrease = -damagePerTick, 
                     EffectDuration = duration,
                     TickInterval = duration / tickCount,
-                    IsHarmfulEffect = true,
+                    HasHarmfulEffect = true,
                     IsInstantEffect = false
                 });
             }

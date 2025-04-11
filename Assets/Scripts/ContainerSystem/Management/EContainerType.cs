@@ -8,6 +8,10 @@
         ButcherCrate,
         FishCrate,
         GroceriesCrate,
-        ApothecaryBag
+        ApothecaryBag,
+        JewelerBag,
+        Bookshelf,
+        EquipmentСhest,
+
     }
 }
