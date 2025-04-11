@@ -59,42 +59,9 @@ namespace ItemSystem
                 .ToList();
         }
 
-        public IEnumerable<PotionConfig> GetAllPotions()
+        internal List<ItemConfig> GetItemsByType<T>() where T : ItemConfig
         {
-            return _configs.Values.OfType<PotionConfig>();
-        }
-
-        public IEnumerable<AccessoryConfig> GetAllAccessories()
-        {
-            return _configs.Values.OfType<AccessoryConfig>();
-        }
-
-        internal List<ItemConfig> GetAllBooks()
-        {
-            return _configs.Values.OfType<BookConfig>()
-                               .Cast<ItemConfig>()
-                               .ToList();
-        }
-
-        internal List<ItemConfig> GetAllIngredients()
-        {
-            return _configs.Values.OfType<IngredientConfig>()
-                               .Cast<ItemConfig>()
-                               .ToList();
-        }
-
-        internal List<ItemConfig> GetJunkItems()
-        {
-            return _configs.Values
-                .Where(item => item is JunkConfig)
-                .ToList();
-        }
-
-        internal List<ItemConfig> GetValuableItems()
-        {
-            return _configs.Values
-                .Where(item => item is ValuableConfig)
-                .ToList();
+            return _configs.Values.OfType<T>().Cast<ItemConfig>().ToList();
         }
 
         internal List<ItemConfig> GetArrows(List<int> possibleTiers)

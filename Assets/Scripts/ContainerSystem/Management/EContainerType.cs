@@ -12,6 +12,8 @@
         JewelerBag,
         Bookshelf,
         EquipmentСhest,
-
+        MageChest,
+        RogueChest,
+        WarriorChest
     }
 }

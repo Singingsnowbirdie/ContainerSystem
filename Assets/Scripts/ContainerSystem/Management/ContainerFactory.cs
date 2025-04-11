@@ -34,10 +34,13 @@ namespace ContainerSystem
                 EContainerType.ButcherCrate => GenerateRandomFoodItems(_itemDatabase.GetFoodsByType(EFoodType.RawMeat).ToList()),
                 EContainerType.FishCrate => GenerateRandomFoodItems(_itemDatabase.GetFoodsByType(EFoodType.RawFish).ToList()),
                 EContainerType.GroceriesCrate => GenerateRandomGroceries(_itemDatabase.GetFoodsByType(EFoodType.Grocery).ToList()),
-                EContainerType.ApothecaryBag => GenerateApothecaryBagContents(_itemDatabase.GetAllPotions().ToList(), playerLevel),
-                EContainerType.JewelerBag => GenerateJewelerBagContents(_itemDatabase.GetAllAccessories().ToList(), playerLevel),
-                EContainerType.Bookshelf => GenerateBooks(_itemDatabase.GetAllBooks().ToList(), 5, 15),
+                EContainerType.ApothecaryBag => GenerateApothecaryBagContents(playerLevel),
+                EContainerType.JewelerBag => GenerateJewelerBagContents(_itemDatabase.GetItemsByType<AccessoryConfig>(), playerLevel),
+                EContainerType.Bookshelf => GenerateBooks(_itemDatabase.GetItemsByType<BookConfig>(), 5, 15),
                 EContainerType.EquipmentСhest => GenerateEquipmentChestContent(playerLevel),
+                EContainerType.MageChest => GenerateMageChestContent(playerLevel),
+                EContainerType.RogueChest => GenerateRogueChestContent(playerLevel),
+                EContainerType.WarriorChest => GenerateWarriorChestContent(playerLevel),
                 _ => new List<ItemData>()
             };
         }
@@ -96,11 +99,11 @@ namespace ContainerSystem
                 // 50% on the book, 50% on the ingredients
                 if (random.NextDouble() < 0.5)
                 {
-                    chestContents.AddRange(GenerateBooks(_itemDatabase.GetAllBooks().ToList(), 1, 2));
+                    chestContents.AddRange(GenerateBooks(_itemDatabase.GetItemsByType<BookConfig>(), 1, 2));
                 }
                 else
                 {
-                    chestContents.AddRange(GenerateIngredients(_itemDatabase.GetAllIngredients().ToList(), 1, 5));
+                    chestContents.AddRange(GenerateIngredients(_itemDatabase.GetItemsByType<IngredientConfig>(), 1, 5));
                 }
             }
 
@@ -205,7 +208,7 @@ namespace ContainerSystem
             // 6. Possible trophy (20% chance)
             if (random.NextDouble() < 0.2)
             {
-                List<ItemConfig> valuableItems = _itemDatabase.GetValuableItems();
+                List<ItemConfig> valuableItems = _itemDatabase.GetItemsByType<ValuableConfig>();
 
                 if (valuableItems.Count > 0)
                 {
@@ -253,6 +256,7 @@ namespace ContainerSystem
 
             return shelfContents;
         }
+
         private List<ItemData> GenerateIngredients(List<ItemConfig> itemConfigs, int minAmount, int maxAmount)
         {
             if (itemConfigs.Count == 0)
@@ -359,11 +363,14 @@ namespace ContainerSystem
             return items;
         }
 
-        private List<ItemData> GenerateApothecaryBagContents(List<PotionConfig> potions, int playerLevel)
+        private List<ItemData> GenerateApothecaryBagContents(int playerLevel)
         {
+            List<ItemConfig> potions = _itemDatabase.GetItemsByType<PotionConfig>();
+
             int maxAvailablePotionLevel = CalculateMaxTier(playerLevel);
 
             var availablePotions = potions
+                .OfType<PotionConfig>()  
                 .Where(p => p.PotionLevel <= maxAvailablePotionLevel)
                 .ToList();
 
@@ -398,11 +405,12 @@ namespace ContainerSystem
             return bagContents;
         }
 
-        private List<ItemData> GenerateJewelerBagContents(List<AccessoryConfig> accessoryConfigs, int playerLevel)
+        private List<ItemData> GenerateJewelerBagContents(List<ItemConfig> accessoryConfigs, int playerLevel)
         {
             int maxAvailableTier = CalculateMaxTier(playerLevel);
 
             var availableAccessories = accessoryConfigs
+                .Cast<AccessoryConfig>()  
                 .Where(a => a.Tier <= maxAvailableTier)
                 .ToList();
 
@@ -557,7 +565,7 @@ namespace ContainerSystem
 
         private void AddPersonalBelongings(System.Random random, List<ItemData> chestContents)
         {
-            var junkItems = _itemDatabase.GetJunkItems();
+            var junkItems = _itemDatabase.GetItemsByType<JunkConfig>();
 
             if (junkItems.Count > 0)
             {
