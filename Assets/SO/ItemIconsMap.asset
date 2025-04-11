@@ -37,6 +37,6 @@ MonoBehaviour:
   - EnumValue: 8
     Sprite: {fileID: 21300000, guid: 9b0de0c36aa4a734aa7c02a34570f139, type: 3}
     Color: {r: 1, g: 1, b: 1, a: 1}
-  - EnumValue: 8
-    Sprite: {fileID: 21300000, guid: 9b0de0c36aa4a734aa7c02a34570f139, type: 3}
+  - EnumValue: 9
+    Sprite: {fileID: 21300000, guid: 8bca841113810b044994264256ee9841, type: 3}
     Color: {r: 1, g: 1, b: 1, a: 1}

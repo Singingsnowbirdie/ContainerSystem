@@ -16,8 +16,8 @@
         StaminaPotion,
         Poison,
 
-
         // WEAPON
+        Sword,
 
         // ARMOR
         HeavyHelmet,
@@ -46,6 +46,14 @@
         Key,
         Junk,
         Valuable,
+        Ring,
+        Belt,
+        Tiara,
+        Necklace,
+        Bow,
+        TwoHandedSword,
+        Staff,
+        Dagger,
     }
 }
 

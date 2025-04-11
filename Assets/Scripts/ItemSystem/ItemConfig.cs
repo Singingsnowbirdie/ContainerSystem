@@ -64,18 +64,27 @@ namespace ItemSystem
         public override ELocalizationRegion LocalizationRegion => ELocalizationRegion.WeaponName;
 
         // Additional properties of weapons
-        public EWeaponType WeaponType { get; init; }
         public int Damage { get; init; }
-        public float AttackSpeed { get; init; }
+        public EWeaponClass WeaponClass { get; internal set; }
+        public int Tier { get; internal set; }
     }
 
     public class ArmorConfig : EquipmentConfig
     {
         public override ELocalizationRegion LocalizationRegion => ELocalizationRegion.ArmorName;
 
-        // Specific properties of armor
+        // Specific properties 
         public EArmorType ArmorType { get; init; }
+        public EArmorClass ArmorClass { get; internal set; }
         public int Defense { get; init; }
+        public int Tier { get; internal set; }
+    }
+
+    public class AccessoryConfig : EquipmentConfig
+    {
+        public override ELocalizationRegion LocalizationRegion => ELocalizationRegion.ShieldName;
+
+        // Specific properties 
         public int Tier { get; internal set; }
     }
 
@@ -84,7 +93,6 @@ namespace ItemSystem
         public override ELocalizationRegion LocalizationRegion => ELocalizationRegion.ShieldName;
 
         // Specific properties 
-        public EArmorType ArmorType { get; init; }
         public int Defense { get; init; }
         public int Tier { get; internal set; }
     }

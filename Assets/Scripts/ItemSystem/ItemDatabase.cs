@@ -7,7 +7,7 @@ namespace ItemSystem
     {
         private readonly Dictionary<string, ItemConfig> _configs = new();
 
-        // Handlers
+        // Factiries
         private readonly FoodFactory _foodFactory = new FoodFactory();
         private readonly PotionsFactory _potionsFactory = new PotionsFactory();
         private readonly IngredientsFactory _ingredientsFactory = new IngredientsFactory();
@@ -16,6 +16,8 @@ namespace ItemSystem
         private readonly ArmorFactory _armorFactory = new ArmorFactory();
         private readonly MiscellaneousFactory _miscellaneousFactory = new MiscellaneousFactory();
         private readonly ShieldsFactory _shieldsFactory = new ShieldsFactory();
+        private readonly AccessoriesFactory _accessoriesFactory = new AccessoriesFactory();
+        private readonly WeaponsFactory _weaponsFactory = new WeaponsFactory();
 
         public ItemDatabase()
         {
@@ -27,6 +29,8 @@ namespace ItemSystem
             _armorFactory.AddConfigs(_configs);
             _miscellaneousFactory.AddConfigs(_configs);
             _shieldsFactory.AddConfigs(_configs);
+            _accessoriesFactory.AddConfigs(_configs);
+            _weaponsFactory.AddConfigs(_configs);
         }
 
         public bool TryGetConfig(string itemConfigKey, out ItemConfig config)

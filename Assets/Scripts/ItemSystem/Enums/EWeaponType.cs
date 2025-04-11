@@ -1,6 +1,6 @@
 ﻿namespace ItemSystem
 {
-    public enum EWeaponType
+    public enum EArmorClass
     {
 
     }
