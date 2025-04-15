@@ -1,19 +1,54 @@
 {
     "Items": [
         {
-            "Key": "ui_menu_title",
-            "English": "Main Menu",
-            "Russian": "Главное меню"
+            "Key": "key_1",
+            "English": "Rusty Iron Key",
+            "Russian": "Ржавый железный ключ"
         },
         {
-            "Key": "ui_menu_play",
-            "English": "Play",
-            "Russian": "Играть"
+            "Key": "key_2",
+            "English": "Tarnished Bronze Key",
+            "Russian": "Потускневший бронзовый ключ"
         },
         {
-            "Key": "ui_menu_exit",
-            "English": "Exit",
-            "Russian": "Выход"
+            "Key": "key_3",
+            "English": "Ornate Silver Key",
+            "Russian": "Украшенный серебряный ключ"
+        },
+        {
+            "Key": "key_4",
+            "English": "Gilded Golden Key",
+            "Russian": "Позолоченный золотой ключ"
+        },
+        {
+            "Key": "key_5",
+            "English": "Ancient Skeleton Key",
+            "Russian": "Древняя отмычка"
+        },
+        {
+            "Key": "key_6",
+            "English": "Enchanted Crystal Key",
+            "Russian": "Зачарованный хрустальный ключ"
+        },
+        {
+            "Key": "key_7",
+            "English": "Forgotten Dungeon Key",
+            "Russian": "Забытый темничный ключ"
+        },
+        {
+            "Key": "key_8",
+            "English": "Royal Palace Key",
+            "Russian": "Королевский дворцовый ключ"
+        },
+        {
+            "Key": "key_9",
+            "English": "Arcane Vault Key",
+            "Russian": "Ключ от тайного хранилища"
+        },
+        {
+            "Key": "key_10",
+            "English": "Master Key of Secrets",
+            "Russian": "Верховный ключ тайн"
         }
     ]
 }

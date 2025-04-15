@@ -1,0 +1,54 @@
+{
+    "Items": [
+        {
+            "Key": "arrow_1",
+            "English": "Flint Arrow",
+            "Russian": "Кремнёвая стрела"
+        },
+        {
+            "Key": "arrow_2",
+            "English": "Bronze Arrow",
+            "Russian": "Бронзовая стрела"
+        },
+        {
+            "Key": "arrow_3",
+            "English": "Iron Arrow",
+            "Russian": "Железная стрела"
+        },
+        {
+            "Key": "arrow_4",
+            "English": "Steel Arrow",
+            "Russian": "Стальная стрела"
+        },
+        {
+            "Key": "arrow_5",
+            "English": "Silver Arrow",
+            "Russian": "Серебряная стрела"
+        },
+        {
+            "Key": "arrow_6",
+            "English": "Obsidian Arrow",
+            "Russian": "Обсидиановая стрела"
+        },
+        {
+            "Key": "arrow_7",
+            "English": "Mithril Arrow",
+            "Russian": "Мифриловая стрела"
+        },
+        {
+            "Key": "arrow_8",
+            "English": "Dragonbone Arrow",
+            "Russian": "Стрела из драконьей кости"
+        },
+        {
+            "Key": "arrow_9",
+            "English": "Phoenix Feather Arrow",
+            "Russian": "Стрела с пером феникса"
+        },
+        {
+            "Key": "arrow_10",
+            "English": "Celestial Arrow",
+            "Russian": "Небесная стрела"
+        }
+    ]
+}

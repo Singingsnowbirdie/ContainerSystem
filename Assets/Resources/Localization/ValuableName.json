@@ -1,19 +1,79 @@
 {
     "Items": [
         {
-            "Key": "ui_menu_title",
-            "English": "Main Menu",
-            "Russian": "Главное меню"
+            "Key": "valuable_1",
+            "English": "Silver Ring",
+            "Russian": "Серебряное кольцо"
         },
         {
-            "Key": "ui_menu_play",
-            "English": "Play",
-            "Russian": "Играть"
+            "Key": "valuable_2",
+            "English": "Ivory Figurine",
+            "Russian": "Резная фигурка из слоновой кости"
         },
         {
-            "Key": "ui_menu_exit",
-            "English": "Exit",
-            "Russian": "Выход"
+            "Key": "valuable_3",
+            "English": "Engraved Bracelet",
+            "Russian": "Гравированный браслет"
+        },
+        {
+            "Key": "valuable_4",
+            "English": "Golden Chalice",
+            "Russian": "Золотой кубок"
+        },
+        {
+            "Key": "valuable_5",
+            "English": "Ornate Necklace",
+            "Russian": "Изысканное ожерелье"
+        },
+        {
+            "Key": "valuable_6",
+            "English": "Ancient Coin",
+            "Russian": "Древняя монета"
+        },
+        {
+            "Key": "valuable_7",
+            "English": "Carved Jewelry Box",
+            "Russian": "Резная шкатулка для драгоценностей"
+        },
+        {
+            "Key": "valuable_8",
+            "English": "Enameled Brooch",
+            "Russian": "Эмалевая брошь"
+        },
+        {
+            "Key": "valuable_9",
+            "English": "Silver Scales",
+            "Russian": "Серебряные весы"
+        },
+        {
+            "Key": "valuable_10",
+            "English": "Gem-Inlaid Dagger",
+            "Russian": "Кинжал с инкрустацией"
+        },
+        {
+            "Key": "valuable_11",
+            "English": "Crystal Vial",
+            "Russian": "Хрустальный флакон"
+        },
+        {
+            "Key": "valuable_12",
+            "English": "Gilded Mirror",
+            "Russian": "Позолоченное зеркало"
+        },
+        {
+            "Key": "valuable_13",
+            "English": "Rare Tome",
+            "Russian": "Редкий фолиант"
+        },
+        {
+            "Key": "valuable_14",
+            "English": "Precious Gemstone",
+            "Russian": "Драгоценный камень"
+        },
+        {
+            "Key": "valuable_15",
+            "English": "Imperial Seal",
+            "Russian": "Императорская печать"
         }
     ]
 }

@@ -103,7 +103,7 @@ namespace ItemSystem
             // Heavy Gauntlets
             AddConfig(new ArmorConfig
             {
-                ItemConfigKey = $"{idPrefix}_gloves_{tier}",
+                ItemConfigKey = $"{idPrefix}_hands_{tier}",
                 ItemDefaultName = $"{material} Gauntlets",
                 Weight = GetHeavyArmorWeight(EArmorType.Gloves, tier),
                 BasicCost = (int)(cost * 0.8f), // Gloves cost slightly less
@@ -174,7 +174,7 @@ namespace ItemSystem
             // Light Gloves
             AddConfig(new ArmorConfig
             {
-                ItemConfigKey = $"{idPrefix}_gloves_{tier}",
+                ItemConfigKey = $"{idPrefix}_hands_{tier}",
                 ItemDefaultName = $"{material} Gloves",
                 Weight = GetLightArmorWeight(EArmorType.Gloves, tier),
                 BasicCost = (int)(cost * 0.7f),
@@ -244,7 +244,7 @@ namespace ItemSystem
             // Cloth Gloves
             AddConfig(new ArmorConfig
             {
-                ItemConfigKey = $"{idPrefix}_gloves_{tier}",
+                ItemConfigKey = $"{idPrefix}_hands_{tier}",
                 ItemDefaultName = $"{material} Gloves",
                 Weight = GetClothArmorWeight(EArmorType.Gloves, tier),
                 BasicCost = (int)(cost * 0.6f),

@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &3524546386854318595
+--- !u!1 &1910919235745079469
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,9 +8,9 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 3968975726574236692}
-  - component: {fileID: 7902711134519087316}
-  - component: {fileID: 2097935025602306345}
+  - component: {fileID: 7902341737763164461}
+  - component: {fileID: 1167397468250565100}
+  - component: {fileID: 6187128455177060259}
   m_Layer: 0
   m_Name: Fish
   m_TagString: Untagged
@@ -18,36 +18,36 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &3968975726574236692
+--- !u!4 &7902341737763164461
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3524546386854318595}
+  m_GameObject: {fileID: 1910919235745079469}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0.38268343, w: 0.92387956}
   m_LocalPosition: {x: 0.015, y: 0.394, z: -0.363}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 804192517763095620}
+  m_Father: {fileID: 4908344739667681438}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 45}
---- !u!33 &7902711134519087316
+--- !u!33 &1167397468250565100
 MeshFilter:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3524546386854318595}
+  m_GameObject: {fileID: 1910919235745079469}
   m_Mesh: {fileID: 2586148439552901436, guid: 6e7236bcc7ad8a345bd8203a37806cee, type: 3}
---- !u!23 &2097935025602306345
+--- !u!23 &6187128455177060259
 MeshRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3524546386854318595}
+  m_GameObject: {fileID: 1910919235745079469}
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
@@ -86,7 +86,7 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!1 &4449358607596234871
+--- !u!1 &6220638482573967516
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -94,40 +94,40 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 804192517763095620}
-  - component: {fileID: 5716192409544604984}
-  - component: {fileID: 3881175457439410048}
+  - component: {fileID: 4908344739667681438}
+  - component: {fileID: 8359266463633329203}
+  - component: {fileID: 1768052587646888362}
   m_Layer: 0
-  m_Name: FishCrate
+  m_Name: Model
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &804192517763095620
+--- !u!4 &4908344739667681438
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4449358607596234871}
+  m_GameObject: {fileID: 6220638482573967516}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 2, y: 1, z: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 4.32, y: 0, z: 10}
+  m_LocalScale: {x: 4, y: 2, z: 2}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 5180957973151328306}
-  - {fileID: 3968975726574236692}
-  m_Father: {fileID: 0}
+  - {fileID: 1288604950929565227}
+  - {fileID: 7902341737763164461}
+  m_Father: {fileID: 4059191862541080475}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!65 &5716192409544604984
+--- !u!65 &8359266463633329203
 BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4449358607596234871}
+  m_GameObject: {fileID: 6220638482573967516}
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
@@ -142,13 +142,13 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.74355185, y: 0.740143, z: 0.74365073}
   m_Center: {x: 0, y: 0.38, z: -0.00000011920929}
---- !u!114 &3881175457439410048
+--- !u!114 &1768052587646888362
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4449358607596234871}
+  m_GameObject: {fileID: 6220638482573967516}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 814d4785540b1ea478aa167ff4f65c35, type: 3}
@@ -156,13 +156,45 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   <UniqueID>k__BackingField: crate_fish_test
   <ContainerType>k__BackingField: 4
---- !u!1001 &5429119155422866815
+--- !u!1 &8049368026555109937
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4059191862541080475}
+  m_Layer: 0
+  m_Name: FishCrate
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4059191862541080475
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8049368026555109937}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 4908344739667681438}
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &2115677701147812710
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 804192517763095620}
+    m_TransformParent: {fileID: 4908344739667681438}
     m_Modifications:
     - target: {fileID: 573573865698385911, guid: e0b2792fd3ecf274fa1b9172d6962562, type: 3}
       propertyPath: m_Name
@@ -218,8 +250,8 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e0b2792fd3ecf274fa1b9172d6962562, type: 3}
---- !u!4 &5180957973151328306 stripped
+--- !u!4 &1288604950929565227 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 918293182789584205, guid: e0b2792fd3ecf274fa1b9172d6962562, type: 3}
-  m_PrefabInstance: {fileID: 5429119155422866815}
+  m_PrefabInstance: {fileID: 2115677701147812710}
   m_PrefabAsset: {fileID: 0}

@@ -1,19 +1,39 @@
 {
     "Items": [
         {
-            "Key": "ui_menu_title",
-            "English": "Main Menu",
-            "Russian": "Главное меню"
+            "Key": "book_1",
+            "English": "Blade of the Lunar Mist",
+            "Russian": "Клинок Лунного Тумана"
         },
         {
-            "Key": "ui_menu_play",
-            "English": "Play",
-            "Russian": "Играть"
+            "Key": "book_2",
+            "English": "Chronicles of the Weeping Stone",
+            "Russian": "Хроники Плачущего Камня"
         },
         {
-            "Key": "ui_menu_exit",
-            "English": "Exit",
-            "Russian": "Выход"
+            "Key": "book_3",
+            "English": "Song of the Cursed Stars",
+            "Russian": "Песнь Проклятых Звёзд"
+        },
+        {
+            "Key": "book_4",
+            "English": "Shadow of the Immortal Legion",
+            "Russian": "Тень Бессмертного Легиона"
+        },
+        {
+            "Key": "book_5",
+            "English": "Blood of the Ancient Dragon",
+            "Russian": "Кровь Древнего Дракона"
+        },
+        {
+            "Key": "book_6",
+            "English": "Throne of Time's Bones",
+            "Russian": "Трон из Костей Времени"
+        },
+        {
+            "Key": "book_7",
+            "English": "Tablets of Dark Flame",
+            "Russian": "Скрижали Тёмного Пламени"
         }
     ]
 }

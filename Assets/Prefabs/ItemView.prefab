@@ -1059,7 +1059,7 @@ MonoBehaviour:
   <Format>k__BackingField: '{0}'
   <AutoResize>k__BackingField: 0
   <ShowPositivePlus>k__BackingField: 0
-  countFloating: 1
+  countFloating: 2
 --- !u!114 &3952662379483699881
 MonoBehaviour:
   m_ObjectHideFlags: 0

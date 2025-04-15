@@ -84,11 +84,11 @@ namespace UI
                         SelectedFilter = _containerUIModel.SelectedFilter,
                         ItemTypeIcon = new ReactiveProperty<EItemType>(itemConfig.ItemType),
                         ItemCost = new ReactiveProperty<int>(itemConfig.BasicCost),
+                        ItemWeight = new ReactiveProperty<float>(itemConfig.Weight),
+                        ItemName = new ReactiveProperty<string>(_localizationHandler.GetItemNameTranslation(itemConfig)),
+                        ItemType = new ReactiveProperty<string>(_localizationHandler.GetItemTypeTranslation(itemConfig)),
+                        EquipmentClass = new ReactiveProperty<string>(_localizationHandler.GetEquipmentClassTranslation(itemConfig))
                     };
-
-                    uiModel.ItemType.Value = _localizationHandler.GetItemTypeTranslation(itemConfig);
-                    uiModel.ItemName.Value = _localizationHandler.GetItemNameTranslation(itemConfig);
-                    uiModel.EquipmentClass.Value = _localizationHandler.GetEquipmentClassTranslation(itemConfig);
 
                     _containerUIModel.Items.Add(uiModel);
                 }

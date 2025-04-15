@@ -28,11 +28,11 @@ namespace ContainerSystem
         {
             return type switch
             {
-                EContainerType.Barrel => GenerateRandomFoodItems(_itemDatabase.GetFoodsByType(EFoodType.Fruit, EFoodType.Vegetable).ToList()),
-                EContainerType.Bag => GenerateRandomFoodItems(_itemDatabase.GetFoodsByType(EFoodType.Grain).ToList()),
-                EContainerType.BeverageСrate => GenerateRandomFoodItems(_itemDatabase.GetFoodsByType(EFoodType.Drink).ToList()),
-                EContainerType.ButcherCrate => GenerateRandomFoodItems(_itemDatabase.GetFoodsByType(EFoodType.RawMeat).ToList()),
-                EContainerType.FishCrate => GenerateRandomFoodItems(_itemDatabase.GetFoodsByType(EFoodType.RawFish).ToList()),
+                EContainerType.Barrel => GenerateRandomFoodItems(_itemDatabase.GetFoodsByType(EFoodType.Fruit, EFoodType.Vegetable)),
+                EContainerType.Bag => GenerateRandomFoodItems(_itemDatabase.GetFoodsByType(EFoodType.Grain)),
+                EContainerType.BeverageСrate => GenerateRandomFoodItems(_itemDatabase.GetFoodsByType(EFoodType.Drink)),
+                EContainerType.ButcherCrate => GenerateRandomFoodItems(_itemDatabase.GetFoodsByType(EFoodType.RawMeat)),
+                EContainerType.FishCrate => GenerateRandomFoodItems(_itemDatabase.GetFoodsByType(EFoodType.RawFish)),
                 EContainerType.GroceriesCrate => GenerateRandomGroceries(_itemDatabase.GetFoodsByType(EFoodType.Grocery).ToList()),
                 EContainerType.ApothecaryBag => GenerateApothecaryBagContents(playerLevel),
                 EContainerType.JewelerBag => GenerateJewelerBagContents(_itemDatabase.GetItemsByType<AccessoryConfig>(), playerLevel),
@@ -41,6 +41,7 @@ namespace ContainerSystem
                 EContainerType.MageChest => GenerateMageChestContent(playerLevel),
                 EContainerType.RogueChest => GenerateRogueChestContent(playerLevel),
                 EContainerType.WarriorChest => GenerateWarriorChestContent(playerLevel),
+                EContainerType.FoodPot => GenerateRandomFoodItems(_itemDatabase.GetFoodsByType(EFoodType.SideDish, EFoodType.MainCourse, EFoodType.Soup)),
                 _ => new List<ItemData>()
             };
         }
@@ -81,7 +82,7 @@ namespace ContainerSystem
             }
 
             // 3. Add food and drinks
-            AddFoodAndDrinks(random, chestContents);
+            AddFoodOrDrink(chestContents);
 
             // 4. Potion Possible (50% chance)
             if (random.NextDouble() < 0.5)
@@ -129,7 +130,7 @@ namespace ContainerSystem
             }
 
             // 3. Add food and drinks
-            AddFoodAndDrinks(random, chestContents);
+            AddFoodOrDrink(chestContents);
 
             // 4. Potion Possible (50% chance)
             if (random.NextDouble() < 0.5)
@@ -193,7 +194,7 @@ namespace ContainerSystem
             }
 
             // 3. Add food and drinks
-            AddFoodAndDrinks(random, chestContents);
+            AddFoodOrDrink(chestContents);
 
             // 4. Potion Possible (50% chance)
             if (random.NextDouble() < 0.5)
@@ -487,7 +488,7 @@ namespace ContainerSystem
 
         // ADDING METHODS
         #region ADDING METHODS
-        private void AddFoodAndDrinks(System.Random random, List<ItemData> chestContents)
+        private void AddFoodOrDrink(List<ItemData> chestContents)
         {
             List<ItemConfig> foodAndDrinks = _itemDatabase.GetFoodsByType(EFoodType.Fruit, EFoodType.SideDish, EFoodType.Drink,
                 EFoodType.MainCourse, EFoodType.Soup).ToList();
@@ -496,9 +497,8 @@ namespace ContainerSystem
             {
                 var foodWeights = foodAndDrinks.Select(f => 1000f / (f.BasicCost + 1)).ToArray();
                 float foodTotalWeight = foodWeights.Sum();
-                int foodCount = random.Next(1, 3);
 
-                AddRandomItems(chestContents, foodAndDrinks, foodWeights, foodTotalWeight, foodCount);
+                AddRandomItems(chestContents, foodAndDrinks, foodWeights, foodTotalWeight, 1);
             }
         }
 

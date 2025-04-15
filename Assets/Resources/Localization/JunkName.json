@@ -1,19 +1,154 @@
 {
     "Items": [
         {
-            "Key": "ui_menu_title",
-            "English": "Main Menu",
-            "Russian": "Главное меню"
+            "Key": "junk_1",
+            "English": "Broken Dagger",
+            "Russian": "Сломанный кинжал"
         },
         {
-            "Key": "ui_menu_play",
-            "English": "Play",
-            "Russian": "Играть"
+            "Key": "junk_2",
+            "English": "Torn Cloth",
+            "Russian": "Рваная ткань"
         },
         {
-            "Key": "ui_menu_exit",
-            "English": "Exit",
-            "Russian": "Выход"
+            "Key": "junk_3",
+            "English": "Rusty Nails",
+            "Russian": "Ржавые гвозди"
+        },
+        {
+            "Key": "junk_4",
+            "English": "Cracked Cup",
+            "Russian": "Треснутая кружка"
+        },
+        {
+            "Key": "junk_5",
+            "English": "Faded Painting",
+            "Russian": "Выцветшая картина"
+        },
+        {
+            "Key": "junk_6",
+            "English": "Old Boot",
+            "Russian": "Старый сапог"
+        },
+        {
+            "Key": "junk_7",
+            "English": "Empty Bottle",
+            "Russian": "Пустая бутылка"
+        },
+        {
+            "Key": "junk_8",
+            "English": "Ruined Parchment",
+            "Russian": "Испорченный пергамент"
+        },
+        {
+            "Key": "junk_9",
+            "English": "Bent Coin",
+            "Russian": "Погнутая монета"
+        },
+        {
+            "Key": "junk_10",
+            "English": "Brick Fragment",
+            "Russian": "Осколок кирпича"
+        },
+        {
+            "Key": "junk_11",
+            "English": "Cracked Pot",
+            "Russian": "Треснутый горшок"
+        },
+        {
+            "Key": "junk_12",
+            "English": "Worn Belt",
+            "Russian": "Поношенный ремень"
+        },
+        {
+            "Key": "junk_13",
+            "English": "Torn Net",
+            "Russian": "Порванная сеть"
+        },
+        {
+            "Key": "junk_14",
+            "English": "Tarnished Mirror",
+            "Russian": "Потускневшее зеркало"
+        },
+        {
+            "Key": "junk_15",
+            "English": "Broken Doll",
+            "Russian": "Сломанная кукла"
+        },
+        {
+            "Key": "junk_16",
+            "English": "Empty Can",
+            "Russian": "Пустая жестянка"
+        },
+        {
+            "Key": "junk_17",
+            "English": "Old Bones",
+            "Russian": "Старые кости"
+        },
+        {
+            "Key": "junk_18",
+            "English": "Rotten Plank",
+            "Russian": "Гнилая доска"
+        },
+        {
+            "Key": "junk_19",
+            "English": "Rusty Handcuffs",
+            "Russian": "Ржавые наручники"
+        },
+        {
+            "Key": "junk_20",
+            "English": "Leaky Bucket",
+            "Russian": "Дырявое ведро"
+        },
+        {
+            "Key": "junk_21",
+            "English": "Damaged Pocket Watch",
+            "Russian": "Испорченные карманные часы"
+        },
+        {
+            "Key": "junk_22",
+            "English": "Chipped Plate",
+            "Russian": "Отколотая тарелка"
+        },
+        {
+            "Key": "junk_23",
+            "English": "Shattered Lantern",
+            "Russian": "Разбитый фонарь"
+        },
+        {
+            "Key": "junk_24",
+            "English": "Torn Book",
+            "Russian": "Разорванная книга"
+        },
+        {
+            "Key": "junk_25",
+            "English": "Dirty Rug",
+            "Russian": "Грязный коврик"
+        },
+        {
+            "Key": "junk_26",
+            "English": "Broken Pipe",
+            "Russian": "Сломанная труба"
+        },
+        {
+            "Key": "junk_27",
+            "English": "Empty Powder Horn",
+            "Russian": "Пустой пороховой рог"
+        },
+        {
+            "Key": "junk_28",
+            "English": "Old Horseshoe",
+            "Russian": "Старая подкова"
+        },
+        {
+            "Key": "junk_29",
+            "English": "Rusty Key",
+            "Russian": "Ржавый ключ"
+        },
+        {
+            "Key": "junk_30",
+            "English": "Tattered Sack",
+            "Russian": "Изодранный мешок"
         }
     ]
 }

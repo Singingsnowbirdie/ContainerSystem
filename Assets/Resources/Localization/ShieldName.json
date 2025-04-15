@@ -1,19 +1,54 @@
 {
     "Items": [
         {
-            "Key": "ui_menu_title",
-            "English": "Main Menu",
-            "Russian": "Главное меню"
+            "Key": "shield_heavy_1",
+            "English": "Iron Kite Shield",
+            "Russian": "Железный каплевидный щит"
         },
         {
-            "Key": "ui_menu_play",
-            "English": "Play",
-            "Russian": "Играть"
+            "Key": "shield_heavy_2",
+            "English": "Steel Tower Shield",
+            "Russian": "Стальной башенный щит"
         },
         {
-            "Key": "ui_menu_exit",
-            "English": "Exit",
-            "Russian": "Выход"
+            "Key": "shield_heavy_3",
+            "English": "Reinforced Battle Shield",
+            "Russian": "Усиленный боевой щит"
+        },
+        {
+            "Key": "shield_heavy_4",
+            "English": "Obsidian Aegis",
+            "Russian": "Обсидиановый эгид"
+        },
+        {
+            "Key": "shield_heavy_5",
+            "English": "Dragonbone Bulwark",
+            "Russian": "Укреп из драконьей кости"
+        },
+        {
+            "Key": "shield_light_1",
+            "English": "Wooden Buckler",
+            "Russian": "Деревянный баклер"
+        },
+        {
+            "Key": "shield_light_2",
+            "English": "Bronze Round Shield",
+            "Russian": "Бронзовый круглый щит"
+        },
+        {
+            "Key": "shield_light_3",
+            "English": "Silver Shield",
+            "Russian": "Серебряный щит"
+        },
+        {
+            "Key": "shield_light_4",
+            "English": "Mithril Ward",
+            "Russian": "Мифриловая защита"
+        },
+        {
+            "Key": "shield_light_5",
+            "English": "Phoenix Wing Shield",
+            "Russian": "Щит-крыло феникса"
         }
     ]
 }

@@ -31,7 +31,7 @@ namespace ContainerSystem
                 {
                     uniqueIDs.Add(uniqueID);
 
-                    SupplyContainerModel containerModel = new SupplyContainerModel(containerView.UniqueID);
+                    RandomContentContainer containerModel = new RandomContentContainer(containerView.UniqueID);
                     containerView.SetContainerModel(containerModel);
                     _model.ContainerModels[containerView.UniqueID] = containerModel;
 

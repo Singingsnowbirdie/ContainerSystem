@@ -1,19 +1,129 @@
 {
     "Items": [
         {
-            "Key": "ui_menu_title",
-            "English": "Main Menu",
-            "Russian": "Главное меню"
+            "Key": "sword_1",
+            "English": "Iron Shortsword",
+            "Russian": "Железный короткий меч"
         },
         {
-            "Key": "ui_menu_play",
-            "English": "Play",
-            "Russian": "Играть"
+            "Key": "sword_2",
+            "English": "Steel Longsword",
+            "Russian": "Стальной длинный меч"
         },
         {
-            "Key": "ui_menu_exit",
-            "English": "Exit",
-            "Russian": "Выход"
+            "Key": "sword_3",
+            "English": "Silver Saber",
+            "Russian": "Серебряная сабля"
+        },
+        {
+            "Key": "sword_4",
+            "English": "Obsidian Blade",
+            "Russian": "Обсидиановый клинок"
+        },
+        {
+            "Key": "sword_5",
+            "English": "Dragonfang Sword",
+            "Russian": "Меч из драконьего клыка"
+        },
+        {
+            "Key": "dagger_1",
+            "English": "Bronze Dagger",
+            "Russian": "Бронзовый кинжал"
+        },
+        {
+            "Key": "dagger_2",
+            "English": "Steel Dirk",
+            "Russian": "Стальной кортик"
+        },
+        {
+            "Key": "dagger_3",
+            "English": "Shadow Fang",
+            "Russian": "Теневой клык"
+        },
+        {
+            "Key": "dagger_4",
+            "English": "Vorpal Blade",
+            "Russian": "Ворпальное лезвие"
+        },
+        {
+            "Key": "dagger_5",
+            "English": "Assassin's Kris",
+            "Russian": "Крис убийцы"
+        },
+        {
+            "Key": "greatsword_1",
+            "English": "Claymore",
+            "Russian": "Клеймор"
+        },
+        {
+            "Key": "greatsword_2",
+            "English": "Zweihander",
+            "Russian": "Цвайхендер"
+        },
+        {
+            "Key": "greatsword_3",
+            "English": "Flameberge",
+            "Russian": "Фламберг"
+        },
+        {
+            "Key": "greatsword_4",
+            "English": "Blackblade",
+            "Russian": "Черноклинок"
+        },
+        {
+            "Key": "greatsword_5",
+            "English": "Titan's Cleaver",
+            "Russian": "Секач титана"
+        },
+        {
+            "Key": "bow_1",
+            "English": "Shortbow",
+            "Russian": "Короткий лук"
+        },
+        {
+            "Key": "bow_2",
+            "English": "Longbow",
+            "Russian": "Длинный лук"
+        },
+        {
+            "Key": "bow_3",
+            "English": "Composite Bow",
+            "Russian": "Композитный лук"
+        },
+        {
+            "Key": "bow_4",
+            "English": "Elven Bow",
+            "Russian": "Эльфийский лук"
+        },
+        {
+            "Key": "bow_5",
+            "English": "Dragonbone Bow",
+            "Russian": "Лук из драконьей кости"
+        },
+        {
+            "Key": "staff_1",
+            "English": "Oak Staff",
+            "Russian": "Дубовый посох"
+        },
+        {
+            "Key": "staff_2",
+            "English": "Runed Staff",
+            "Russian": "Рунический посох"
+        },
+        {
+            "Key": "staff_3",
+            "English": "Crystal Staff",
+            "Russian": "Хрустальный посох"
+        },
+        {
+            "Key": "staff_4",
+            "English": "Archmage's Staff",
+            "Russian": "Посох архимага"
+        },
+        {
+            "Key": "staff_5",
+            "English": "Elderwood Staff",
+            "Russian": "Посох из древнего дерева"
         }
     ]
 }

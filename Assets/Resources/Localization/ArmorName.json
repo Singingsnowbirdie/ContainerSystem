@@ -1,19 +1,379 @@
 {
     "Items": [
         {
-            "Key": "ui_menu_title",
-            "English": "Main Menu",
-            "Russian": "Главное меню"
+            "Key": "heavy_helm_1",
+            "English": "Iron Helm",
+            "Russian": "Железный шлем"
         },
         {
-            "Key": "ui_menu_play",
-            "English": "Play",
-            "Russian": "Играть"
+            "Key": "heavy_helm_2",
+            "English": "Steel Helm",
+            "Russian": "Стальной шлем"
         },
         {
-            "Key": "ui_menu_exit",
-            "English": "Exit",
-            "Russian": "Выход"
+            "Key": "heavy_helm_3",
+            "English": "Mithril Helm",
+            "Russian": "Мифриловый шлем"
+        },
+        {
+            "Key": "heavy_helm_4",
+            "English": "Adamantine Helm",
+            "Russian": "Адамантиновый шлем"
+        },
+        {
+            "Key": "heavy_helm_5",
+            "English": "Dragonplate Helm",
+            "Russian": "Драконий шлем"
+        },
+        {
+            "Key": "heavy_chest_1",
+            "English": "Iron Chestplate",
+            "Russian": "Железный нагрудник"
+        },
+        {
+            "Key": "heavy_chest_2",
+            "English": "Steel Chestplate",
+            "Russian": "Стальной нагрудник"
+        },
+        {
+            "Key": "heavy_chest_3",
+            "English": "Mithril Chestplate",
+            "Russian": "Мифриловый нагрудник"
+        },
+        {
+            "Key": "heavy_chest_4",
+            "English": "Adamantine Chestplate",
+            "Russian": "Адамантиновый нагрудник"
+        },
+        {
+            "Key": "heavy_chest_5",
+            "English": "Dragonplate Chestplate",
+            "Russian": "Драконий нагрудник"
+        },
+        {
+            "Key": "heavy_legs_1",
+            "English": "Iron Leggings",
+            "Russian": "Железные поножи"
+        },
+        {
+            "Key": "heavy_legs_2",
+            "English": "Steel Leggings",
+            "Russian": "Стальные поножи"
+        },
+        {
+            "Key": "heavy_legs_3",
+            "English": "Mithril Leggings",
+            "Russian": "Мифриловые поножи"
+        },
+        {
+            "Key": "heavy_legs_4",
+            "English": "Adamantine Leggings",
+            "Russian": "Адамантиновые поножи"
+        },
+        {
+            "Key": "heavy_legs_5",
+            "English": "Dragonplate Leggings",
+            "Russian": "Драконьи поножи"
+        },
+        {
+            "Key": "heavy_boots_1",
+            "English": "Iron Boots",
+            "Russian": "Железные сапоги"
+        },
+        {
+            "Key": "heavy_boots_2",
+            "English": "Steel Boots",
+            "Russian": "Стальные сапоги"
+        },
+        {
+            "Key": "heavy_boots_3",
+            "English": "Mithril Boots",
+            "Russian": "Мифриловые сапоги"
+        },
+        {
+            "Key": "heavy_boots_4",
+            "English": "Adamantine Boots",
+            "Russian": "Адамантиновые сапоги"
+        },
+        {
+            "Key": "heavy_boots_5",
+            "English": "Dragonplate Boots",
+            "Russian": "Драконьи сапоги"
+        },
+        {
+            "Key": "heavy_hands_1",
+            "English": "Iron Gauntlets",
+            "Russian": "Железные рукавицы"
+        },
+        {
+            "Key": "heavy_hands_2",
+            "English": "Steel Gauntlets",
+            "Russian": "Стальные рукавицы"
+        },
+        {
+            "Key": "heavy_hands_3",
+            "English": "Mithril Gauntlets",
+            "Russian": "Мифриловые рукавицы"
+        },
+        {
+            "Key": "heavy_hands_4",
+            "English": "Adamantine Gauntlets",
+            "Russian": "Адамантиновые рукавицы"
+        },
+        {
+            "Key": "heavy_hands_5",
+            "English": "Dragonplate Gauntlets",
+            "Russian": "Драконьи рукавицы"
+        },
+        {
+            "Key": "light_helm_1",
+            "English": "Leather Helm",
+            "Russian": "Кожаный шлем"
+        },
+        {
+            "Key": "light_helm_2",
+            "English": "Hardened Leather Helm",
+            "Russian": "Шлем из твердой кожи"
+        },
+        {
+            "Key": "light_helm_3",
+            "English": "Chainmail Helm",
+            "Russian": "Кольчужный шлем"
+        },
+        {
+            "Key": "light_helm_4",
+            "English": "Elven Steel Helm",
+            "Russian": "Эльфийский стальной шлем"
+        },
+        {
+            "Key": "light_helm_5",
+            "English": "Shadow Weave Helm",
+            "Russian": "Шлем из тенеткани"
+        },
+        {
+            "Key": "light_chest_1",
+            "English": "Leather Chestplate",
+            "Russian": "Кожаный нагрудник"
+        },
+        {
+            "Key": "light_chest_2",
+            "English": "Hardened Leather Chestplate",
+            "Russian": "Нагрудник из твердой кожи"
+        },
+        {
+            "Key": "light_chest_3",
+            "English": "Chainmail Chestplate",
+            "Russian": "Кольчужный нагрудник"
+        },
+        {
+            "Key": "light_chest_4",
+            "English": "Elven Steel Chestplate",
+            "Russian": "Эльфийский стальной нагрудник"
+        },
+        {
+            "Key": "light_chest_5",
+            "English": "Shadow Weave Chestplate",
+            "Russian": "Нагрудник из тенеткани"
+        },
+        {
+            "Key": "light_legs_1",
+            "English": "Leather Leggings",
+            "Russian": "Кожаные поножи"
+        },
+        {
+            "Key": "light_legs_2",
+            "English": "Hardened Leather Leggings",
+            "Russian": "Поножи из твердой кожи"
+        },
+        {
+            "Key": "light_legs_3",
+            "English": "Chainmail Leggings",
+            "Russian": "Кольчужные поножи"
+        },
+        {
+            "Key": "light_legs_4",
+            "English": "Elven Steel Leggings",
+            "Russian": "Эльфийские стальные поножи"
+        },
+        {
+            "Key": "light_legs_5",
+            "English": "Shadow Weave Leggings",
+            "Russian": "Поножи из тенеткани"
+        },
+        {
+            "Key": "light_boots_1",
+            "English": "Leather Boots",
+            "Russian": "Кожаные сапоги"
+        },
+        {
+            "Key": "light_boots_2",
+            "English": "Hardened Leather Boots",
+            "Russian": "Сапоги из твердой кожи"
+        },
+        {
+            "Key": "light_boots_3",
+            "English": "Chainmail Boots",
+            "Russian": "Кольчужные сапоги"
+        },
+        {
+            "Key": "light_boots_4",
+            "English": "Elven Steel Boots",
+            "Russian": "Эльфийские стальные сапоги"
+        },
+        {
+            "Key": "light_boots_5",
+            "English": "Shadow Weave Boots",
+            "Russian": "Сапоги из тенеткани"
+        },
+        {
+            "Key": "light_hands_1",
+            "English": "Leather Gauntlets",
+            "Russian": "Кожаные перчатки"
+        },
+        {
+            "Key": "light_hands_2",
+            "English": "Hardened Leather Gauntlets",
+            "Russian": "Перчатки из твердой кожи"
+        },
+        {
+            "Key": "light_hands_3",
+            "English": "Chainmail Gauntlets",
+            "Russian": "Кольчужные перчатки"
+        },
+        {
+            "Key": "light_hands_4",
+            "English": "Elven Steel Gauntlets",
+            "Russian": "Эльфийские стальные перчатки"
+        },
+        {
+            "Key": "light_hands_5",
+            "English": "Shadow Weave Gauntlets",
+            "Russian": "Перчатки из тенеткани"
+        },
+        {
+            "Key": "cloth_helm_1",
+            "English": "Linen Hood",
+            "Russian": "Льняной капюшон"
+        },
+        {
+            "Key": "cloth_helm_2",
+            "English": "Wool Hood",
+            "Russian": "Шерстяной капюшон"
+        },
+        {
+            "Key": "cloth_helm_3",
+            "English": "Silk Hood",
+            "Russian": "Шелковый капюшон"
+        },
+        {
+            "Key": "cloth_helm_4",
+            "English": "Mageweave Hood",
+            "Russian": "Капюшон из маготкани"
+        },
+        {
+            "Key": "cloth_helm_5",
+            "English": "Arcane Cloth Hood",
+            "Russian": "Капюшон из тайноткани"
+        },
+        {
+            "Key": "cloth_chest_1",
+            "English": "Linen Robe",
+            "Russian": "Льняная роба"
+        },
+        {
+            "Key": "cloth_chest_2",
+            "English": "Wool Robe",
+            "Russian": "Шерстяная роба"
+        },
+        {
+            "Key": "cloth_chest_3",
+            "English": "Silk Robe",
+            "Russian": "Шелковая роба"
+        },
+        {
+            "Key": "cloth_chest_4",
+            "English": "Mageweave Robe",
+            "Russian": "Роба из маготкани"
+        },
+        {
+            "Key": "cloth_chest_5",
+            "English": "Arcane Cloth Robe",
+            "Russian": "Роба из тайноткани"
+        },
+        {
+            "Key": "cloth_legs_1",
+            "English": "Linen Pants",
+            "Russian": "Льняные штаны"
+        },
+        {
+            "Key": "cloth_legs_2",
+            "English": "Wool Pants",
+            "Russian": "Шерстяные штаны"
+        },
+        {
+            "Key": "cloth_legs_3",
+            "English": "Silk Pants",
+            "Russian": "Шелковые штаны"
+        },
+        {
+            "Key": "cloth_legs_4",
+            "English": "Mageweave Pants",
+            "Russian": "Штаны из маготкани"
+        },
+        {
+            "Key": "cloth_legs_5",
+            "English": "Arcane Cloth Pants",
+            "Russian": "Штаны из тайноткани"
+        },
+        {
+            "Key": "cloth_boots_1",
+            "English": "Linen Shoes",
+            "Russian": "Льняные башмаки"
+        },
+        {
+            "Key": "cloth_boots_2",
+            "English": "Wool Shoes",
+            "Russian": "Шерстяные башмаки"
+        },
+        {
+            "Key": "cloth_boots_3",
+            "English": "Silk Shoes",
+            "Russian": "Шелковые башмаки"
+        },
+        {
+            "Key": "cloth_boots_4",
+            "English": "Mageweave Shoes",
+            "Russian": "Башмаки из маготкани"
+        },
+        {
+            "Key": "cloth_boots_5",
+            "English": "Arcane Cloth Shoes",
+            "Russian": "Башмаки из тайноткани"
+        },
+        {
+            "Key": "cloth_hands_1",
+            "English": "Linen Gloves",
+            "Russian": "Льняные перчатки"
+        },
+        {
+            "Key": "cloth_hands_2",
+            "English": "Wool Gloves",
+            "Russian": "Шерстяные перчатки"
+        },
+        {
+            "Key": "cloth_hands_3",
+            "English": "Silk Gloves",
+            "Russian": "Шелковые перчатки"
+        },
+        {
+            "Key": "cloth_hands_4",
+            "English": "Mageweave Gloves",
+            "Russian": "Перчатки из маготкани"
+        },
+        {
+            "Key": "cloth_hands_5",
+            "English": "Arcane Cloth Gloves",
+            "Russian": "Перчатки из тайноткани"
         }
     ]
 }

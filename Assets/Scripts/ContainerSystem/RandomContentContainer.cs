@@ -1,8 +1,8 @@
 ﻿namespace ContainerSystem
 {
-    public class SupplyContainerModel : ContainerModel
+    public class RandomContentContainer : ContainerModel
     {
-        public SupplyContainerModel(string uniqueID)
+        public RandomContentContainer(string uniqueID)
         {
             UniqueID = uniqueID;
         }

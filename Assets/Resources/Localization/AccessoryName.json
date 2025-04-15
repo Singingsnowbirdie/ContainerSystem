@@ -1,0 +1,104 @@
+{
+  "Items": [
+      {
+          "Key": "ring_1",
+          "English": "Copper Band",
+          "Russian": "Медное кольцо"
+      },
+      {
+          "Key": "ring_2",
+          "English": "Silver Ring",
+          "Russian": "Серебряное кольцо"
+      },
+      {
+          "Key": "ring_3",
+          "English": "Gold Signet",
+          "Russian": "Золотой перстень"
+      },
+      {
+          "Key": "ring_4",
+          "English": "Platinum Circle",
+          "Russian": "Платиновый обруч"
+      },
+      {
+          "Key": "ring_5",
+          "English": "Dragonbone Hoop",
+          "Russian": "Обруч из драконьей кости"
+      },
+      {
+          "Key": "belt_1",
+          "English": "Leather Strap",
+          "Russian": "Кожаный ремень"
+      },
+      {
+          "Key": "belt_2",
+          "English": "Studded Girdle",
+          "Russian": "Шипованный пояс"
+      },
+      {
+          "Key": "belt_3",
+          "English": "Silk Sash",
+          "Russian": "Шёлковый кушак"
+      },
+      {
+          "Key": "belt_4",
+          "English": "Mithril Chain",
+          "Russian": "Мифрильная цепь"
+      },
+      {
+          "Key": "belt_5",
+          "English": "Dragonhide Belt",
+          "Russian": "Пояс из драконьей шкуры"
+      },
+      {
+          "Key": "tiara_1",
+          "English": "Bronze Circlet",
+          "Russian": "Бронзовый венец"
+      },
+      {
+          "Key": "tiara_2",
+          "English": "Silver Diadem",
+          "Russian": "Серебряная диадема"
+      },
+      {
+          "Key": "tiara_3",
+          "English": "Golden Crownlet",
+          "Russian": "Золотая корона"
+      },
+      {
+          "Key": "tiara_4",
+          "English": "Crystal Coronet",
+          "Russian": "Хрустальный венец"
+      },
+      {
+          "Key": "tiara_5",
+          "English": "Arcane Headdress",
+          "Russian": "Мистический убор"
+      },
+      {
+          "Key": "necklace_1",
+          "English": "Beaded Strand",
+          "Russian": "Бусинное ожерелье"
+      },
+      {
+          "Key": "necklace_2",
+          "English": "Silver Pendant",
+          "Russian": "Серебряный кулон"
+      },
+      {
+          "Key": "necklace_3",
+          "English": "Gold Choker",
+          "Russian": "Золотое колье"
+      },
+      {
+          "Key": "necklace_4",
+          "English": "Platinum Torc",
+          "Russian": "Платиновая гривна"
+      },
+      {
+          "Key": "necklace_5",
+          "English": "Dragonfang Collar",
+          "Russian": "Ошейник из драконьего клыка"
+      }
+  ]
+}

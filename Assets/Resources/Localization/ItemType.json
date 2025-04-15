@@ -39,6 +39,181 @@
             "Key": "poison",
             "English": "Poison",
             "Russian": "Яд"
+        },
+        {
+            "Key": "ManaPotion",
+            "English": "Potion",
+            "Russian": "Зелье"
+        },
+        {
+            "Key": "HealthPotion",
+            "English": "Potion",
+            "Russian": "Зелье"
+        },
+        {
+            "Key": "StaminaPotion",
+            "English": "Potion",
+            "Russian": "Зелье"
+        },
+        {
+            "Key": "Sword",
+            "English": "Sword",
+            "Russian": "Меч"
+        },
+        {
+            "Key": "Bow",
+            "English": "Bow",
+            "Russian": "Лук"
+        },
+        {
+            "Key": "TwoHandedSword",
+            "English": "Two-Handed Sword",
+            "Russian": "Двуручный меч"
+        },
+        {
+            "Key": "Staff",
+            "English": "Staff",
+            "Russian": "Посох"
+        },
+        {
+            "Key": "Dagger",
+            "English": "Dagger",
+            "Russian": "Кинжал"
+        },
+        {
+            "Key": "HeavyHelmet",
+            "English": "Helmet",
+            "Russian": "Шлем"
+        },
+        {
+            "Key": "HeavyChest",
+            "English": "Chest",
+            "Russian": "Нагрудник"
+        },
+        {
+            "Key": "HeavyLegs",
+            "English": "Leggings",
+            "Russian": "Поножи"
+        },
+        {
+            "Key": "HeavyBoots",
+            "English": "Boots",
+            "Russian": "Сапоги"
+        },
+        {
+            "Key": "HeavyGloves",
+            "English": "Gauntlets",
+            "Russian": "Рукавицы"
+        },
+        {
+            "Key": "LightHelmet",
+            "English": "Helmet",
+            "Russian": "Шлем"
+        },
+        {
+            "Key": "LightChest",
+            "English": "Chest",
+            "Russian": "Нагрудник"
+        },
+        {
+            "Key": "LightLegs",
+            "English": "Leggings",
+            "Russian": "Поножи"
+        },
+        {
+            "Key": "LightBoots",
+            "English": "Boots",
+            "Russian": "Сапоги"
+        },
+        {
+            "Key": "LightGloves",
+            "English": "Gloves",
+            "Russian": "Перчатки"
+        },
+        {
+            "Key": "ClothHelmet",
+            "English": "Helmet",
+            "Russian": "Капюшон"
+        },
+        {
+            "Key": "ClothChest",
+            "English": "Chest",
+            "Russian": "Роба"
+        },
+        {
+            "Key": "ClothLegs",
+            "English": "Leggings",
+            "Russian": "Штаны"
+        },
+        {
+            "Key": "ClothBoots",
+            "English": "Boots",
+            "Russian": "Башмаки"
+        },
+        {
+            "Key": "ClothGloves",
+            "English": "Gloves",
+            "Russian": "Перчатки"
+        },
+        {
+            "Key": "HeavyShield",
+            "English": "Shield",
+            "Russian": "Щит"
+        },
+        {
+            "Key": "LightShield",
+            "English": "Shield",
+            "Russian": "Щит"
+        },
+        {
+            "Key": "Ring",
+            "English": "Ring",
+            "Russian": "Кольцо"
+        },
+        {
+            "Key": "Belt",
+            "English": "Belt",
+            "Russian": "Пояс"
+        },
+        {
+            "Key": "Tiara",
+            "English": "Tiara",
+            "Russian": "Тиара"
+        },
+        {
+            "Key": "Necklace",
+            "English": "Necklace",
+            "Russian": "Ожерелье"
+        },
+        {
+            "Key": "Ingredient",
+            "English": "Ingredient",
+            "Russian": "Ингредиент"
+        },
+        {
+            "Key": "Book",
+            "English": "Book",
+            "Russian": "Книга"
+        },
+        {
+            "Key": "Key",
+            "English": "Key",
+            "Russian": "Ключ"
+        },
+        {
+            "Key": "Junk",
+            "English": "Junk",
+            "Russian": "Хлам"
+        },
+        {
+            "Key": "Valuable",
+            "English": "Valuable",
+            "Russian": "Ценность"
+        },
+        {
+            "Key": "Arrow",
+            "English": "Arrow",
+            "Russian": "Стрела"
         }
     ]
 }

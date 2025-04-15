@@ -14,6 +14,7 @@
         EquipmentСhest,
         MageChest,
         RogueChest,
-        WarriorChest
+        WarriorChest,
+        FoodPot
     }
 }

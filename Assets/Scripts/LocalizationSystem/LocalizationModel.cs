@@ -1,5 +1,4 @@
-﻿using ItemSystem;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.IO;
 using UI;
@@ -50,8 +49,12 @@ namespace Localization
         {
             if (Translations.TryGetValue(localizationRegion, out Dictionary<string, string> dict))
             {
+                if (!dict.TryGetValue(itemConfigKey, out _))
+                Debug.Log($"No Translation for region: {localizationRegion}, item: {itemConfigKey}");
+
                 if (dict.TryGetValue(itemConfigKey, out translation))
                 {
+                    //Debug.Log($"translation = {translation}");
                     return true;
                 }
             }

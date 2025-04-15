@@ -16,11 +16,11 @@ namespace UI
 
         // Reactive properties 
         public ReactiveProperty<EItemType> ItemTypeIcon { get; init; } = new();
-        public ReactiveProperty<string> ItemType { get; } = new();
-        public ReactiveProperty<string> ItemName { get; } = new();
-        public ReactiveProperty<float> ItemWeight { get; } = new();
-        public ReactiveProperty<int> ItemCost { get; init; } = new();
-        public ReactiveProperty<string> EquipmentClass { get; } = new();
+        public ReactiveProperty<string> ItemType { get; init; }
+        public ReactiveProperty<string> ItemName { get; init; }
+        public ReactiveProperty<float> ItemWeight { get; init; }
+        public ReactiveProperty<int> ItemCost { get; init; }
+        public ReactiveProperty<string> EquipmentClass { get; init; }
         public ReactiveProperty<bool> IsSelected { get; } = new();
         public ReactiveProperty<EContainerFilter> SelectedFilter { get; init; }
 
