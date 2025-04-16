@@ -2,14 +2,15 @@
 using UI.ReactiveViews;
 using UniRx;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
 namespace UI
 {
-    public class ItemUIView : UIReactiveView<ItemUIModel>
+    public class ItemUIView : UIReactiveView<ItemUIModel>, IPointerEnterHandler
     {
         [SerializeField] private Button _button;
-        [SerializeField] private Image _selectionIndicationImg;
+        [SerializeField] private GameObject _selectionIndicationImg;
         [SerializeField] private ItemTypeIconView _itemIcon;
         [SerializeField] private TextMeshProReactiveStringView _itemNameTF;
         [SerializeField] private TextMeshProReactiveStringView _itemTypeTF;
@@ -33,6 +34,10 @@ namespace UI
                 .Subscribe(val => OnItemSelected(val))
                 .AddTo(this);
 
+            uiModel.SelectedItemID
+                .Subscribe(val => OnSelectedItemUpdated(val))
+                .AddTo(this);
+
             uiModel.SelectedFilter
                 .Subscribe(filter => OnFiltered(filter))
                 .AddTo(this);
@@ -50,18 +55,26 @@ namespace UI
         private void OnButtonPressed()
         {
             // TODO: If equip mode is active, equip or consume
-            uiModel.IsSelected.Value = true;
+        }
+
+        // SELECTION
+        #region
+        public void OnPointerEnter(PointerEventData eventData)
+        {
+            uiModel.SelectedItemID.Value = uiModel.UniqueID;
+        }
+
+        private void OnSelectedItemUpdated(string selectedItemID)
+        {
+            UIModel.IsSelected.Value = selectedItemID == uiModel.UniqueID;
         }
 
         private void OnItemSelected(bool isSelected)
         {
-            _selectionIndicationImg.enabled = isSelected;
-
-            if (isSelected)
-            {
-                UIModel.SelectItem.OnNext(UIModel.UniqueID);
-            }
+            Debug.Log("OnItemSelected");
+            _selectionIndicationImg.SetActive(isSelected);
         }
+        #endregion
 
         // FILTERING
         #region

@@ -7,40 +7,25 @@ namespace UI
 {
     public class ItemUIModel : UIModel
     {
-        private List<EContainerFilter> _suitableFilters;
-
-        // Immutable properties
-        public string UniqueID { get; init; }
         public ItemConfig ItemConfig { get; init; }
-        public bool CanBeEquipped => ItemConfig.CanBeEquipped;
 
-        // Reactive properties 
+        // Item properties 
+        public string UniqueID { get; init; }
+        public bool CanBeEquipped => ItemConfig.CanBeEquipped;
         public ReactiveProperty<EItemType> ItemTypeIcon { get; init; } = new();
         public ReactiveProperty<string> ItemType { get; init; }
         public ReactiveProperty<string> ItemName { get; init; }
         public ReactiveProperty<float> ItemWeight { get; init; }
         public ReactiveProperty<int> ItemCost { get; init; }
         public ReactiveProperty<string> EquipmentClass { get; init; }
+
+        // Selection related
+        public ReactiveProperty<string> SelectedItemID { get; init; }
         public ReactiveProperty<bool> IsSelected { get; } = new();
+
+        // Filtering related
+        private List<EContainerFilter> _suitableFilters;
         public ReactiveProperty<EContainerFilter> SelectedFilter { get; init; }
-
-        // Subjects
-        public ISubject<string> SelectItem { get; } = new Subject<string>();
-
-        private static readonly Dictionary<Type, Action<List<EContainerFilter>, ItemConfig>> _filterRules = new()
-        {
-            { typeof(FoodConfig), (list, config) => {
-                list.Add(EContainerFilter.Consumables);
-                if (((FoodConfig)config).IsIngredient)
-                    list.Add(EContainerFilter.Ingredients);
-            }},
-            { typeof(IngredientConfig), (list, _) => list.Add(EContainerFilter.Ingredients) },
-            { typeof(PotionConfig), (list, _) => list.Add(EContainerFilter.Consumables) },
-            { typeof(WeaponConfig), (list, _) => list.Add(EContainerFilter.Weapons) },
-            { typeof(ArmorConfig), (list, _) => list.Add(EContainerFilter.Armor) },
-            { typeof(BookConfig), (list, _) => list.Add(EContainerFilter.Books) }
-        };
-
         public List<EContainerFilter> SuitableFilters
         {
             get
@@ -65,5 +50,19 @@ namespace UI
                 return _suitableFilters;
             }
         }
+
+        private static readonly Dictionary<Type, Action<List<EContainerFilter>, ItemConfig>> _filterRules = new()
+        {
+            { typeof(FoodConfig), (list, config) => {
+                list.Add(EContainerFilter.Consumables);
+                if (((FoodConfig)config).IsIngredient)
+                    list.Add(EContainerFilter.Ingredients);
+            }},
+            { typeof(IngredientConfig), (list, _) => list.Add(EContainerFilter.Ingredients) },
+            { typeof(PotionConfig), (list, _) => list.Add(EContainerFilter.Consumables) },
+            { typeof(WeaponConfig), (list, _) => list.Add(EContainerFilter.Weapons) },
+            { typeof(ArmorConfig), (list, _) => list.Add(EContainerFilter.Armor) },
+            { typeof(BookConfig), (list, _) => list.Add(EContainerFilter.Books) }
+        };
     }
 }

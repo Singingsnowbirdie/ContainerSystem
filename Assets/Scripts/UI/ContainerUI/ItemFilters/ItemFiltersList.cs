@@ -1,6 +1,5 @@
 ﻿using UI.ReactiveViews;
 using UniRx;
-using UnityEngine;
 
 namespace UI
 {
@@ -9,9 +8,6 @@ namespace UI
         protected override void OnSetModel(ReactiveCollection<ItemFilterUIModel> viewModel)
         {
             base.OnSetModel(viewModel);
-
-            Debug.Log($"ItemFiltersList OnSetModel; viewModel = {viewModel}");
-
         }
     }
 }

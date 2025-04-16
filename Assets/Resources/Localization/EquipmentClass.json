@@ -1,19 +1,39 @@
 {
     "Items": [
         {
-            "Key": "ui_menu_title",
-            "English": "Main Menu",
-            "Russian": "Главное меню"
+            "Key": "Jewelry",
+            "English": "Jewelry",
+            "Russian": "Украшения"
         },
         {
-            "Key": "ui_menu_play",
-            "English": "Play",
-            "Russian": "Играть"
+            "Key": "Heavy",
+            "English": "Heavy",
+            "Russian": "Тяжёлое"
         },
         {
-            "Key": "ui_menu_exit",
-            "English": "Exit",
-            "Russian": "Выход"
+            "Key": "Light",
+            "English": "Light",
+            "Russian": "Лёгкое"
+        },
+        {
+            "Key": "Cloth",
+            "English": "Cloth",
+            "Russian": "Тканевое"
+        },
+        {
+            "Key": "OneHanded",
+            "English": "One-Handed",
+            "Russian": "Одноручное"
+        },
+        {
+            "Key": "TwoHanded",
+            "English": "Two-Handed",
+            "Russian": "Двуручное"
+        },
+        {
+            "Key": "Shield",
+            "English": "Shield",
+            "Russian": "Щит"
         }
     ]
 }

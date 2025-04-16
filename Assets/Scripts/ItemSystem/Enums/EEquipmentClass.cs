@@ -4,8 +4,11 @@
     {
         Jewelry,
         Heavy,
-        Light
+        Light,
+        Cloth,
+        OneHanded,
+        TwoHanded,
+        Shield
     }
-
 }
 

@@ -73,8 +73,6 @@ namespace UI
 
         public string GetItemNameTranslation(ItemConfig itemConfig)
         {
-            Debug.Log($"itemConfig = {itemConfig}");
-
             if (_localizationModel.TryGetTranslation(itemConfig.LocalizationRegion, itemConfig.ItemConfigKey, out string translation))
             {
                 return translation;

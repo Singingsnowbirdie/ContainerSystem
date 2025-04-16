@@ -57,15 +57,6 @@ namespace UI
         {
             if (string.IsNullOrEmpty(selecteditemID))
                 return;
-
-            foreach (ItemUIModel item in _containerUIModel.Items)
-            {
-                if (item.UniqueID != selecteditemID &&
-                    item.IsSelected.Value)
-                {
-                    item.IsSelected.Value = false;
-                }
-            }
         }
 
         private void OpenContainerUI(ContainerData data)
@@ -82,6 +73,7 @@ namespace UI
                         UniqueID = itemData.ItemID,
                         ItemConfig = itemConfig,
                         SelectedFilter = _containerUIModel.SelectedFilter,
+                        SelectedItemID = _containerUIModel.SelectedItemID,
                         ItemTypeIcon = new ReactiveProperty<EItemType>(itemConfig.ItemType),
                         ItemCost = new ReactiveProperty<int>(itemConfig.BasicCost),
                         ItemWeight = new ReactiveProperty<float>(itemConfig.Weight),
@@ -95,9 +87,6 @@ namespace UI
             }
 
             _containerUIModel.SortingButtonsAreaModel.SortingType.Value = ESortingType.NameUp;
-
-            if (_containerUIModel.Items.Count > 0)
-                _containerUIModel.Items[0].IsSelected.Value = true;
 
             // Show Filters
             _containerUIModel.ItemFilters.Clear();
