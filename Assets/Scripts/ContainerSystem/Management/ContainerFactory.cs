@@ -10,7 +10,7 @@ namespace ContainerSystem
     public class ContainerFactory
     {
         private readonly ItemDatabase _itemDatabase;
-        private readonly HashSet<string> _usedIDs = new HashSet<string>();
+        private readonly HashSet<string> _usedIDs = new();
 
         public ContainerFactory(ItemDatabase itemDatabase)
         {
@@ -36,7 +36,7 @@ namespace ContainerSystem
                 EContainerType.GroceriesCrate => GenerateRandomGroceries(_itemDatabase.GetFoodsByType(EFoodType.Grocery).ToList()),
                 EContainerType.ApothecaryBag => GenerateApothecaryBagContents(playerLevel),
                 EContainerType.JewelerBag => GenerateJewelerBagContents(_itemDatabase.GetItemsByType<AccessoryConfig>(), playerLevel),
-                EContainerType.Bookshelf => GenerateBooks(_itemDatabase.GetItemsByType<BookConfig>(), 5, 15),
+                EContainerType.Bookshelf => GenerateBooks(_itemDatabase.GetItemsByType<BookConfig>(), 6, 6),
                 EContainerType.EquipmentСhest => GenerateEquipmentChestContent(playerLevel),
                 EContainerType.MageChest => GenerateMageChestContent(playerLevel),
                 EContainerType.RogueChest => GenerateRogueChestContent(playerLevel),
@@ -164,11 +164,7 @@ namespace ContainerSystem
                     int arrowCount = random.Next(10, 21);
 
                     // Add to container
-                    chestContents.Add(new ItemData(
-                        CreateUniqueItemID(),
-                        selectedArrow.ItemConfigKey,
-                        arrowCount
-                    ));
+                    chestContents.Add(new ItemData(CreateUniqueItemID(), EItemType.Arrow, selectedArrow.ItemConfigKey, arrowCount));
                 }
             }
 
@@ -249,7 +245,7 @@ namespace ContainerSystem
                     if (randomValue <= currentSum)
                     {
                         var uniqueID = CreateUniqueItemID();
-                        shelfContents.Add(new ItemData(uniqueID, bookConfigs[j].ItemConfigKey, 1));
+                        shelfContents.Add(new ItemData(uniqueID, EItemType.Book, bookConfigs[j].ItemConfigKey, 1));
                         break;
                     }
                 }
@@ -286,7 +282,7 @@ namespace ContainerSystem
                         // For ingredients, we generate a random amount (within a given range)
                         int amount = random.Next(minAmount, maxAmount + 1);
                         var uniqueID = CreateUniqueItemID();
-                        ingredientContents.Add(new ItemData(uniqueID, itemConfigs[j].ItemConfigKey, amount));
+                        ingredientContents.Add(new ItemData(uniqueID, EItemType.Ingredient, itemConfigs[j].ItemConfigKey, amount));
                         break;
                     }
                 }
@@ -312,11 +308,11 @@ namespace ContainerSystem
                 }
             }
 
-            var selectedItem = weightedItems[UnityEngine.Random.Range(0, weightedItems.Count)];
+            ItemConfig selectedItem = weightedItems[UnityEngine.Random.Range(0, weightedItems.Count)];
 
             var uniqueID = CreateUniqueItemID();
             int amount = UnityEngine.Random.Range(1, 6);
-            items.Add(new ItemData(uniqueID, selectedItem.ItemConfigKey, amount));
+            items.Add(new ItemData(uniqueID, selectedItem.ItemType, selectedItem.ItemConfigKey, amount));
 
             return items;
         }
@@ -324,9 +320,12 @@ namespace ContainerSystem
         private List<ItemData> GenerateRandomGroceries(List<ItemConfig> foodConfigs)
         {
             var items = new List<ItemData>
-    {
-        new ItemData(CreateUniqueItemID(), "salt", UnityEngine.Random.Range(1, 6))
-    };
+                {
+                    new ItemData(CreateUniqueItemID(),
+                    EItemType.Grocery,
+                    "salt",
+                    UnityEngine.Random.Range(1, 6))
+                };
 
             if (foodConfigs.Count == 0)
                 return items;
@@ -357,7 +356,7 @@ namespace ContainerSystem
                 if (!selectedItems.Contains(selectedItem.ItemConfigKey))
                 {
                     selectedItems.Add(selectedItem.ItemConfigKey);
-                    items.Add(new ItemData(CreateUniqueItemID(), selectedItem.ItemConfigKey, UnityEngine.Random.Range(1, 6)));
+                    items.Add(new ItemData(CreateUniqueItemID(), selectedItem.ItemType, selectedItem.ItemConfigKey, UnityEngine.Random.Range(1, 6)));
                 }
             }
 
@@ -371,7 +370,7 @@ namespace ContainerSystem
             int maxAvailablePotionLevel = CalculateMaxTier(playerLevel);
 
             var availablePotions = potions
-                .OfType<PotionConfig>()  
+                .OfType<PotionConfig>()
                 .Where(p => p.PotionLevel <= maxAvailablePotionLevel)
                 .ToList();
 
@@ -396,7 +395,7 @@ namespace ContainerSystem
                     if (randomValue <= currentSum)
                     {
                         var uniqueID = CreateUniqueItemID();
-                        bagContents.Add(new ItemData(uniqueID, availablePotions[j].ItemConfigKey, 1));
+                        bagContents.Add(new ItemData(uniqueID, availablePotions[j].ItemType, availablePotions[j].ItemConfigKey, 1));
 
                         break;
                     }
@@ -411,7 +410,7 @@ namespace ContainerSystem
             int maxAvailableTier = CalculateMaxTier(playerLevel);
 
             var availableAccessories = accessoryConfigs
-                .Cast<AccessoryConfig>()  
+                .Cast<AccessoryConfig>()
                 .Where(a => a.Tier <= maxAvailableTier)
                 .ToList();
 
@@ -437,7 +436,7 @@ namespace ContainerSystem
                     if (randomValue <= currentSum)
                     {
                         var uniqueID = CreateUniqueItemID();
-                        bagContents.Add(new ItemData(uniqueID, availableAccessories[j].ItemConfigKey, 1));
+                        bagContents.Add(new ItemData(uniqueID, availableAccessories[j].ItemType, availableAccessories[j].ItemConfigKey, 1));
                         break;
                     }
                 }
@@ -534,7 +533,7 @@ namespace ContainerSystem
 
                 var uniqueID = CreateUniqueItemID();
 
-                container.Add(new ItemData(uniqueID, selectedItem.ItemConfigKey, 1));
+                container.Add(new ItemData(uniqueID, selectedItem.ItemType, selectedItem.ItemConfigKey, 1));
             }
         }
 
@@ -554,8 +553,9 @@ namespace ContainerSystem
                 var randomPotion = filteredPotions[rand.Next(filteredPotions.Count)];
 
                 var potionItem = new ItemData(
-                   itemID: CreateUniqueItemID(),
-                    itemConfigKey: randomPotion.ItemConfigKey,
+                    CreateUniqueItemID(),
+                    randomPotion.ItemType,
+                    randomPotion.ItemConfigKey,
                     quantity: 1
                 );
 

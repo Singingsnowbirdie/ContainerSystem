@@ -9,7 +9,7 @@ namespace ContainerSystem
         [field: SerializeField] public string UniqueID { get; private set; }
         [field: SerializeField] public EContainerType ContainerType { get; private set; }
 
-        private ContainerModel _containerModel;
+        protected ContainerModel containerModel;
 
         // IInteractable
 
@@ -17,10 +17,10 @@ namespace ContainerSystem
         {
             ContainerOpenData openData = new ContainerOpenData(UniqueID, ContainerType);
 
-            _containerModel.TryOpen.OnNext(openData);
+            containerModel.TryOpen.OnNext(openData);
         }
 
-        public void OnInteractionCompleted()
+        public virtual void OnInteractionCompleted()
         {
             Debug.Log("OnInteractionCompleted");
         }
@@ -33,7 +33,7 @@ namespace ContainerSystem
             return !string.IsNullOrEmpty(uniqueID);
         }
 
-        public void SetContainerModel(ContainerModel model) => _containerModel = model;
+        public void SetContainerModel(ContainerModel model) => containerModel = model;
     }
 
     internal interface IContainerView

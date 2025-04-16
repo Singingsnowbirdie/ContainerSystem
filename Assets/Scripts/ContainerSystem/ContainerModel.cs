@@ -2,10 +2,16 @@
 
 namespace ContainerSystem
 {
-    public abstract class ContainerModel
+    public class ContainerModel
     {
-        public abstract string UniqueID { get; }
+        public ContainerModel(string uniqueID)
+        {
+            UniqueID = uniqueID;
+        }
+
+        public string UniqueID { get; private set; }
         public ISubject<ContainerOpenData> TryOpen { get; } = new Subject<ContainerOpenData>();
+        public ISubject<ContainerInteractionCompletedData> InteractionCompleted { get; } = new Subject<ContainerInteractionCompletedData>();
     }
 
     public readonly struct ContainerOpenData
@@ -18,6 +24,18 @@ namespace ContainerSystem
 
         public string UniqueID { get; }
         public EContainerType ContainerType { get; }
+    }
+
+    public readonly struct ContainerInteractionCompletedData
+    {
+        public ContainerInteractionCompletedData(string uniqueID, BookshelfView shelfView)
+        {
+            UniqueID = uniqueID;
+            ShelfView = shelfView;
+        }
+
+        public string UniqueID { get; }
+        public BookshelfView ShelfView { get; }
     }
 
 }

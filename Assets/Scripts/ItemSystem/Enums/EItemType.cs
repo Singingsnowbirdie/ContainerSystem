@@ -57,6 +57,7 @@
         Junk,
         Valuable,
         Arrow,
+        Coin,
     }
 }
 

@@ -1,5 +1,6 @@
 ﻿using DataSystem;
 using Player;
+using System;
 using System.Collections.Generic;
 using UI;
 using UniRx;
@@ -31,7 +32,7 @@ namespace ContainerSystem
                 {
                     uniqueIDs.Add(uniqueID);
 
-                    RandomContentContainer containerModel = new RandomContentContainer(containerView.UniqueID);
+                    ContainerModel containerModel = new ContainerModel(containerView.UniqueID);
                     containerView.SetContainerModel(containerModel);
                     _model.ContainerModels[containerView.UniqueID] = containerModel;
 
@@ -39,9 +40,24 @@ namespace ContainerSystem
                         .Subscribe(OnTryOpen)
                         .AddTo(containerView);
 
+                    if (containerView is BookshelfView)
+                    {
+                        containerModel.InteractionCompleted
+                            .Subscribe(OnInteractionCompleted)
+                            .AddTo(containerView);
+                    }
+
                     _model.ContainerViews[containerView.UniqueID] = containerView;
                     _model.ContainersRepository.LoadData();
                 }
+            }
+        }
+
+        private void OnInteractionCompleted(ContainerInteractionCompletedData data)
+        {
+            if (_model.ContainersRepository.TryGetContainerByID(data.UniqueID, out ContainerData containerData))
+            {
+                data.ShelfView.UpdateShelfItems(containerData);
             }
         }
 

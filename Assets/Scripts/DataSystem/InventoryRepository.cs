@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ItemSystem;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -144,10 +145,12 @@ namespace DataSystem
         public string ItemID;
         public string ItemConfigKey;
         public int Quantity;
+        public EItemType ItemType;
 
-        public ItemData(string itemID, string itemConfigKey, int quantity = 1)
+        public ItemData(string itemID, EItemType itemType, string itemConfigKey, int quantity = 1)
         {
             ItemID = itemID;
+            ItemType = itemType;
             ItemConfigKey = itemConfigKey;
             Quantity = quantity;
         }

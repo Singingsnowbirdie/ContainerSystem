@@ -1,4 +1,5 @@
 ﻿using DataSystem;
+using ItemSystem;
 using System;
 using UniRx;
 using VContainer;
@@ -10,16 +11,16 @@ namespace InventorySystem
     {
         [Inject] private readonly InventoryModel _model;
 
-        private CompositeDisposable _compositeDisposable = new CompositeDisposable();
+        private readonly CompositeDisposable _compositeDisposable = new CompositeDisposable();
 
         public void Start()
         {
             _model.InventoryRepository.LoadData();
 
-            AddItem("Coins", 20); // temp debug
+            AddItem(EItemType.Coin, "Coins", 20); // temp debug
         }
 
-        public void AddItem(string configKey, int quantity)
+        public void AddItem(EItemType itemType, string configKey, int quantity)
         {
             if (quantity < 1)
                 return;
@@ -31,7 +32,7 @@ namespace InventorySystem
             else
             {
                 string uniqueID = GenerateUniqueID();
-                ItemData itemData = new ItemData(uniqueID, configKey, quantity);
+                ItemData itemData = new(uniqueID, itemType, configKey, quantity);
                 _model.InventoryRepository.AddItem(itemData);
                 _model.InventoryRepository.SaveData();
             }
