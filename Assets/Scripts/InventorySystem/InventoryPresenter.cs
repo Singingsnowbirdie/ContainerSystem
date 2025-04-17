@@ -1,7 +1,9 @@
-﻿using DataSystem;
+﻿using ContainerSystem;
+using DataSystem;
 using ItemSystem;
 using System;
 using UniRx;
+using UnityEngine;
 using VContainer;
 using VContainer.Unity;
 
@@ -10,6 +12,7 @@ namespace InventorySystem
     public class InventoryPresenter : IStartable, IDisposable
     {
         [Inject] private readonly InventoryModel _model;
+        [Inject] private readonly ContainersModel _containersModel;
 
         private readonly CompositeDisposable _compositeDisposable = new CompositeDisposable();
 
@@ -17,25 +20,33 @@ namespace InventorySystem
         {
             _model.InventoryRepository.LoadData();
 
-            AddItem(EItemType.Coin, "Coins", 20); // temp debug
+            AddItem("Coin", 20); // temp debug
+
+            _model.AddItem
+                .Subscribe(x => AddItem(x.ItemConfigKey, x.AmountToAdd))
+                .AddTo(_compositeDisposable);
         }
 
-        public void AddItem(EItemType itemType, string configKey, int quantity)
+        public void AddItem(string itemConfigKey, int quantity)
         {
             if (quantity < 1)
                 return;
 
-            if (_model.InventoryRepository.TryGetItemByConfigKey(configKey, out ItemData existingItem))
+            if (_model.InventoryRepository.TryGetItemByConfigKey(itemConfigKey, out ItemData existingItem))
             {
-                existingItem.Quantity += quantity;
+                existingItem.ItemAmount += quantity;
             }
             else
             {
-                string uniqueID = GenerateUniqueID();
-                ItemData itemData = new(uniqueID, itemType, configKey, quantity);
-                _model.InventoryRepository.AddItem(itemData);
-                _model.InventoryRepository.SaveData();
+                if (_containersModel.ItemDatabase.TryGetConfig(itemConfigKey, out ItemConfig itemConfig))
+                {
+                    string uniqueID = GenerateUniqueID();
+                    ItemData itemData = new(uniqueID, itemConfig.ItemType, itemConfigKey, quantity);
+                    _model.InventoryRepository.AddItem(itemData);
+                }
             }
+
+            Debug.Log($"Item {itemConfigKey} added to inventory");
         }
 
         public void RemoveItem(string itemId, int quantity)
@@ -45,13 +56,11 @@ namespace InventorySystem
 
             if (_model.InventoryRepository.TryGetItemByID(itemId, out ItemData existingItem))
             {
-                existingItem.Quantity -= quantity;
+                existingItem.ItemAmount -= quantity;
 
-                if (existingItem.Quantity <= 0)
+                if (existingItem.ItemAmount <= 0)
                     _model.InventoryRepository.RemoveItemById(itemId);
             }
-
-            _model.InventoryRepository.SaveData();
         }
 
         public void Dispose()
@@ -63,7 +72,7 @@ namespace InventorySystem
         private string GenerateUniqueID()
         {
             const string CHARS = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
-            var random = new Random();
+            var random = new System.Random();
             string newId;
 
             do

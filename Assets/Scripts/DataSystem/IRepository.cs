@@ -2,10 +2,9 @@
 {
     public interface IRepository
     {
-        public void LoadData();
-        public void ResetData();
+        void LoadData();
+        void OnTimeToSave();
+        void ResetData();
+        void SaveData();
     }
 }
-
-
-

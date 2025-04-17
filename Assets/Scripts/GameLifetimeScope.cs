@@ -1,4 +1,5 @@
 using ContainerSystem;
+using DataSystem;
 using InventorySystem;
 using Localization;
 using Player;
@@ -64,6 +65,7 @@ public class GameLifetimeScope : LifetimeScope
         builder.Register<ContainerUIModel>(Lifetime.Singleton);
 
         // Register Presenters
+        builder.RegisterEntryPoint<DataPresenter>(Lifetime.Singleton);
         builder.RegisterEntryPoint<PlayerPresenter>(Lifetime.Singleton);
         builder.RegisterEntryPoint<PlayerLocomotionPresenter>(Lifetime.Singleton);
         builder.RegisterEntryPoint<PlayerInteractionPresenter>(Lifetime.Singleton);

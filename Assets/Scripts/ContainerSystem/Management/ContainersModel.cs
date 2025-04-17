@@ -1,5 +1,6 @@
 ﻿using DataSystem;
 using ItemSystem;
+using System;
 using System.Collections.Generic;
 
 namespace ContainerSystem
@@ -28,6 +29,11 @@ namespace ContainerSystem
                 _containersRepository ??= new ContainersRepository();
                 return _containersRepository;
             }
+        }
+
+        internal void TimeToSave()
+        {
+            throw new NotImplementedException();
         }
     }
 }

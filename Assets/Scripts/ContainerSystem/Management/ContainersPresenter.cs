@@ -1,6 +1,5 @@
 ﻿using DataSystem;
 using Player;
-using System;
 using System.Collections.Generic;
 using UI;
 using UniRx;

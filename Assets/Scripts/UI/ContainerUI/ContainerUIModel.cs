@@ -6,9 +6,19 @@ namespace UI
 {
     public class ContainerUIModel : UIModel
     {
+        public string ContainerID { get; set; }
+
+        // OPENING
         public ISubject<ContainerData> OpenContainerUI { get; } = new Subject<ContainerData>();
         public ReactiveProperty<bool> IsContainerUIOpen { get; } = new ReactiveProperty<bool>(false);
+
+        // INTERACTION
+        public ReactiveProperty<string> InteractedItemID { get; } = new ReactiveProperty<string>(null);
+
+        // SELECTION
         public ReactiveProperty<string> SelectedItemID { get; } = new ReactiveProperty<string>(null);
+
+        // FILTERING
         public ReactiveProperty<EContainerFilter> SelectedFilter { get; } = new ReactiveProperty<EContainerFilter>();
 
         // COLLECTIONS

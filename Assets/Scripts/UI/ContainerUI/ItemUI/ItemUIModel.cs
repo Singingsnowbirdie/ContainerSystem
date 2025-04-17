@@ -17,11 +17,15 @@ namespace UI
         public ReactiveProperty<string> ItemName { get; init; }
         public ReactiveProperty<float> ItemWeight { get; init; }
         public ReactiveProperty<int> ItemCost { get; init; }
+        public ReactiveProperty<int> ItemAmount { get; init; }
         public ReactiveProperty<string> EquipmentClass { get; init; }
 
+        // Interaction related
+        public ReactiveProperty<string> InteractedItemID { get; init; }
+
         // Selection related
-        public ReactiveProperty<string> SelectedItemID { get; init; }
         public ReactiveProperty<bool> IsSelected { get; } = new();
+        public ReactiveProperty<string> SelectedItemID { get; init; }
 
         // Filtering related
         private List<EContainerFilter> _suitableFilters;

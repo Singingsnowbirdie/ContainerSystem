@@ -89,6 +89,7 @@ namespace ItemSystem
             AddValuable("valuable_13", "Rare Tome", 550, 1.8f);
             AddValuable("valuable_14", "Precious Gemstone", 800, 0.1f);
             AddValuable("valuable_15", "Imperial Seal", 1000, 0.4f);
+            AddValuable("valuable_15", "Coin", 1, 0f);
         }
         private void AddConfig(ItemConfig config)
         {

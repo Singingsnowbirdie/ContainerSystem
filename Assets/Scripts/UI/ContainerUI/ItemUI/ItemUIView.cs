@@ -52,9 +52,11 @@ namespace UI
                 _equipmentClassTF.SetUIModel(uiModel.EquipmentClass);
         }
 
+        // INTERACTING
         private void OnButtonPressed()
         {
-            // TODO: If equip mode is active, equip or consume
+            if (uiModel.InteractedItemID.Value == null)
+                uiModel.InteractedItemID.Value = uiModel.UniqueID;
         }
 
         // SELECTION
@@ -71,7 +73,6 @@ namespace UI
 
         private void OnItemSelected(bool isSelected)
         {
-            Debug.Log("OnItemSelected");
             _selectionIndicationImg.SetActive(isSelected);
         }
         #endregion

@@ -8,11 +8,12 @@ using UnityEngine;
 
 namespace DataSystem
 {
-    public class InventoryRepository : IRepository
+
+    public class InventoryRepository : Repository
     {
         private List<ItemData> _items;
-
         private string _jsonFilePath;
+        private bool _isDirty;
 
         public string JsonFilePath
         {
@@ -23,7 +24,9 @@ namespace DataSystem
             }
         }
 
-        public void LoadData()
+        // SAVING & LOADING
+        #region
+        public override void LoadData()
         {
             _items = LoadItemsData();
         }
@@ -41,7 +44,7 @@ namespace DataSystem
             return inventory;
         }
 
-        public void SaveData()
+        public override void SaveData()
         {
             SaveData(_items);
         }
@@ -69,6 +72,49 @@ namespace DataSystem
             {
                 Debug.LogError($"Failed to save inventory data: {ex.Message}");
             }
+        }
+
+        public override void ResetData()
+        {
+            if (File.Exists(JsonFilePath))
+            {
+                File.Delete(JsonFilePath);
+                Debug.Log("Inventory data reset. Save file deleted.");
+            }
+            else
+            {
+                Debug.Log("No inventory data save file found to delete.");
+            }
+        }
+
+        public override void OnTimeToSave()
+        {
+            if (_isDirty)
+            {
+                SaveData();
+                _isDirty = false;
+            }
+        }
+        #endregion
+
+        // ITEMS RELATED
+        #region
+        public void AddItem(ItemData itemData)
+        {
+            _items.Add(itemData);
+            _isDirty = true;
+        }
+
+        public void RemoveItemById(string itemId)
+        {
+            ItemData itemToRemove = _items.Find(item => item.ItemID == itemId);
+            _items.Remove(itemToRemove);
+            _isDirty = true;
+        }
+
+        public bool ItemExists(string itemId)
+        {
+            return _items.Any(item => item.ItemID == itemId);
         }
 
         public bool TryGetItemByConfigKey(string configKey, out ItemData item)
@@ -103,34 +149,7 @@ namespace DataSystem
             }
         }
 
-        public void ResetData()
-        {
-            if (File.Exists(JsonFilePath))
-            {
-                File.Delete(JsonFilePath);
-                Debug.Log("Inventory data reset. Save file deleted.");
-            }
-            else
-            {
-                Debug.Log("No inventory data save file found to delete.");
-            }
-        }
-
-        public void AddItem(ItemData itemData)
-        {
-            _items.Add(itemData);
-        }
-
-        public void RemoveItemById(string itemId)
-        {
-            ItemData itemToRemove = _items.Find(item => item.ItemID == itemId);
-            _items.Remove(itemToRemove);
-        }
-
-        public bool ItemExists(string itemId)
-        {
-            return _items.Any(item => item.ItemID == itemId);
-        }
+        #endregion
 
         [Serializable]
         public class InventoryDatabaseWrapper
@@ -144,15 +163,15 @@ namespace DataSystem
     {
         public string ItemID;
         public string ItemConfigKey;
-        public int Quantity;
+        public int ItemAmount;
         public EItemType ItemType;
 
-        public ItemData(string itemID, EItemType itemType, string itemConfigKey, int quantity = 1)
+        public ItemData(string itemID, EItemType itemType, string itemConfigKey, int itemAmount = 1)
         {
             ItemID = itemID;
             ItemType = itemType;
             ItemConfigKey = itemConfigKey;
-            Quantity = quantity;
+            ItemAmount = itemAmount;
         }
     }
 }

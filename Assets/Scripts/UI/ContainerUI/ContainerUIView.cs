@@ -22,7 +22,6 @@ namespace UI
 
         public override void OnSetModel(UIModel uiModel)
         {
-
             base.OnSetModel(uiModel);
 
             _hintView_EquipMode.OnSetModel(uiModel);

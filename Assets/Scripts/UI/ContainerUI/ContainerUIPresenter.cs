@@ -1,5 +1,6 @@
 ﻿using ContainerSystem;
 using DataSystem;
+using InventorySystem;
 using ItemSystem;
 using Localization;
 using System;
@@ -23,6 +24,7 @@ namespace UI
         [Inject] private readonly ContainersModel _containersModel;
         [Inject] private readonly LocalizationModel _localizationModel;
         [Inject] private readonly UIInputHandler _menuInputHandler;
+        [Inject] private readonly InventoryModel _inventoryModel;
 
         private ContainerUILocalizationHandler _localizationHandler = new ContainerUILocalizationHandler();
 
@@ -38,8 +40,8 @@ namespace UI
                 .Subscribe(val => _containerUIView.ShowContainerUI(val))
                 .AddTo(_containerUIView);
 
-            _containerUIModel.SelectedItemID
-                .Subscribe(val => OnItemSelected(val))
+            _containerUIModel.InteractedItemID
+                .Subscribe(val => OnItemInteracted(val))
                 .AddTo(_containerUIView);
 
             _containerUIModel.SortingButtonsAreaModel.SortingType
@@ -53,14 +55,10 @@ namespace UI
             _localizationHandler.Localize(_localizationModel, _containerUIModel, _containerUIView);
         }
 
-        private void OnItemSelected(string selecteditemID)
-        {
-            if (string.IsNullOrEmpty(selecteditemID))
-                return;
-        }
-
         private void OpenContainerUI(ContainerData data)
         {
+            _containerUIModel.ContainerID = data.ContainerID;
+
             // Show Items
             _containerUIModel.Items.Clear();
 
@@ -74,6 +72,7 @@ namespace UI
                         ItemConfig = itemConfig,
                         SelectedFilter = _containerUIModel.SelectedFilter,
                         SelectedItemID = _containerUIModel.SelectedItemID,
+                        InteractedItemID = _containerUIModel.InteractedItemID,
                         ItemTypeIcon = new ReactiveProperty<EItemType>(itemConfig.ItemType),
                         ItemCost = new ReactiveProperty<int>(itemConfig.BasicCost),
                         ItemWeight = new ReactiveProperty<float>(itemConfig.Weight),
@@ -93,7 +92,7 @@ namespace UI
             _containerUIModel.ItemFilters.AddRange(CreateContainerFilters());
         }
 
-        // SORTING
+        // SORTING RELATED
         #region SORTING
         private void OnSortingTypeUpdated(ESortingType sortingType)
         {
@@ -182,7 +181,7 @@ namespace UI
         }
         #endregion
 
-        // FILTERS
+        // FILTERS RELATED
         #region FILTERS
         private List<ItemFilterUIModel> CreateContainerFilters()
         {
@@ -224,5 +223,95 @@ namespace UI
                 _containerUIModel.SetContainerOpenState(false, null);
         }
         #endregion
+
+        // ITEM INTERACTIONS RELATED
+        #region
+        private void OnItemInteracted(string itemID)
+        {
+            if (itemID == null)
+                return;
+
+            if (_containersModel.ContainersRepository.TryGetContainerByID(_containerUIModel.ContainerID, out ContainerData containerData))
+            {
+                if (TryGetItemData(containerData, itemID, out ItemData itemData))
+                {
+                    if (itemData.ItemAmount < 6)
+                    {
+                        TakeItems(_containerUIModel.ContainerID, itemID, itemData.ItemConfigKey, 1);
+                    }
+                }
+                else
+                {
+                    ShowAmountSelectionUI(_containerUIModel.ContainerID, itemID, itemData.ItemAmount);
+                }
+            }
+
+            _containerUIModel.InteractedItemID.Value = null;
+        }
+
+        private void ShowAmountSelectionUI(string containerID, string itemID, int itemAmount)
+        {
+            throw new NotImplementedException();
+        }
+
+        private void TakeItems(string containerID, string itemID, string itemConfigKey, int amountToTake)
+        {
+            if (_containersModel.ItemDatabase.TryGetConfig(itemConfigKey, out ItemConfig itemConfig))
+            {
+                _containersModel.ContainersRepository.RemoveItem(containerID, itemID, amountToTake);
+                AddItemData addItemData = new(itemConfig.ItemConfigKey, amountToTake);
+                _inventoryModel.AddItem.OnNext(addItemData);
+
+                OnItemRemoved(itemID);
+            }
+        }
+
+        private void OnItemRemoved(string itemID)
+        {
+            if (_containersModel.ContainersRepository.TryGetContainerByID(_containerUIModel.ContainerID, out ContainerData containerData))
+            {
+                if (TryGetItemData(containerData, itemID, out ItemData itemData))
+                {
+                    if (TryGetItemUIModel(itemID, out ItemUIModel itemToUpdateAmount))
+                        itemToUpdateAmount.ItemAmount.Value = itemData.ItemAmount;
+                }
+                else
+                {
+                    if (TryGetItemUIModel(itemID, out ItemUIModel itemToRemove))
+                        _containerUIModel.Items.Remove(itemToRemove);
+                }
+            }
+        }
+
+        #endregion
+
+        private bool TryGetItemData(ContainerData containerData, string itemID, out ItemData itemData)
+        {
+            foreach (var item in containerData.Items)
+            {
+                if (item.ItemID == itemID)
+                {
+                    itemData = item;
+                    return true;
+                }
+            }
+
+            itemData = null;
+            return false;
+        }
+
+        private bool TryGetItemUIModel(string itemID, out ItemUIModel itemToRemove)
+        {
+            foreach (ItemUIModel item in _containerUIModel.Items)
+            {
+                if (item.UniqueID == itemID)
+                {
+                    itemToRemove = item;
+                    return true;
+                }
+            }
+            itemToRemove = null;
+            return false;
+        }
     }
 }

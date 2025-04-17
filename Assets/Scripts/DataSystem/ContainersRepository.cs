@@ -5,11 +5,11 @@ using UnityEngine;
 
 namespace DataSystem
 {
-    public class ContainersRepository : IRepository
+    public class ContainersRepository : Repository
     {
-
         private List<ContainerData> _containers;
         private string _jsonFilePath;
+        bool _isDirty = false;
 
         public string JsonFilePath
         {
@@ -20,7 +20,81 @@ namespace DataSystem
             }
         }
 
-        public void LoadData()
+
+        // ITEMS RELATED
+        #region
+        internal void RemoveItem(string containerID, string itemID, int amountToRemove)
+        {
+            if (!TryGetContainerByID(containerID, out ContainerData containerData))
+            {
+                Debug.LogError($"Container with ID '{containerID}' not found");
+                return;
+            }
+
+            if (!TryGetItemByID(containerData, itemID, out ItemData itemData))
+            {
+                Debug.LogWarning($"Item with ID '{itemID}' not found in container '{containerID}'");
+                return;
+            }
+
+            if (itemData.ItemAmount < amountToRemove)
+            {
+                Debug.LogError($"Not enough items ({itemData.ItemAmount}) to remove {amountToRemove} of '{itemID}'");
+                return;
+            }
+
+            if (itemData.ItemAmount > amountToRemove)
+                itemData.ItemAmount -= amountToRemove;
+            else
+                containerData.Items.Remove(itemData);
+
+            _isDirty = true;
+
+            Debug.Log($"Item with ID '{itemID}' removed");
+        }
+
+        private bool TryGetItemByID(ContainerData containerData, string itemID, out ItemData itemData)
+        {
+            foreach (ItemData item in containerData.Items)
+            {
+                if (item.ItemID == itemID)
+                {
+                    itemData = item;
+                    return true;
+                }
+            }
+
+            itemData = null;
+            return false;
+        }
+
+        #endregion
+
+        // CONTAINERS RELATED
+        #region
+        public void AddContainer(ContainerData container)
+        {
+            _containers.Add(container);
+            _isDirty = true;
+        }
+
+        public bool TryGetContainerByID(string id, out ContainerData containerData)
+        {
+            if (string.IsNullOrEmpty(id))
+            {
+                containerData = null;
+                return false;
+            }
+
+            containerData = _containers.Find(container => container.ContainerID == id);
+
+            return containerData != null;
+        }
+        #endregion
+
+        // SAVING & LOADING
+        #region 
+        public override void LoadData()
         {
             _containers = LoadContainersData();
         }
@@ -46,33 +120,7 @@ namespace DataSystem
             }
         }
 
-        public bool TryGetContainerByID(string id, out ContainerData containerData)
-        {
-            if (string.IsNullOrEmpty(id))
-            {
-                containerData = null;
-                return false;
-            }
-
-            containerData = _containers.Find(container => container.ContainerID == id);
-
-            return containerData != null;
-        }
-
-        public void ResetData()
-        {
-            if (File.Exists(JsonFilePath))
-            {
-                File.Delete(JsonFilePath);
-                Debug.Log("Containers data reset. Save file deleted.");
-            }
-            else
-            {
-                Debug.Log("No containers data save file found to delete.");
-            }
-        }
-
-        public void SaveContainers()
+        public override void SaveData()
         {
             var wrapper = new ContainersDatabaseWrapper(_containers);
 
@@ -88,11 +136,28 @@ namespace DataSystem
             }
         }
 
-        public void AddContainer(ContainerData container)
+        public override void OnTimeToSave()
         {
-            _containers.Add(container);
-            SaveContainers();
+            if (_isDirty)
+            {
+                SaveData();
+                _isDirty = false;
+            }
         }
+
+        public override void ResetData()
+        {
+            if (File.Exists(JsonFilePath))
+            {
+                File.Delete(JsonFilePath);
+                Debug.Log("Containers data reset. Save file deleted.");
+            }
+            else
+            {
+                Debug.Log("No containers data save file found to delete.");
+            }
+        }
+        #endregion
 
         [Serializable]
         public class ContainersDatabaseWrapper

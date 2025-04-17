@@ -556,7 +556,7 @@ namespace ContainerSystem
                     CreateUniqueItemID(),
                     randomPotion.ItemType,
                     randomPotion.ItemConfigKey,
-                    quantity: 1
+                    itemAmount: 1
                 );
 
                 chestContents.Add(potionItem);
