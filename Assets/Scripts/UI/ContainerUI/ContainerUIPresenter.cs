@@ -3,6 +3,7 @@ using DataSystem;
 using InventorySystem;
 using ItemSystem;
 using Localization;
+using NUnit.Framework.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -52,41 +53,82 @@ namespace UI
                 .Subscribe(_ => OnCancelPressed())
                 .AddTo(_containerUIView);
 
+            _containerUIModel.ContainerSwitchAreaModel.IsInventoryShown
+                .Subscribe(val => OnInventoryShown(val))
+                .AddTo(_containerUIView);
+
+
             _localizationHandler.Localize(_localizationModel, _containerUIModel, _containerUIView);
+        }
+
+        private void OnInventoryShown(bool val)
+        {
+            if (val)
+            {
+                ShowInventoryItems();
+            }
+            else
+            {
+                if (_containersModel.ContainersRepository.TryGetContainerByID(_containerUIModel.ContainerID, out ContainerData containerData))
+                {
+                    ShowContainerItems(containerData);
+                }
+            }
+        }
+
+        private void ShowInventoryItems()
+        {
+            _containerUIModel.Items.Clear();
+
+            foreach (ItemData itemData in _inventoryModel.InventoryRepository.Items)
+            {
+                ShowItems(itemData);
+            }
+
+            _containerUIModel.SortingButtonsAreaModel.SortingType.Value = ESortingType.NameUp;
+        }
+
+        private void ShowContainerItems(ContainerData data)
+        {
+            _containerUIModel.Items.Clear();
+
+            foreach (ItemData itemData in data.Items)
+            {
+                ShowItems(itemData);
+            }
+
+            _containerUIModel.SortingButtonsAreaModel.SortingType.Value = ESortingType.NameUp;
+        }
+
+        private void ShowItems(ItemData itemData)
+        {
+            if (_containersModel.ItemDatabase.TryGetConfig(itemData.ItemConfigKey, out ItemConfig itemConfig))
+            {
+                ItemUIModel uiModel = new ItemUIModel
+                {
+                    UniqueID = itemData.ItemID,
+                    ItemConfig = itemConfig,
+                    SelectedFilter = _containerUIModel.SelectedFilter,
+                    SelectedItemID = _containerUIModel.SelectedItemID,
+                    InteractedItemID = _containerUIModel.InteractedItemID,
+                    ItemTypeIcon = new ReactiveProperty<EItemType>(itemConfig.ItemType),
+                    ItemCost = new ReactiveProperty<int>(itemConfig.BasicCost),
+                    ItemWeight = new ReactiveProperty<float>(itemConfig.Weight),
+                    ItemName = new ReactiveProperty<string>(_localizationHandler.GetItemNameTranslation(itemConfig)),
+                    ItemAmount = new ReactiveProperty<int>(itemData.ItemAmount),
+                    ItemType = new ReactiveProperty<string>(_localizationHandler.GetItemTypeTranslation(itemConfig)),
+                    EquipmentClass = new ReactiveProperty<string>(_localizationHandler.GetEquipmentClassTranslation(itemConfig))
+                };
+
+                _containerUIModel.Items.Add(uiModel);
+            }
         }
 
         private void OpenContainerUI(ContainerData data)
         {
             _containerUIModel.ContainerID = data.ContainerID;
 
-            // Show Items
-            _containerUIModel.Items.Clear();
-
-            foreach (ItemData itemData in data.Items)
-            {
-                if (_containersModel.ItemDatabase.TryGetConfig(itemData.ItemConfigKey, out ItemConfig itemConfig))
-                {
-                    ItemUIModel uiModel = new ItemUIModel
-                    {
-                        UniqueID = itemData.ItemID,
-                        ItemConfig = itemConfig,
-                        SelectedFilter = _containerUIModel.SelectedFilter,
-                        SelectedItemID = _containerUIModel.SelectedItemID,
-                        InteractedItemID = _containerUIModel.InteractedItemID,
-                        ItemTypeIcon = new ReactiveProperty<EItemType>(itemConfig.ItemType),
-                        ItemCost = new ReactiveProperty<int>(itemConfig.BasicCost),
-                        ItemWeight = new ReactiveProperty<float>(itemConfig.Weight),
-                        ItemName = new ReactiveProperty<string>(_localizationHandler.GetItemNameTranslation(itemConfig)),
-                        ItemAmount = new ReactiveProperty<int>(itemData.ItemAmount),
-                        ItemType = new ReactiveProperty<string>(_localizationHandler.GetItemTypeTranslation(itemConfig)),
-                        EquipmentClass = new ReactiveProperty<string>(_localizationHandler.GetEquipmentClassTranslation(itemConfig))
-                    };                   
-
-                    _containerUIModel.Items.Add(uiModel);
-                }
-            }
-
-            _containerUIModel.SortingButtonsAreaModel.SortingType.Value = ESortingType.NameUp;
+            ShowContainerItems(data);
 
             // Show Filters
             _containerUIModel.ItemFilters.Clear();

@@ -24,6 +24,8 @@ namespace DataSystem
             }
         }
 
+        public List<ItemData> Items { get => _items; }
+
         // SAVING & LOADING
         #region
         public override void LoadData()
@@ -46,7 +48,7 @@ namespace DataSystem
 
         public override void SaveData()
         {
-            SaveData(_items);
+            SaveData(Items);
         }
 
         public void SaveData(List<ItemData> items)
@@ -101,25 +103,25 @@ namespace DataSystem
         #region
         public void AddItem(ItemData itemData)
         {
-            _items.Add(itemData);
+            Items.Add(itemData);
             _isDirty = true;
         }
 
         public void RemoveItemById(string itemId)
         {
-            ItemData itemToRemove = _items.Find(item => item.ItemID == itemId);
-            _items.Remove(itemToRemove);
+            ItemData itemToRemove = Items.Find(item => item.ItemID == itemId);
+            Items.Remove(itemToRemove);
             _isDirty = true;
         }
 
         public bool ItemExists(string itemId)
         {
-            return _items.Any(item => item.ItemID == itemId);
+            return Items.Any(item => item.ItemID == itemId);
         }
 
         public bool TryGetItemByConfigKey(string configKey, out ItemData item)
         {
-            ItemData existingItem = _items.FirstOrDefault(item => item.ItemConfigKey == configKey);
+            ItemData existingItem = Items.FirstOrDefault(item => item.ItemConfigKey == configKey);
 
             if (existingItem != null)
             {
@@ -135,7 +137,7 @@ namespace DataSystem
 
         public bool TryGetItemByID(string itemId, out ItemData item)
         {
-            ItemData existingItem = _items.FirstOrDefault(item => item.ItemID == itemId);
+            ItemData existingItem = Items.FirstOrDefault(item => item.ItemID == itemId);
 
             if (existingItem != null)
             {

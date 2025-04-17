@@ -1,15 +1,18 @@
-﻿using TMPro;
+﻿using System;
+using TMPro;
 using UI.ReactiveViews;
 using UniRx;
 using UnityEngine;
+using UnityEngine.EventSystems;
+using UnityEngine.UI;
 
 namespace UI
 {
-    public class ContainerSwitchAreaView : UIView
+    public class ContainerSwitchAreaView : UIView, IPointerEnterHandler, IPointerExitHandler
     {
         [Header("ICONS")]
-        [SerializeField] private ContainerActionIconView _containerActionIcon;
-        [SerializeField] private ContainerActionIconView _inventoryActionIcon;
+        [SerializeField] private Image _containerIcon;
+        [SerializeField] private Image _inventoryIcon;
         [SerializeField] private ContainerActionIconView _switcherActionIcon;
 
         [Header("REACTIVE TEXT")]
@@ -20,8 +23,11 @@ namespace UI
         [SerializeField] private TMP_Text _containerNameTMP;
         [SerializeField] private TMP_Text _inventoryNameTMP;
 
+        [Header("BUTTON")]
+        [SerializeField] private Button _switchButton;
+
         private readonly Color _activeColor = Color.white;
-        private readonly Color _inactiveColor = new Color(0.5f, 0.5f, 0.5f);
+        private readonly Color _inactiveColor = new(0.5f, 0.5f, 0.5f);
 
         private ContainerSwitchAreaModel _switchAreaModel;
 
@@ -33,35 +39,66 @@ namespace UI
             {
                 _switchAreaModel = switchAreaModel;
 
-                _containerActionIcon.SetUIModel(_switchAreaModel.ContainerActionIcon);
-                _inventoryActionIcon.SetUIModel(_switchAreaModel.InventoryActionIcon);
                 _switcherActionIcon.SetUIModel(_switchAreaModel.SwitcherActionIcon);
 
                 _containerNameTF.SetUIModel(_switchAreaModel.ContainerName);
                 _inventoryNameTF.SetUIModel(_switchAreaModel.InventoryName);
 
-                _switchAreaModel.IsInventoryActive
-                    .Subscribe(val => OnInventoryActive(val))
+                _switchAreaModel.IsInventoryShown
+                    .Subscribe(val => OnInventoryShown(val))
+                    .AddTo(this);
+
+                _switchAreaModel.IsHovered
+                    .Subscribe(val => OnHovered(val, _switchAreaModel.IsInventoryShown.Value))
+                    .AddTo(this);
+
+                _switchButton.OnClickAsObservable()
+                    .Subscribe(_ => OnSwitch())
                     .AddTo(this);
             }
         }
 
-        private void OnInventoryActive(bool val)
+        private void OnSwitch()
         {
-            if (val)
-            {
-                _containerNameTMP.color = _inactiveColor;
-                _inventoryNameTMP.color = _activeColor;
+            _switchAreaModel.IsInventoryShown.Value = !_switchAreaModel.IsInventoryShown.Value;
+        }
 
-                _switchAreaModel.SwitcherActionIcon.Value = ItemSystem.EContainerAction.TakeItem;
-            }
-            else
-            {
-                _containerNameTMP.color = _activeColor;
-                _inventoryNameTMP.color = _inactiveColor;
+        private void OnHovered(bool isHovered, bool isInventoryShown)
+        {
+            bool highlightContainer = (!isInventoryShown && !isHovered) || (isInventoryShown && isHovered);
 
-                _switchAreaModel.SwitcherActionIcon.Value = ItemSystem.EContainerAction.PutItem;
-            }
+            Color containerColor = highlightContainer ? _activeColor : _inactiveColor;
+            Color inventoryColor = highlightContainer ? _inactiveColor : _activeColor;
+
+            _containerNameTMP.color = containerColor;
+            _inventoryNameTMP.color = inventoryColor;
+            _containerIcon.color = containerColor;
+            _inventoryIcon.color = inventoryColor;
+        }
+
+        private void OnInventoryShown(bool isInventoryShown)
+        {
+            Color containerColor = isInventoryShown ? _inactiveColor : _activeColor;
+            Color inventoryColor = isInventoryShown ? _activeColor : _inactiveColor;
+
+            _containerNameTMP.color = containerColor;
+            _inventoryNameTMP.color = inventoryColor;
+            _containerIcon.color = containerColor;
+            _inventoryIcon.color = inventoryColor;
+
+            _switchAreaModel.SwitcherActionIcon.Value = isInventoryShown
+                ? ItemSystem.EContainerAction.ContainerContantShown
+                : ItemSystem.EContainerAction.InventoryContantShown;
+        }
+
+        public void OnPointerEnter(PointerEventData eventData)
+        {
+            _switchAreaModel.IsHovered.Value = true;
+        }
+
+        public void OnPointerExit(PointerEventData eventData)
+        {
+            _switchAreaModel.IsHovered.Value = false;
         }
     }
 }

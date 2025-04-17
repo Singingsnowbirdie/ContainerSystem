@@ -1,5 +1,4 @@
 using DataSystem;
-using ItemSystem;
 using UniRx;
 
 namespace InventorySystem
