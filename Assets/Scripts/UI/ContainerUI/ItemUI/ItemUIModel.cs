@@ -14,11 +14,14 @@ namespace UI
         public bool CanBeEquipped => ItemConfig.CanBeEquipped;
         public ReactiveProperty<EItemType> ItemTypeIcon { get; init; } = new();
         public ReactiveProperty<string> ItemType { get; init; }
-        public ReactiveProperty<string> ItemName { get; init; }
         public ReactiveProperty<float> ItemWeight { get; init; }
         public ReactiveProperty<int> ItemCost { get; init; }
-        public ReactiveProperty<int> ItemAmount { get; init; }
         public ReactiveProperty<string> EquipmentClass { get; init; }
+
+        // Item name related
+        public ReactiveProperty<string> ItemName { get; init; }
+        public ReactiveProperty<int> ItemAmount { get; init; }
+        public ReactiveProperty<string> ItemNameWithAmount { get; private set; } = new();
 
         // Interaction related
         public ReactiveProperty<string> InteractedItemID { get; init; }
@@ -54,6 +57,7 @@ namespace UI
                 return _suitableFilters;
             }
         }
+
 
         private static readonly Dictionary<Type, Action<List<EContainerFilter>, ItemConfig>> _filterRules = new()
         {

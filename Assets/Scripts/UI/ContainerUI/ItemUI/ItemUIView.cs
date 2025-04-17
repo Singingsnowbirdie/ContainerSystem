@@ -42,14 +42,30 @@ namespace UI
                 .Subscribe(filter => OnFiltered(filter))
                 .AddTo(this);
 
+            uiModel.ItemAmount
+                .Subscribe(amount => OnItemAmountUpdated(uiModel.ItemName.Value, amount))
+                .AddTo(this);
+
             _itemIcon.SetUIModel(uiModel.ItemTypeIcon);
-            _itemNameTF.SetUIModel(uiModel.ItemName);
+            _itemNameTF.SetUIModel(uiModel.ItemNameWithAmount);
             _itemWeightTF.SetUIModel(uiModel.ItemWeight);
             _itemCostTF.SetUIModel(uiModel.ItemCost);
             _itemTypeTF.SetUIModel(uiModel.ItemType);
 
             if (!string.IsNullOrEmpty(uiModel.EquipmentClass.Value))
                 _equipmentClassTF.SetUIModel(uiModel.EquipmentClass);
+        }
+
+        private void OnItemAmountUpdated(string baseItemName, int amount)
+        {
+            string resultItemName = baseItemName;
+
+            if (amount > 1)
+            {
+                resultItemName = $"{baseItemName} ({amount})";
+            }
+
+            UIModel.ItemNameWithAmount.Value = resultItemName;
         }
 
         // INTERACTING

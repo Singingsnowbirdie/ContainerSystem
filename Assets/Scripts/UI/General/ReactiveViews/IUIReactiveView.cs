@@ -1,4 +1,4 @@
-﻿namespace Gameplay.UI.General.ReactiveViews
+﻿namespace UI.ReactiveViews
 {
     public interface IUIReactiveView<T>
     {

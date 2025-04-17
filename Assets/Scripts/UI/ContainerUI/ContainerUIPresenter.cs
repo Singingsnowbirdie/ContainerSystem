@@ -77,9 +77,10 @@ namespace UI
                         ItemCost = new ReactiveProperty<int>(itemConfig.BasicCost),
                         ItemWeight = new ReactiveProperty<float>(itemConfig.Weight),
                         ItemName = new ReactiveProperty<string>(_localizationHandler.GetItemNameTranslation(itemConfig)),
+                        ItemAmount = new ReactiveProperty<int>(itemData.ItemAmount),
                         ItemType = new ReactiveProperty<string>(_localizationHandler.GetItemTypeTranslation(itemConfig)),
                         EquipmentClass = new ReactiveProperty<string>(_localizationHandler.GetEquipmentClassTranslation(itemConfig))
-                    };
+                    };                   
 
                     _containerUIModel.Items.Add(uiModel);
                 }

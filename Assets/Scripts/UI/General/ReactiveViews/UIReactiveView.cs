@@ -1,5 +1,4 @@
-﻿using Gameplay.UI.General.ReactiveViews;
-using UniRx;
+﻿using UniRx;
 using UnityEngine;
 
 namespace UI.ReactiveViews
