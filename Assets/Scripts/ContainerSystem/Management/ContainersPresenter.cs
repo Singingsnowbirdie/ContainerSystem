@@ -1,5 +1,7 @@
 ﻿using DataSystem;
+using ItemSystem;
 using Player;
+using System;
 using System.Collections.Generic;
 using UI;
 using UniRx;
@@ -9,7 +11,7 @@ using VContainer.Unity;
 
 namespace ContainerSystem
 {
-    public class ContainersPresenter : IStartable
+    public class ContainersPresenter : IStartable, IDisposable
     {
         [Inject] private readonly ContainersModel _model;
         [Inject] private readonly ContainersView _view;
@@ -17,6 +19,8 @@ namespace ContainerSystem
 
         [Inject] private readonly PlayerStatsModel _playerStatsModel;
         private ContainerFactory _containerFactory;
+
+        private readonly CompositeDisposable _compositeDisposable = new CompositeDisposable();
 
         public void Start()
         {
@@ -50,6 +54,10 @@ namespace ContainerSystem
                     _model.ContainersRepository.LoadData();
                 }
             }
+
+            _model.AddItem
+                .Subscribe(x => AddItem(x.ContainerID, x.ItemConfigKey, x.AmountToAdd))
+                .AddTo(_compositeDisposable);
         }
 
         private void OnInteractionCompleted(ContainerInteractionCompletedData data)
@@ -75,5 +83,54 @@ namespace ContainerSystem
                 _containerUIModel.SetContainerOpenState(true, newContainer);
             }
         }
+
+        internal void AddItem(string containerID, string itemConfigKey, int amount)
+        {
+            if (!_model.ContainersRepository.TryGetContainerByID(containerID, out ContainerData containerData))
+            {
+                Debug.LogError($"Container with ID '{containerID}' not found");
+                return;
+            }
+
+            if (_model.ContainersRepository.TryGetItemDataByConfigKey(containerData, itemConfigKey, out ItemData existingItem))
+            {
+                existingItem.ItemAmount += amount;
+            }
+            else
+            {
+                if (_model.ItemDatabase.TryGetConfig(itemConfigKey, out ItemConfig itemConfig))
+                {
+                    string uniqueID = GenerateUniqueID(containerID);
+                    ItemData itemData = new(uniqueID, itemConfig.ItemType, itemConfigKey, amount);
+                    _model.ContainersRepository.AddItem(containerID, itemData);
+                }
+            }
+        }
+
+        public void Dispose()
+        {
+            _compositeDisposable.Dispose();
+        }
+
+        private string GenerateUniqueID(string containerID)
+        {
+            const string CHARS = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+            var random = new System.Random();
+            string newId;
+
+            do
+            {
+                var stringChars = new char[8];
+                for (int i = 0; i < stringChars.Length; i++)
+                {
+                    stringChars[i] = CHARS[random.Next(CHARS.Length)];
+                }
+                newId = new string(stringChars);
+            }
+            while (_model.ContainersRepository.ItemExists(containerID, newId));
+
+            return newId;
+        }
+
     }
 }

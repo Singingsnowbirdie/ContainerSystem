@@ -8,7 +8,6 @@ using UnityEngine;
 
 namespace DataSystem
 {
-
     public class InventoryRepository : Repository
     {
         private List<ItemData> _items;

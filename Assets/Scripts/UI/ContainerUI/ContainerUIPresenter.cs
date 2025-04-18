@@ -274,22 +274,37 @@ namespace UI
             if (itemID == null)
                 return;
 
+            if (_containerUIModel.ContainerSwitchAreaModel.IsInventoryShown.Value)
+                InteractWithInventoryItem(itemID);
+            else
+                InteractWithContainerItem(itemID);
+
+            _containerUIModel.InteractedItemID.Value = null;
+        }
+
+        private void InteractWithInventoryItem(string itemID)
+        {
+            if (_inventoryModel.InventoryRepository.TryGetItemByID(itemID, out ItemData itemData))
+            {
+                PutItemsIntoContainer(itemID, itemData.ItemConfigKey, 1);
+            }
+        }
+
+        private void InteractWithContainerItem(string itemID)
+        {
             if (_containersModel.ContainersRepository.TryGetContainerByID(_containerUIModel.ContainerID, out ContainerData containerData))
             {
                 if (TryGetItemData(containerData, itemID, out ItemData itemData))
                 {
-                    if (itemData.ItemAmount < 6)
-                    {
-                        TakeItems(_containerUIModel.ContainerID, itemID, itemData.ItemConfigKey, 1);
-                    }
-                }
-                else
-                {
-                    ShowAmountSelectionUI(_containerUIModel.ContainerID, itemID, itemData.ItemAmount);
+                    TakeItemsFromTheContainer(itemID, itemData.ItemConfigKey, 1);
+
+                    // TODO:
+                    //if (itemData.ItemAmount < 6)
+                    //    TakeItems(_containerUIModel.ContainerID, itemID, itemData.ItemConfigKey, 1);
+                    //else
+                    //    ShowAmountSelectionUI(_containerUIModel.ContainerID, itemID, itemData.ItemAmount);
                 }
             }
-
-            _containerUIModel.InteractedItemID.Value = null;
         }
 
         private void ShowAmountSelectionUI(string containerID, string itemID, int itemAmount)
@@ -297,12 +312,21 @@ namespace UI
             throw new NotImplementedException();
         }
 
-        private void TakeItems(string containerID, string itemID, string itemConfigKey, int amountToTake)
+        private void PutItemsIntoContainer(string itemID, string itemConfigKey, int amount)
         {
             if (_containersModel.ItemDatabase.TryGetConfig(itemConfigKey, out ItemConfig itemConfig))
             {
-                _containersModel.ContainersRepository.RemoveItem(containerID, itemID, amountToTake);
-                AddItemData addItemData = new(itemConfig.ItemConfigKey, amountToTake);
+                AddItemToContainerData addItemData = new(_containerUIModel.ContainerID, itemConfig.ItemConfigKey, amount);
+                _containersModel.AddItem.OnNext(addItemData);
+            }
+        }
+
+        private void TakeItemsFromTheContainer(string itemID, string itemConfigKey, int amount)
+        {
+            if (_containersModel.ItemDatabase.TryGetConfig(itemConfigKey, out ItemConfig itemConfig))
+            {
+                _containersModel.ContainersRepository.RemoveItem(_containerUIModel.ContainerID, itemID, amount);
+                AddItemToInventoryData addItemData = new(itemConfig.ItemConfigKey, amount);
                 _inventoryModel.AddItem.OnNext(addItemData);
 
                 OnItemRemoved(itemID);

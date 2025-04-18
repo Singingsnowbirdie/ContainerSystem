@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 using UnityEngine;
 
 namespace DataSystem
@@ -49,8 +50,16 @@ namespace DataSystem
                 containerData.Items.Remove(itemData);
 
             _isDirty = true;
+        }
 
-            Debug.Log($"Item with ID '{itemID}' removed");
+        internal void AddItem(string containerID, ItemData itemData)
+        {
+            if (TryGetContainerByID(containerID, out ContainerData containerData))
+            {
+                containerData.Items.Add(itemData);
+            }
+
+            _isDirty = true;
         }
 
         private bool TryGetItemByID(ContainerData containerData, string itemID, out ItemData itemData)
@@ -58,6 +67,21 @@ namespace DataSystem
             foreach (ItemData item in containerData.Items)
             {
                 if (item.ItemID == itemID)
+                {
+                    itemData = item;
+                    return true;
+                }
+            }
+
+            itemData = null;
+            return false;
+        }
+
+        public bool TryGetItemDataByConfigKey(ContainerData containerData, string itemConfigKey, out ItemData itemData)
+        {
+            foreach (ItemData item in containerData.Items)
+            {
+                if (item.ItemConfigKey == itemConfigKey)
                 {
                     itemData = item;
                     return true;
@@ -157,6 +181,16 @@ namespace DataSystem
                 Debug.Log("No containers data save file found to delete.");
             }
         }
+
+        internal bool ItemExists(string containerID, string itemId)
+        {
+            if (TryGetContainerByID(containerID, out ContainerData containerData))
+            {
+                return containerData.Items.Any(item => item.ItemID == itemId);
+            }
+            return false;
+        }
+
         #endregion
 
         [Serializable]

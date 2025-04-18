@@ -20,7 +20,7 @@ namespace InventorySystem
         {
             _model.InventoryRepository.LoadData();
 
-            AddItem("Coin", 20); // temp debug
+            //AddItem("Coin", 20); // temp
 
             _model.AddItem
                 .Subscribe(x => AddItem(x.ItemConfigKey, x.AmountToAdd))

@@ -5,7 +5,7 @@ namespace InventorySystem
 {
     public class InventoryModel
     {
-        public ISubject<AddItemData> AddItem { get; } = new Subject<AddItemData>();
+        public ISubject<AddItemToInventoryData> AddItem { get; } = new Subject<AddItemToInventoryData>();
 
         private InventoryRepository _inventoryRepository;
 
@@ -19,9 +19,9 @@ namespace InventorySystem
         }
     }
 
-    public readonly struct AddItemData
+    public readonly struct AddItemToInventoryData
     {
-        public AddItemData(string itemConfigKey, int amountToAdd) : this()
+        public AddItemToInventoryData(string itemConfigKey, int amountToAdd) : this()
         {
             ItemConfigKey = itemConfigKey;
             AmountToAdd = amountToAdd;
