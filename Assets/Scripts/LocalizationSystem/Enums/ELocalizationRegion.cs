@@ -16,7 +16,9 @@
         KeyName,
         JunkName,
         ValuableName,
-        ShieldName
+        ShieldName,
+        AmmunitionName,
+        AccessoryName
     }
 
 }

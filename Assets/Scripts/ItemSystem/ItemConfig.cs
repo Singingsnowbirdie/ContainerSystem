@@ -98,7 +98,7 @@ namespace ItemSystem
 
     public class AccessoryConfig : EquipmentConfig
     {
-        public override ELocalizationRegion LocalizationRegion => ELocalizationRegion.ShieldName;
+        public override ELocalizationRegion LocalizationRegion => ELocalizationRegion.AccessoryName;
 
         // Specific properties 
     }
@@ -113,7 +113,7 @@ namespace ItemSystem
 
     public class AmmoConfig : EquipmentConfig
     {
-        public override ELocalizationRegion LocalizationRegion => ELocalizationRegion.ShieldName;
+        public override ELocalizationRegion LocalizationRegion => ELocalizationRegion.AmmunitionName;
 
         // Specific properties 
         public int Damage { get; internal set; }

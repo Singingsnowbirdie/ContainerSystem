@@ -531,9 +531,17 @@ namespace ContainerSystem
                     selectedItem = items[random.Next(items.Count)];
                 }
 
-                var uniqueID = CreateUniqueItemID();
+                bool alreadyExists = container.Any(item => item.ItemConfigKey == selectedItem.ItemConfigKey);
 
-                container.Add(new ItemData(uniqueID, selectedItem.ItemType, selectedItem.ItemConfigKey, 1));
+                if (!alreadyExists)
+                {
+                    var uniqueID = CreateUniqueItemID();
+                    container.Add(new ItemData(uniqueID, selectedItem.ItemType, selectedItem.ItemConfigKey, 1));
+                }
+                else
+                {
+                    i--;
+                }
             }
         }
 

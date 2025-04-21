@@ -451,12 +451,12 @@ namespace ItemSystem
             const EFoodType FoodType = EFoodType.MainCourse;
             const bool IsIngredient = false;
 
-            void AddFishCourse(string fish, string preparation, int cost)
+            void AddFishCourse(string itemConfigKey, string itemDefaultName, int cost)
             {
                 AddConfig(new FoodConfig
                 {
-                    ItemConfigKey = $"{fish.ToLower()}_{preparation.Split(' ')[0].ToLower()}",
-                    ItemDefaultName = $"{fish} {preparation}",
+                    ItemConfigKey = itemConfigKey,
+                    ItemDefaultName = itemDefaultName,
                     Weight = PortionWeight,
                     BasicCost = cost,
                     ItemType = IconType,
@@ -466,16 +466,16 @@ namespace ItemSystem
             }
 
             // 4 ingredients (fish + salt + 2 accompaniments)
-            AddFishCourse("Perch", "with Herbs", 15);
-            AddFishCourse("Trout", "with Lemon Butter", 17);
-            AddFishCourse("Pike", "in Cream Sauce", 18);
-            AddFishCourse("Catfish", "with Paprika", 18);
-            AddFishCourse("Salmon", "with Dill Crust", 20);
-            AddFishCourse("Cod", "with Mustard", 20);
-            AddFishCourse("Carp", "with Saffron", 22);
-            AddFishCourse("Bream", "in Wine Sauce", 24);
-            AddFishCourse("Zander", "with Ginger", 26);
-            AddFishCourse("Sturgeon", "with Tarragon", 30);
+            AddFishCourse("perch_herbs", "Perch with Herbs", 15);
+            AddFishCourse("trout_lemon", "Trout with Lemon Butter", 17);
+            AddFishCourse("pike_cream", "Pike in Cream Sauce", 18);
+            AddFishCourse("catfish_paprika", "Catfish with Paprika", 18);
+            AddFishCourse("salmon_dill", "Salmon with Dill Crust", 20);
+            AddFishCourse("cod_mustard", "Cod with Mustard", 20);
+            AddFishCourse("carp_saffron", "Carp with Saffron", 22);
+            AddFishCourse("bream_wine", "Bream in Wine Sauce", 24);
+            AddFishCourse("zander_ginger", "Zander with Ginger", 26);
+            AddFishCourse("sturgeon_tarragon", "Sturgeon with Tarragon", 30);
         }
 
         private void AddSoups()
