@@ -286,7 +286,14 @@ namespace UI
         {
             if (_inventoryModel.InventoryRepository.TryGetItemByID(itemID, out ItemData itemData))
             {
-                PutItemsIntoContainer(itemID, itemData.ItemConfigKey, 1);
+                if (_containersModel.ItemDatabase.TryGetConfig(itemData.ItemConfigKey, out ItemConfig itemConfig))
+                {
+                    _inventoryModel.InventoryRepository.RemoveItem(itemID, itemData.ItemAmount);
+                    AddItemToContainerData addItemData = new(_containerUIModel.ContainerID, itemConfig.ItemConfigKey, itemData.ItemAmount);
+                    _containersModel.AddItem.OnNext(addItemData);
+
+                    OnItemRemovedFromInventory(itemID);
+                }
             }
         }
 
@@ -296,8 +303,14 @@ namespace UI
             {
                 if (TryGetItemData(containerData, itemID, out ItemData itemData))
                 {
-                    TakeItemsFromTheContainer(itemID, itemData.ItemConfigKey, 1);
+                    if (_containersModel.ItemDatabase.TryGetConfig(itemData.ItemConfigKey, out ItemConfig itemConfig))
+                    {
+                        _containersModel.ContainersRepository.RemoveItem(_containerUIModel.ContainerID, itemID, itemData.ItemAmount);
+                        AddItemToInventoryData addItemData = new(itemConfig.ItemConfigKey, itemData.ItemAmount);
+                        _inventoryModel.AddItem.OnNext(addItemData);
 
+                        OnItemRemovedFromContainer(itemID);
+                    }
                     // TODO:
                     //if (itemData.ItemAmount < 6)
                     //    TakeItems(_containerUIModel.ContainerID, itemID, itemData.ItemConfigKey, 1);
@@ -312,28 +325,21 @@ namespace UI
             throw new NotImplementedException();
         }
 
-        private void PutItemsIntoContainer(string itemID, string itemConfigKey, int amount)
+        private void OnItemRemovedFromInventory(string itemID)
         {
-            if (_containersModel.ItemDatabase.TryGetConfig(itemConfigKey, out ItemConfig itemConfig))
+            if (_inventoryModel.InventoryRepository.TryGetItemData(itemID, out ItemData itemData))
             {
-                AddItemToContainerData addItemData = new(_containerUIModel.ContainerID, itemConfig.ItemConfigKey, amount);
-                _containersModel.AddItem.OnNext(addItemData);
+                if (TryGetItemUIModel(itemID, out ItemUIModel itemToUpdateAmount))
+                    itemToUpdateAmount.ItemAmount.Value = itemData.ItemAmount;
+            }
+            else
+            {
+                if (TryGetItemUIModel(itemID, out ItemUIModel itemToRemove))
+                    _containerUIModel.Items.Remove(itemToRemove);
             }
         }
 
-        private void TakeItemsFromTheContainer(string itemID, string itemConfigKey, int amount)
-        {
-            if (_containersModel.ItemDatabase.TryGetConfig(itemConfigKey, out ItemConfig itemConfig))
-            {
-                _containersModel.ContainersRepository.RemoveItem(_containerUIModel.ContainerID, itemID, amount);
-                AddItemToInventoryData addItemData = new(itemConfig.ItemConfigKey, amount);
-                _inventoryModel.AddItem.OnNext(addItemData);
-
-                OnItemRemoved(itemID);
-            }
-        }
-
-        private void OnItemRemoved(string itemID)
+        private void OnItemRemovedFromContainer(string itemID)
         {
             if (_containersModel.ContainersRepository.TryGetContainerByID(_containerUIModel.ContainerID, out ContainerData containerData))
             {

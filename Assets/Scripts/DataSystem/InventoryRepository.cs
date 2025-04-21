@@ -150,6 +150,42 @@ namespace DataSystem
             }
         }
 
+        internal void RemoveItem(string itemID, int amountToRemove)
+        {
+            if (!TryGetItemByID(itemID, out ItemData itemData))
+            {
+                Debug.LogWarning($"Item with ID '{itemID}' not found in inventory");
+                return;
+            }
+
+            if (itemData.ItemAmount < amountToRemove)
+            {
+                Debug.LogError($"Not enough items ({itemData.ItemAmount}) to remove {amountToRemove} of '{itemID}'");
+                return;
+            }
+
+            if (itemData.ItemAmount > amountToRemove)
+                itemData.ItemAmount -= amountToRemove;
+            else
+                Items.Remove(itemData);
+
+            _isDirty = true;
+        }
+
+        internal bool TryGetItemData(string itemID, out ItemData itemData)
+        {
+            foreach (var item in Items)
+            {
+                if (item.ItemID == itemID)
+                {
+                    itemData = item;
+                    return true;
+                }
+            }
+
+            itemData = null;
+            return false;
+        }
         #endregion
 
         [Serializable]
