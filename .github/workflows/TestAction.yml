@@ -1,0 +1,16 @@
+name: Test Workflow  # Название workflow (исправлено форматирование)
+
+on: 
+  workflow_dispatch:  # Запуск вручную через интерфейс GitHub
+
+jobs:
+  first_job:  # Название job (рекомендуется snake_case)
+    name: My First Job  # Человекочитаемое описание
+    runs-on: ubuntu-latest  # ОС для выполнения
+
+    steps:
+      - name: Checkout code  # Первый шаг - получение кода
+        uses: actions/checkout@v4  # Стандартное действие для checkout
+
+      - name: Print hello  # Второй шаг - пример команды
+        run: echo "Hello, GitHub Actions!"
